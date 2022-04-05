@@ -1,14 +1,8 @@
 body {
     margin: 0px;
     height: 100vh;
+    background-color: #E1F2FB;
  }
-.textcontainer {
-    width: 100%;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .container { 
     height: 100%;
     display: flex;
@@ -24,13 +18,4 @@ body {
     justify-content: center;
     align-items: center;
 }
-.Text {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 360;
-  font-size: 34px;
-  line-height: 44px;
-  color: #238AD4;
-  width: 920px;
-  height: 177px;
-}
+
