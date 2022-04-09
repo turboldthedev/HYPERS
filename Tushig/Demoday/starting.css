@@ -1,62 +1,101 @@
-* { 
-    margin: 0px;
+* {
+  margin: 0px;
 }
-body { 
-    background-color: #302F2E;
-    height: 100vh;
+body {
+  background-color: #302f2e;
+  height: 100vh;
+  overflow: hidden;
 }
-.c1 { 
-    position: fixed;
-    top: -48px;
-    left: -45px;
+.c1 {
+  height: 81%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.c2 { 
-     position: fixed;
-      bottom:201px;
-      left:-32px;
+.c2 {
+  height: 77%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.c3 { 
-    position: fixed;
-    bottom: 272px;
-    left: -136px;
+.c3 {
+  height: 72%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.c4 { 
-    position:  fixed;
-    left: -115px;
-    bottom: -286px;
+.c4 {
+  height: 39%;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
-.c5 { 
-    position:  fixed;
-    left : 135px;
-    bottom: 97px;
+.c5 {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
 }
-.c6 { 
-    position: fixed;
-    top: -56px;
-    left: -50px;
+.c6 {
+  height: 42%;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
-.c7 { 
-    position:  fixed;
-    right: -45px;
-    top: -54px;
+.c8 {
+  height: 78%;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
-.c8 { 
-    position:  fixed;
-    left: 481px;
-    bottom: -151px;
+.c7 {
+  height: 40%;
+  position: absolute;
+  bottom: 0;
+  right: 27%;
 }
-.c9 { 
-    position:  fixed;
-    left: 149px;
-    bottom: -292px;
+.c9 {
+  height: 32%;
+  position: absolute;
+  left: 500px;
+  bottom: 0;
 }
-.c10 { 
-    position:  fixed;
+.c10 {
+  height: 29%;
+  position: absolute;
+  bottom: 0px;
+  left: 160px;
+}
+.c11 {
+  animation-name: c11;
+  animation-duration: 5s;
+  height: 75%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.c12 {
+  animation-name: c12;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  height: 75%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes c12 {
+  0% {
     right: 0px;
-    top: 100px;
-}
-.c11 { 
-    position:  fixed;
-    left: 500px;
-    bottom: -433px;
+    bottom: 0px;
+  }
+  /*
+    25%  {right:-10px; bottom: -20px;}
+    50%  {right:-20px; bottom:-40px;}
+    75%  {right:-30px; bottom: -60px;}
+*/
+  100% {
+    right: -40px;
+    bottom: -80px;
+  }
 }
