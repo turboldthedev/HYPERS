@@ -1,0 +1,62 @@
+* { 
+    margin: 0px;
+}
+body { 
+    background-color: #302F2E;
+    height: 100vh;
+}
+.c1 { 
+    position: fixed;
+    top: -48px;
+    left: -45px;
+}
+.c2 { 
+     position: fixed;
+      bottom:201px;
+      left:-32px;
+}
+.c3 { 
+    position: fixed;
+    bottom: 272px;
+    left: -136px;
+}
+.c4 { 
+    position:  fixed;
+    left: -115px;
+    bottom: -286px;
+}
+.c5 { 
+    position:  fixed;
+    left : 135px;
+    bottom: 97px;
+}
+.c6 { 
+    position: fixed;
+    top: -56px;
+    left: -50px;
+}
+.c7 { 
+    position:  fixed;
+    right: -45px;
+    top: -54px;
+}
+.c8 { 
+    position:  fixed;
+    left: 481px;
+    bottom: -151px;
+}
+.c9 { 
+    position:  fixed;
+    left: 149px;
+    bottom: -292px;
+}
+.c10 { 
+    position:  fixed;
+    right: 0px;
+    top: 100px;
+}
+.c11 { 
+    position:  fixed;
+    left: 500px;
+    bottom: -433px;
+}
