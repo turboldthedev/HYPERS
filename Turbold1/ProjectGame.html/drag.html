@@ -1,55 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script src="https://unpkg.com/konva@8.3.5/konva.min.js"></script>
-    <meta charset="utf-8" />
-    <title>Konva Drag and Drop Demo</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #f0f0f0;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag step 1</title>
   </head>
-  <body>
-    <div id="container"></div>
+
+  <body style="margin: 0%">
+    <canvas></canvas>
     <script>
-      var width = window.innerWidth;
-      var height = window.innerHeight;
+      const canvas = document.getElementsByTagName("canvas")[0];
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+      canvas.style.backgroundColor = "green";
+      const c = canvas.getContext("2d");
+      class Player {
+        constructor() {
+          this.position = {
+            x: 100,
+            y: 100
+          };
+          this.width = 30;
+          this.height = 30;
+        }
+        draw() {
+          c.fillStyle = "red";
+          c.fillRect(this.position.x, this.position.y, this.width, this.height);
+        }
+        update() {
+          this.draw();
+          // this.position.y += this.velocity.y
+          // this.position.x += this.velocity.x
+          if (this.position.y + this.height >= canvas.height)
+            this.position.y = canvas.height - this.height;
+          if (this.position.x + this.width >= canvas.width)
+            this.position.x = canvas.width - this.width;
+        }
+      }
+      const player = new Player();
+      let drag;
+      // Drag Part:
 
-      var stage = new Konva.Stage({
-        container: 'container',
-        width: width,
-        height: height,
+      canvas.addEventListener("mousedown", function (event) {
+        if (
+          player.position.x <= event.clientX &&
+          player.position.x + player.width >= event.clientX &&
+          player.position.y <= event.clientY &&
+          player.position.y + player.height >= event.clientY
+        )
+          drag = true;
+      });
+      canvas.addEventListener("mouseup", function (event) {
+        // if (player.position.x <= event.clientX && player.position.x + player.width >= event.clientX && player.position.y <= event.clientY && player.position.y + player.height >= event.clientY)
+        drag = false;
+      });
+      canvas.addEventListener("mouseout", function (event) {
+        drag = false;
+      });
+      canvas.addEventListener("mousemove", function (event) {
+        // if (player.position.x <= event.clientX && player.position.x + player.width >= event.clientX && player.position.y <= event.clientY && player.position.y + player.height >= event.clientY) {
+        if (drag) {
+          player.position.x = event.clientX;
+          player.position.y = event.clientY;
+        }
       });
 
-      var layer = new Konva.Layer();
-      var rectX = stage.width() / 2 - 50;
-      var rectY = stage.height() / 2 - 25;
-
-      var box = new Konva.Rect({
-        x: rectX,
-        y: rectY,
-        width: 100,
-        height: 50,
-        fill: '#00D2FF',
-        stroke: 'black',
-        strokeWidth: 4,
-        draggable: true,
-      });
-
-      // add cursor styling
-      box.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      box.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-
-      layer.add(box);
-      stage.add(layer);
+      function animate() {
+        requestAnimationFrame(animate);
+        // c.clearRect(0, 0, canvas.width, canvas.height);
+        player.update();
+      }
+      animate();
     </script>
   </body>
 </html>
