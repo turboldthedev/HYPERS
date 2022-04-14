@@ -1,8 +1,8 @@
 const canvas = document.querySelector("canvas");
 
-let arrowR = document.getElementById('arrowR')
+let arrowR = document.getElementById("arrowR");
 
-let arrowL = document.getElementById('arrowL')
+let arrowL = document.getElementById("arrowL");
 
 const c = canvas.getContext("2d");
 
@@ -12,13 +12,22 @@ const currentHref = window.location.href;
 canvas.width = 420;
 canvas.height = 700;
 
+// canvas.width = 1000;
+// canvas.height = 700;
+// var tdown = null;
+// var tlmove = null;
+// var trmove = null;
 var pause = true;
 var mouseX, mouseY;
-let wiw = window.innerWidth, wih = window.innerHeight;
+let wiw = window.innerWidth,
+  wih = window.innerHeight;
 
-var colors = ['green', 'yellow', 'orange', 'red', 'blue', 'purple']
+var colors = ["green", "yellow", "orange", "brown", "blue", "grey", "black"];
 canvas.style.width = "420px";
 canvas.style.height = "700px";
+
+// canvas.style.width = "1000px";
+// canvas.style.height = "700px";
 
 let widthcent = (wiw - canvas.width) / 2;
 let heicent = (wih - canvas.height) / 2;
@@ -84,67 +93,118 @@ class Garbage {
     // }
   }
 }
-const mTrash = new Trash({
+var trashes = [];
+
+trashes[3] = new Trash({
   position: {
     x: hcan - 40,
-    y: 585,
-  },
-  color: "yellow",
-});
-
-const gTrash = new Trash({
-  position: {
-    x: mTrash.position.x - 120,
-    y: 585,
-  },
-  color: "green",
-});
-
-
-
-const pTrash = new Trash({
-  position: {
-    x: mTrash.position.x + 120,
     y: 585,
   },
   color: "orange",
 });
 
-// const eTrash = new Trash({
-//   position: {
-//     x: 220,
-//     y: 585,
-//   },
-//   color: "red",
-// });
+trashes[2] = new Trash({
+  position: {
+    x: trashes[3].position.x - 120,
+    y: 585,
+  },
+  color: "green",
+});
 
-// const paTrash = new Trash({x
-//   position: {
-//     x: 285,
-//     y: 585,
-//   },
-//   color: "blue",
-// });
+trashes[4] = new Trash({
+  position: {
+    x: trashes[3].position.x + 120,
+    y: 585,
+  },
+  color: "blue",
+});
 
-// const oTrash = new Trash({
-//   position: {
-//     x: 350,
-//     y: 585,
-//   },
-//   color: "purple",`
-// });
+trashes[1] = new Trash({
+  position: {
+    x: trashes[2].position.x - 120,
+    y: 585,
+  },
+  color: "brown",
+});
+
+trashes[0] = new Trash({
+  position: {
+    x: trashes[1].position.x - 120,
+    y: 585,
+  },
+  color: "yellow",
+});
+
+trashes[5] = new Trash({
+  position: {
+    x: trashes[4].position.x + 120,
+    y: 585,
+  },
+  color: "grey",
+});
+
+trashes[6] = new Trash({
+  position: {
+    x: trashes[5].position.x + 120,
+    y: 585,
+  },
+  color: "black",
+});
 
 var cal = canvas.width - 45;
 
 let garbages = [];
 let garbage;
 let idx;
+let trmove = 0;
+let tlmove = 0;
 
-arrowR.style.left = widthcent + canvas.width - 40 + 'px';
-arrowR.style.top = heicent + canvas.height - 80 + 'px'
+arrowR.style.left = widthcent + canvas.width - 40 + "px";
+arrowR.style.top = heicent + canvas.height - 80 + "px";
 
-arrowL.style.left = widthcent + 2 + 'px'
-arrowL.style.top = heicent + canvas.height - 82 + 'px'
+arrowL.style.left = widthcent + 2 + "px";
+arrowL.style.top = heicent + canvas.height - 82 + "px";
+
+function transition() {}
+arrowL.addEventListener("click", function () {
+  if (trashes[0].position.x == -70) {
+    trashes.splice(0, 0, trashes[6]);
+    trashes.splice(7, 1);
+    trashes[0].position.x -= 840
+    console.log(trashes);
+  }
+  setInterval(() => {
+    if (tlmove < 12) {
+      trashes.forEach((trash) => {
+        trash.position.x += 10;
+      });
+      tlmove++;
+    }
+  }, 30);
+  if (tlmove >= 12) {
+    tlmove = 0;
+  }
+});
+
+arrowR.addEventListener("click", function () {
+  if (trashes[6].position.x == 410) {
+    trashes.splice(7, 0, trashes[0]);
+    trashes.splice(0, 1);
+    trashes[6].position.x += 840
+    console.log(trashes, 'ifgdiush');
+  }
+  setInterval(() => {
+    if (trmove < 12) {
+      trashes.forEach((trash) => {
+        trash.position.x -= 10;
+      });
+      trmove++;
+    }
+  }, 30);
+  if (trmove >= 12) {
+    trmove = 0;
+  }
+});
 
 const interval = setInterval(function () {
   if (pause) {
@@ -176,8 +236,8 @@ canvas.addEventListener("mousedown", function (event) {
       mbx = event.clientX - garbage.x;
       mby = event.clientY - garbage.y;
       idx = garbages.indexOf(garbage);
-      mouseX = event.clientX - mbx
-      mouseY = event.clientY - mby
+      mouseX = event.clientX - mbx;
+      mouseY = event.clientY - mby;
       // garbages.slice(idx, 1);
       console.log("ajilji");
     }
@@ -193,8 +253,8 @@ canvas.addEventListener("mouseout", function (event) {
 });
 canvas.addEventListener("mousemove", function (event) {
   if (drag) {
-    mouseX = event.clientX - mbx
-    mouseY = event.clientY - mby
+    mouseX = event.clientX - mbx;
+    mouseY = event.clientY - mby;
     // garbages[idx].x = event.clientX - mbx;
     // garbages[idx].y = event.clientY - mby;
   }
@@ -212,8 +272,8 @@ canvas.addEventListener("touchstart", (e) => {
         mpx = `${touch.pageX}` - garbage.x;
         mpy = `${touch.pageY}` - garbage.y;
         idx = garbages.indexOf(garbage);
-        mouseX = `${touch.pageX}` - mpx
-        mouseY = `${touch.pageY}` - mpy
+        mouseX = `${touch.pageX}` - mpx;
+        mouseY = `${touch.pageY}` - mpy;
       }
     });
   });
@@ -224,8 +284,8 @@ canvas.addEventListener("touchend", (e) => {
 canvas.addEventListener("touchmove", (e) => {
   if (drag) {
     [...e.changedTouches].forEach((touch) => {
-      mouseX = `${touch.pageX}` - mpx
-      mouseY = `${touch.pageY}` - mpy
+      mouseX = `${touch.pageX}` - mpx;
+      mouseY = `${touch.pageY}` - mpy;
     });
   }
 });
@@ -236,27 +296,24 @@ function dreg() {
   }
 }
 function drawer() {
-  gTrash.draw();
-  //   oTrash.draw();
-  //   eTrash.draw();
-  mTrash.draw();
-  pTrash.draw();
-  //   paTrash.draw();
+  trashes.forEach((trash) => {
+    trash.draw();
+  });
+
   canvas.style.backgroundColor = "white";
 }
 
 function animate() {
   window.requestAnimationFrame(animate);
-  wiw = innerWidth
-  wih = innerHeight
-  let widthcent = (wiw - canvas.width) / 2;
-  let heicent = (wih - canvas.height) / 2;
-  arrowR.style.left = widthcent + canvas.width - 40 + 'px';
-  arrowR.style.top = heicent + canvas.height - 80 + 'px'
-  arrowL.style.left = widthcent + 2 + 'px'
-  arrowL.style.top = heicent + canvas.height - 82 + 'px'
+  wiw = innerWidth;
+  // wih = innerHeight
+  widthcent = (wiw - canvas.width) / 2;
+  heicent = (wih - canvas.height) / 2;
+  arrowR.style.left = widthcent + canvas.width - 40 + "px";
+  arrowR.style.top = heicent + canvas.height - 80 + "px";
+  arrowL.style.left = widthcent + 2 + "px";
+  arrowL.style.top = heicent + canvas.height - 82 + "px";
   if (pause) {
-
     c.clearRect(0, 0, canvas.width, canvas.height);
 
     dreg();
@@ -265,18 +322,16 @@ function animate() {
     });
   }
 
-
   drawer();
 }
 animate();
 
 window.addEventListener("focus", () => {
   pause = true;
-  console.log('orson')
+  // console.log("orson");
 });
 
 window.addEventListener("blur", () => {
   pause = false;
-  console.log("garsan");
-  //   clearTimeout(interval);
+  // console.log("garsan");
 });

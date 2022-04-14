@@ -1,8 +1,8 @@
-
 const canvas = document.querySelector("canvas");
 
 const c = canvas.getContext("2d");
 
+let button = document.querySelector('button')
 var stop = false;
 
 canvas.width = 420;
@@ -11,13 +11,9 @@ canvas.height = 670;
 canvas.style.width = "420px";
 canvas.style.height = "670px";
 
-let widthcent = (window.innerWidth - canvas.width) / 2
-let heicent = (window.innerHeight - canvas.height) / 2
+let windows = (window.innerWidth - canvas.width ) / 2
 
-canvas.style.marginTop = heicent + 'px'
-let drag;
-let trag;
-const gravity = 1;
+const gravity = 3;
 var grd = c.createLinearGradient(0, 0, canvas.width, canvas.height);
 
 // grd.addColorStop(0,"rgb(47, 108, 165)");
@@ -27,7 +23,7 @@ c.fillStyle = "white";
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
-//TrashCan classes
+//TrashCans classes
 class Trash {
   constructor({ position, color = "green" }) {
     this.position = position;
@@ -43,22 +39,25 @@ class Trash {
 
 //Garbage classes
 class Garbage {
-  constructor({ x, y, color}) {
+  constructor({ x, y, velocity, color = "green" }) {
     this.x = x;
     this.y = y;
-    // this.velocity = velocity;
+    this.velocity = velocity;
     this.width = 40;
     this.height = 40;
-    this.color = color ;
+    this.color = color;
   }
   draw() {
     c.fillRect(this.x, this.y, this.width, this.height);
     c.fillStyle = this.color;
   }
   update() {
-    this.draw();
-    this.y += gravity;
-    
+    if (!stop) {
+      this.velocity.y = gravity;
+      this.y += this.velocity.y;
+      console.log(this.x, this.y);
+      this.draw();
+    }
 
     // Stop getting fall if
     // if (this.y + this.height + this.velocity.y >= canvas.height) {
@@ -123,75 +122,71 @@ var cal = canvas.width - 45;
 
 let garbages = [];
 
-let garbage;
+let garbage = new Garbage({
+  x: 100,
+  y: -80,
+  velocity: {
+    x: 0,
+    y: 1,
+  },
+  color: "blue",
+});
+// function movingGarbage(garbage) {
+//     setInterval(function () {
 
-function movingGarbage(garbage) {
-    setInterval(function () {
+//         const x = Math.floor(Math.random() * cal)
+//         const y = -80
+//         const color = 'blue';
+//         const velocity = {
+//             x: 0,
+//             y: 1
+//         }
+//         const garbage = new Garbage(x, y, velocity, color)
+//         garbages.push(garbage)
+//         // console.log(garbages)
 
-        const x = Math.floor(Math.random() * cal)
-        const y = -80
-        const color = 'blue';
-        const velocity = {
-            x: 0,
-            y: 1
-        }
-        garbage = new Garbage({x, y, color})
-        garbages.push(garbage)
-        // console.log(garbages)
+//     }, 1000)
+// }
 
-    }, 2000)
-}
+let drag;
+let eventLeft = parseInt(
+  window.getComputedStyle(canvas).getPropertyValue("left")
+);
 canvas.addEventListener("mousedown", function (event) {
-  l
+//   stop = true;
+  console.log("x", event.clientX - windows);
+  console.log("y", event.clientY);
+  console.log("e", eventLeft);
+
   if (
-    garbage.x <= event.clientX - widthcent &&
-    garbage.x + garbage.width >= event.clientX - widthcent &&
-    garbage.y <= event.clientY - heicent &&
-    garbage.y + garbage.height >= event.clientY - heicent
+    garbage.x <= event.clientX - windows &&
+    garbage.x + garbage.width >= event.clientX - windows &&
+    garbage.y <= event.clientY &&
+    garbage.y + garbage.height >= event.clientY
   ) {
-    garbages.forEach(drag => {
-      drag = true;
-      console.log(drag)
-    })
-    
+    drag = true;
+    console.log("ajilj bn");
   }
 });
 canvas.addEventListener("mouseup", function (event) {
+  // if (player.position.x <= event.clientX && player.position.x + player.width >= event.clientX && player.position.y <= event.clientY && player.position.y + player.height >= event.clientY)
   drag = false;
 });
 canvas.addEventListener("mouseout", function (event) {
   drag = false;
 });
 canvas.addEventListener("mousemove", function (event) {
+  // if (player.position.x <= event.clientX && player.position.x + player.width >= event.clientX && player.position.y <= event.clientY && player.position.y + player.height >= event.clientY) {
   if (drag) {
-    garbage.x = event.clientX - widthcent - garbage.width / 2;
-    garbage.y = event.clientY - heicent - garbage.height / 2;
+    garbage.x = event.clientX - windows - garbage.width / 2;
+    garbage.y = event.clientY - garbage.height / 2;
   }
 });
-canvas.addEventListener('touchstart', e => {
-  ;[...e.changedTouches].forEach(touch => {
-    if (garbage.x <= `${touch.pageX}` - widthcent &&
-      garbage.x + garbage.width >= `${touch.pageX}` - widthcent &&
-      garbage.y <= `${touch.pageY}` - heicent &&
-      garbage.y + garbage.height >= `${touch.pageY}` - heicent) {
-        trag = true
-    }
-  })
-})
-canvas.addEventListener('touchend', e => {
-  trag = false
-})
-canvas.addEventListener('touchmove', e => {
-  if (trag) {
-    ;[...e.changedTouches].forEach(touch => {
-      garbage.x = `${touch.pageX}` - widthcent - garbage.width / 2
-      garbage.y = `${touch.pageY}` - heicent - garbage.height / 2
-    })
-  }
 
+button.addEventListener('click', function() {
+  console.log('lll')
+  window.location = 'https://github.com/Geto1-creator/HYPERS/blob/main/Turbold1/ProjectGame.html/projectGame.js'
 })
-
-
 function drawer() {
   gTrash.draw();
   oTrash.draw();
@@ -206,17 +201,14 @@ function animate() {
   window.requestAnimationFrame(animate);
   c.clearRect(0, 0, canvas.width, canvas.height);
 
- 
-  
-  garbages.forEach(garbage => {
-    garbage.update()
-
-  })
+  garbage.update();
   drawer();
-  
+  // garbages.forEach(garbage => {
+  //     garbage.update()
+
+  // })
+  // drawer()
 }
 animate();
 
-movingGarbage()
-
-
+// movingGarbage()

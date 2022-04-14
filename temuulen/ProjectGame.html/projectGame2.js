@@ -177,7 +177,7 @@ canvas.addEventListener("mousedown", function (event) {
       mby = event.clientY - garbage.y;
       idx = garbages.indexOf(garbage);
       mouseX = event.clientX - mbx
-      mouseY = event.clientY - mby
+      mouseY = event.clientY - mbyloo
       // garbages.slice(idx, 1);
       console.log("ajilji");
     }
