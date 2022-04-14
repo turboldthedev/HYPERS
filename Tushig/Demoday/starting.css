@@ -45,6 +45,7 @@ body {
   animation-duration: 3s;
   animation-timing-function: ease-in;
   background-color: transparent;
+  z-index: 1;
 }
 .c1 {
   animation-name: c1;
