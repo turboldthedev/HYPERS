@@ -1,1 +1,0 @@
-//WATASHIWA Altan-Od
