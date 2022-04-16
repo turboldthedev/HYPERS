@@ -73,49 +73,50 @@ class Garbage {
 }
 var trashes = [];
 
-trashes[3] = new Trash({
-  position: {
-    x: hcan - 40,
-    y: 585,
-  },
-  color: "orange",
-});
-
-trashes[2] = new Trash({
-  position: {
-    x: trashes[3].position.x - 120,
-    y: 585,
-  },
-  color: "green",
-});
-
-trashes[4] = new Trash({
-  position: {
-    x: trashes[3].position.x + 120,
-    y: 585,
-  },
-  color: "blue",
-});
-
-trashes[1] = new Trash({
-  position: {
-    x: trashes[2].position.x - 120,
-    y: 585,
-  },
-  color: "brown",
-});
-
 trashes[0] = new Trash({
   position: {
-    x: trashes[1].position.x - 120,
+    x: -190,
     y: 585,
   },
   color: "yellow",
 });
 
+trashes[1] = new Trash({
+  position: {
+    x: -70,
+    y: 585,
+  },
+  color: "brown",
+});
+
+trashes[2] = new Trash({
+  position: {
+    x: 50,
+    y: 585,
+  },
+  color: "green",
+});
+
+trashes[3] = new Trash({
+  position: {
+    x: 170,
+    y: 585,
+  },
+  color: "orange",
+});
+
+
+trashes[4] = new Trash({
+  position: {
+    x: 290,
+    y: 585,
+  },
+  color: "blue",
+});
+
 trashes[5] = new Trash({
   position: {
-    x: trashes[4].position.x + 120,
+    x: 410,
     y: 585,
   },
   color: "grey",
@@ -123,7 +124,7 @@ trashes[5] = new Trash({
 
 trashes[6] = new Trash({
   position: {
-    x: trashes[5].position.x + 120,
+    x: 530,
     y: 585,
   },
   color: "black",
@@ -263,7 +264,7 @@ function animate() {
   arrowL.style.left = widthcent + 2 + "px";
   arrowL.style.top = heicent + canvas.height - 82 + "px";
   if (pause) {
-    dreg();
+    dreg();pop();
     c.clearRect(0, 0, canvas.width, canvas.height);
     garbages.forEach((garbage) => {
       garbage.update();
@@ -345,3 +346,14 @@ function keyMoveR() {
     clearInterval(interval)
   }
 }
+let yi;
+function pop() {
+  garbages.forEach((garbage) => {
+    if (garbage.y > 585 && garbage.y < 685 && garbage.x > 50 && garbage.x < 180) {
+      yi = garbages.indexOf(garbage);
+      console.log(garbage);
+      garbages.splice(yi, 1);
+    }
+  })
+}
+console.log(trashes);
