@@ -80,7 +80,7 @@ class Garbage {
     // if (!garbages[idx]) {
     this.velocity.y = gravity;
     this.y += this.velocity.y;
-
+    // console.log(this.y);
     // }
 
     // Stop getting fall if
@@ -165,51 +165,29 @@ arrowR.style.top = heicent + canvas.height - 80 + "px";
 arrowL.style.left = widthcent + 2 + "px";
 arrowL.style.top = heicent + canvas.height - 82 + "px";
 
-function transition() {}
-arrowL.addEventListener("click", function () {
-  if (trashes[0].position.x == -70) {
-    trashes.splice(0, 0, trashes[6]);
-    trashes.splice(7, 1);
-    trashes[0].position.x -= 840
-    console.log(trashes);
-  }
-  setInterval(() => {
-    if (tlmove < 12) {
-      trashes.forEach((trash) => {
-        trash.position.x += 10;
-      });
-      tlmove++;
-    }
-  }, 30);
-  if (tlmove >= 12) {
-    tlmove = 0;
-  }
-});
 
-arrowR.addEventListener("click", function () {
-  if (trashes[6].position.x == 410) {
-    trashes.splice(7, 0, trashes[0]);
-    trashes.splice(0, 1);
-    trashes[6].position.x += 840
-    console.log(trashes, 'ifgdiush');
+arrowL.addEventListener("click", keyMoveL);
+
+arrowR.addEventListener("click", keyMoveR);
+
+document.addEventListener('keydown', function(e) {
+  if(e.key == 'A' || e.key == 'a' || e.key == 'ArrowLeft') {
+    keyMoveL()
   }
-  setInterval(() => {
-    if (trmove < 12) {
-      trashes.forEach((trash) => {
-        trash.position.x -= 10;
-      });
-      trmove++;
-    }
-  }, 30);
-  if (trmove >= 12) {
-    trmove = 0;
+  
+})
+
+
+document.addEventListener('keydown', function(e) {
+  if(e.key == 'D' || e.key == 'd' || e.key == 'ArrowRight') {
+    keyMoveR()
   }
-});
+  
+})
 
 const interval = setInterval(function () {
   if (pause) {
     const x = Math.floor(Math.random() * cal);
-
     const y = -80;
     const color = colors[Math.floor(Math.random() * colors.length)];
     const velocity = {
@@ -222,7 +200,7 @@ const interval = setInterval(function () {
   }
 
   // console.log(garbages)
-}, 1500);
+}, 2000);
 
 canvas.addEventListener("mousedown", function (event) {
   garbages.forEach((garbage) => {
@@ -303,6 +281,11 @@ function drawer() {
   canvas.style.backgroundColor = "white";
 }
 
+function detectCollission() {
+  garbages.forEach((garbage) => {
+    // if(garbage.y, trashes.y  > d)
+  });
+}
 function animate() {
   window.requestAnimationFrame(animate);
   wiw = innerWidth;
@@ -319,6 +302,9 @@ function animate() {
     dreg();
     garbages.forEach((garbage) => {
       garbage.update();
+      if (garbage.y == 574) {
+        console.log("orson");
+      }
     });
   }
 
@@ -335,3 +321,53 @@ window.addEventListener("blur", () => {
   pause = false;
   // console.log("garsan");
 });
+
+let timer = null;
+let timerId;
+function decreaseTimer() {
+  if (timer < 10000) {
+    timerId = setTimeout(decreaseTimer, 100);
+    timer++;
+    document.getElementById("timer").innerHTML = timer;
+  }
+}
+
+decreaseTimer();
+
+function keyMoveL() {
+  if (trashes[0].position.x == -70) {
+    trashes.splice(0, 0, trashes[6]);
+    trashes.splice(7, 1);
+    trashes[0].position.x -= 840;
+    console.log(trashes);
+  }
+  setInterval(() => {
+    if (tlmove < 12) {
+      trashes.forEach((trash) => {
+        trash.position.x += 10;
+      });
+      tlmove++;
+    }
+  }, 30);
+  if (tlmove >= 12) {
+    tlmove = 0;
+  }
+}
+function keyMoveR() {
+  if (trashes[6].position.x == 410) {
+    trashes.splice(7, 0, trashes[0]);
+    trashes.splice(0, 1);
+    trashes[6].position.x += 840;
+  }
+  setInterval(() => {
+    if (trmove < 12) {
+      trashes.forEach((trash) => {
+        trash.position.x -= 10;
+      });
+      trmove++;
+    }
+  }, 30);
+  if (trmove >= 12) {
+    trmove = 0;
+  }
+}
