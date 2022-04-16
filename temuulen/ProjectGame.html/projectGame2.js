@@ -110,29 +110,29 @@ const pTrash = new Trash({
   color: "orange",
 });
 
-// const eTrash = new Trash({
-//   position: {
-//     x: 220,
-//     y: 585,
-//   },
-//   color: "red",
-// });
+const eTrash = new Trash({
+  position: {
+    x: 220,
+    y: 585,
+  },
+  color: "red",
+});
 
-// const paTrash = new Trash({x
-//   position: {
-//     x: 285,
-//     y: 585,
-//   },
-//   color: "blue",
-// });
+const paTrash = new Trash({
+  position: {
+    x: 285,
+    y: 585,
+  },
+  color: "blue",
+});
 
-// const oTrash = new Trash({
-//   position: {
-//     x: 350,
-//     y: 585,
-//   },
-//   color: "purple",`
-// });
+const oTrash = new Trash({
+  position: {
+    x: 350,
+    y: 585,
+  },
+  color: "purple",
+});
 
 var cal = canvas.width - 45;
 
@@ -248,9 +248,9 @@ function drawer() {
 function animate() {
   window.requestAnimationFrame(animate);
   wiw = innerWidth
-  wih = innerHeight
-  let widthcent = (wiw - canvas.width) / 2;
-  let heicent = (wih - canvas.height) / 2;
+  // wih = innerHeight
+  widthcent = (wiw - canvas.width) / 2;
+  heicent = (wih - canvas.height) / 2;
   arrowR.style.left = widthcent + canvas.width - 40 + 'px';
   arrowR.style.top = heicent + canvas.height - 80 + 'px'
   arrowL.style.left = widthcent + 2 + 'px'
