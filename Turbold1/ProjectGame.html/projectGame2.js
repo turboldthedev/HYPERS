@@ -165,8 +165,19 @@ arrowR.style.top = heicent + canvas.height - 80 + "px";
 arrowL.style.left = widthcent + 2 + "px";
 arrowL.style.top = heicent + canvas.height - 82 + "px";
 
-function transition() {}
-arrowL.addEventListener("click", function () {
+arrowL.addEventListener("click", trashLmove);
+arrowR.addEventListener("click", trashRmove);
+document.addEventListener('keydown', function(e){
+  console.log(e);
+  if (e.key == 'ArrowRight' || e.key == 'd') {
+    trashRmove()
+  }
+  if (e.key == 'ArrowLeft' || e.key == 'a') {
+    trashLmove()
+  }
+})
+
+function trashLmove() {
   if (trashes[0].position.x == -70) {
     trashes.splice(0, 0, trashes[6]);
     trashes.splice(7, 1);
@@ -184,9 +195,9 @@ arrowL.addEventListener("click", function () {
   if (tlmove >= 12) {
     tlmove = 0;
   }
-});
+}
 
-arrowR.addEventListener("click", function () {
+function trashRmove() {
   if (trashes[6].position.x == 410) {
     trashes.splice(7, 0, trashes[0]);
     trashes.splice(0, 1);
@@ -204,7 +215,7 @@ arrowR.addEventListener("click", function () {
   if (trmove >= 12) {
     trmove = 0;
   }
-});
+}
 
 const interval = setInterval(function () {
   if (pause) {
