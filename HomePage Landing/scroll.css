@@ -1,0 +1,44 @@
+.ground-text p {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+.first-group-text {
+  margin: 48px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  font-size: 25px;
+}
+.under-img {
+  width: 35px;
+}
+.first-text-container {
+}
+.first-text-container p {
+  font-size: 40px;
+  height: 100px;
+  margin-top: 40px;
+  width: 81%;
+}
+.green-earth-big {
+  height: 500px;
+}
+.first-text-container :nth-child(3) {
+  font-size: 16px;
+  height: 80px;
+  font-weight: 400;
+  width: 73%;
+  display: flex;
+  align-items: flex-end;
+}
+.first-text-container :nth-child(4) {
+  font-size: 14px;
+  height: 10px;
+  opacity: 0.6;
+  display: flex;
+  margin: 0;
+  align-items: flex-start;
+}
