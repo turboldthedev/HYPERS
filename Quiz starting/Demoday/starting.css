@@ -1,36 +1,260 @@
 * {
+  box-sizing: border-box;
   margin: 0px;
-}
-.pst {
-  position: absolute;
-}
-.DisFlx {
-  display: flex;
-}
-.fntFam {
-  font-family: "Montserrat";
-  font-size: 34px;
-}
-.anm {
-  animation-duration: 1.5s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
 }
 body {
   background-color: #302f2e;
   height: 100vh;
   overflow: hidden;
 }
-.txt {
+/* Main */
+.container {
+  position: relative;
+  display: flex;
   height: 100vh;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
 }
+.text {
+  font-family: "Montserrat";
+  text-align: center;
+  width: 25%;
+  position: absolute;
+  color: #fff;
+  font-size: 34px;
+  animation-name: text;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  z-index: 1;
+}
+.animation {
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+/* Images */
+.image {
+  position: absolute;
+}
+img {
+  height: 100%;
+  width: 100%;
+}
+.phone {
+  display: none;
+}
+/* Phone */
+.pos1 {
+  animation-name: p1;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.pos2 {
+  animation-name: p2;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.pos3 {
+  animation-name: p3;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.pos4 {
+  animation-name: p4;
+  top: 0px;
+  left: 0px;
+}
+.pos5 {
+  animation-name: p5;
+  top: 0px;
+  right: -5px;
+}
+.pos6 {
+  animation-name: p6;
+  bottom: -5px;
+  right: 25%;
+}
+.pos7 {
+  animation-name: p7;
+  bottom: 0px;
+  right: 0px;
+}
+.pos8 {
+  animation-name: p8;
+  bottom: -5px;
+  right: 0px;
+}
+/* PHONE ANIMATION */
+@keyframes p8 { 
+  0% {
+    right: 0px;
+    bottom: -5px;
+  }
+  100% {
+    right: -50px;
+    bottom: -50px;
+  }
+}
+@keyframes p7 { 
+  0% {
+    right: 0px;
+    bottom: 0px;
+  }
+  100% {
+    right: -50px;
+    bottom: 0px;
+  }
+}
+@keyframes p6 { 
+  0% {
+    right: 25%;
+    bottom: -5px;
+  }
+  100% {
+    right: 22%;
+    bottom: -50px;
+  }
+}
+@keyframes p5 { 
+  0% {
+    right: -5px;
+    top: 0px;
+  }
+  100% {
+    right: -50px;
+    top: -50px;
+  }
+}
+@keyframes p4 { 
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    left: -50px;
+    top: -25px;
+  }
+}
+@keyframes p3 { 
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    left: -50px;
+    top: 0px;
+  }
+}
+@keyframes p2 { 
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    left: -100px;
+    top: -50px;
+  }
+}
+@keyframes p1 { 
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    left: -100px;
+    top: -50px;
+  }
+}
+/* DESKTOP */
+.computer {
+  display: block;
+}
+.c1 {
+  animation-name: c1;
+  top: 0px;
+  left: 0px;
+}
+.c2 {
+  animation-name: c2;
+  top: 0px;
+  left: 0px;
+}
+.c3 {
+  animation-name: c3;
+  top: 0px;
+  left: 0px;
+}
+.c4 {
+  animation-name: c4;
+  top: 0px;
+  left: 0px;
+}
+.c5 {
+  animation-name: c5;
+  top: 0px;
+  left: 0px;
+}
+.c6 {
+  animation-name: c6;
+  bottom: 2%;
+  right: 14%;
+}
+.c7 {
+  animation-name: c7;
+  width: 10%;
+  bottom: -5px;
+  left: 33%;
+}
+.c8 {
+  animation-name: c8;
+  bottom: -5px;
+  left: 10%;
+}
+.c9 {
+  animation-name: c9;
+  top: 0px;
+  right: 0px;
+}
+.c10 {
+  animation-name: c10;
+  top: 0px;
+  right: -5px;
+}
+.c11 {
+  animation-name: c11;
+  bottom: -5px;
+  right: 0px;
+  height: 75%;
+  width: 85%;
+}
+.c12 {
+  animation-name: c12;
+  bottom: 0px;
+  left: 0px;
+}
+.c13 {
+  animation-name: c13;
+  width: 75%;
+  bottom: -5px;
+  left: 10%;
+}
+
 .btn {
+  position: absolute;
+  left: 46%;
+  top: 50%;
+  font-size: 34px;
+  font-family: "Montserrat";
   margin-top: 250px;
   z-index: 1;
+  color: black;
   animation-name: btn;
   animation-duration: 4s;
   animation-timing-function: ease-in;
@@ -43,221 +267,138 @@ body {
   padding-bottom: 5px;
   font-weight: 350;
 }
-.txt1 {
-  margin-top: 300px;
-  color: #ffffff;
-  width: 500px;
-  text-align: center;
-  animation-name: gg;
-  animation-duration: 3s;
-  animation-timing-function: ease-in;
-  background-color: transparent;
-  z-index: 1;
-}
-.c1 {
-  animation-name: c1;
-  height: 76%;
-  top: 0;
-  left: 0;
-}
-.c2 {
-  animation-name: c2;
-  height: 82%;
-  top: 0;
-  left: 0;
-}
-.c3 {
-  animation-name: c3;
-  height: 76%;
-  top: 0;
-  left: 0;
-}
-.c4 {
-  animation-name: c4;
-  height: 35%;
-  left: 0;
-  top: 0;
-}
-.c5 {
-  animation-name: c5;
-  height: 100%;
-  left: 0;
-  bottom: 0px;
-}
-.c6 {
-  animation-name: c6;
-  height: 41%;
-  right: 0;
-  top: 0;
-}
-.c8 {
-  animation-name: c8;
-  height: 77%;
-  right: -200px;
-  top: 0;
-}
-.c7 {
-  animation-name: c7;
-  height: 59%;
-  width: 70%;
-  bottom: 0;
-  left: 5cm;
-}
-.c9 {
-  animation-name: c9;
-  height: 38%;
-  width: 48%;
-  left: 700px;
-  bottom: 0;
-}
-.c10 {
-  animation-name: c10;
-  height: 27%;
-  width: 54%;
-  bottom: 0px;
-  left: 8%;
-}
-.c11 {
-  animation-name: c11;
-  height: 60%;
-  width: 70%;
-  right: 0;
-  bottom: 0;
-}
-.c12 {
-  animation-name: c12;
-  height: 60%;
-  width: 70%;
-  right: 0;
-  bottom: 0;
-}
-.pc1, .pc2, .pc3, .pc4, .pc5, .pc6, .pc7, .pc8 {
-  display: none;
-}
-@keyframes c12 {
-  0% {
-    right: 0px;
-    bottom: 0px;
-  }
-  100% {
-    right: -250px;
-    bottom: -200px;
-  }
-}
-
+/* DESKTOP ANIMATION */
 @keyframes c11 {
   0% {
     right: 0px;
     bottom: 0px;
   }
   100% {
-    right: -10px;
+    right: -300px;
     bottom: -100px;
   }
 }
-
-@keyframes c9 {
+@keyframes c12 {
   0% {
-    right: 0px;
+    left: 0px;
     bottom: 0px;
   }
   100% {
-    right: 400px;
+    left: -100px;
     bottom: -100px;
   }
 }
-
 @keyframes c10 {
   0% {
     right: 0px;
+    top: 0px;
+  }
+  100% {
+    right: -300px;
+    top: -100px;
+  }
+}
+@keyframes c9 {
+  0% {
+    right: 0px;
+    top: 0px;
+  }
+  100% {
+    right: 0px;
+    top: -100px;
+  }
+}
+@keyframes c8 {
+  0% {
+    left: 10%;
     bottom: 0px;
   }
   100% {
-    left: 500px;
+    left: 10%;
     bottom: -100px;
   }
 }
 @keyframes c7 {
   0% {
-    right: 0px;
+    left: 33%;
     bottom: 0px;
   }
   100% {
-    left: 400px;
-    bottom: -250px;
+    left: 35%;
+    bottom: -100px;
   }
 }
-@keyframes c8 {
+@keyframes c13 {
   0% {
-    right: -100px;
+    left: 10%;
     bottom: 0px;
   }
   100% {
-    right: -250px;
-    bottom: -190px;
+    left: 15%;
+    bottom: -200px;
   }
 }
 @keyframes c6 {
   0% {
-    right: 0px;
+    right: 14%;
     bottom: 0px;
   }
   100% {
-    right: -100px;
-    bottom: -190px;
-  }
-}
-@keyframes c4 {
-  0% {
-    left: 0px;
-    bottom: 0px;
-  }
-  100% {
-    top: 0px;
-    left: -200px;
+    right: 14%;
+    bottom: -75px;
   }
 }
 @keyframes c5 {
   0% {
-    left: 0px;
-    bottom: 0px;
+    left: 0%;
+    top: 0px;
   }
   100% {
-    top: 0px;
     left: -100px;
+    top: -75px;
+  }
+}
+@keyframes c4 {
+  0% {
+    left: 0%;
+    top: 0px;
+  }
+  100% {
+    left: -150px;
+    top: -30px;
   }
 }
 @keyframes c3 {
   0% {
-    left: 0px;
+    left: 0%;
     top: 0px;
   }
   100% {
-    top: -10px;
-    left: -50px;
-  }
-}
-@keyframes c1 {
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-  100% {
-    top: 0px;
-    left: -100px;
+    left: -150px;
+    top: -30px;
   }
 }
 @keyframes c2 {
   0% {
-    left: 0px;
+    left: 0%;
     top: 0px;
   }
   100% {
-    top: -70px;
     left: -150px;
+    top: -30px;
   }
 }
-@keyframes gg {
+@keyframes c1 {
+  0% {
+    left: 0%;
+    top: 0px;
+  }
+  100% {
+    left: -150px;
+    top: -30px;
+  }
+}
+@keyframes text {
   0% {
     opacity: 0;
   }
@@ -303,54 +444,20 @@ body {
     opacity: 1;
   }
 }
+/* IP13 PRO */
 @media (max-width: 926px) {
-  body {
-    height: 100vh;
-    overflow: hidden;
-  }
-  .dn {
-    display: none;
-  }
-  .db-pos{ 
+  .phone {
     display: block;
-    position: fixed;
   }
-  .txt1 { 
+  .computer {
     display: none;
   }
-  .pc1 {
-    animation-name: pc1;
-    width: 71%;
-    height: 94%;
-    top: 0px;
-    left: 0px;
+  .text {
+    width: 231px;
+    font-size: 18px;
+    z-index: 1;
   }
-  .pc2 {
-    animation-name: pc2;
-    width: 100%;
-    height: 100%;
-    bottom: 0px;
-    left: 0px;
-  }
-  .pc3 {
-    animation-name: pc3;
-    width: 72%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-  }
-  .pc4 {
-    animation-name: pc4;
-    width: 60%;
-    height: 35%;
-    top: 0px;
-    left: 0px;
-  }
-  .pc5 {
-    animation-name: pc5;
-    width: 71%;
-    height: 38%;
-    top: 0px;
-    right: 0px;
+  .btn {
+    font-size: 18px;
   }
 }
