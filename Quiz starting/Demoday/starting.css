@@ -1,0 +1,356 @@
+* {
+  margin: 0px;
+}
+.pst {
+  position: absolute;
+}
+.DisFlx {
+  display: flex;
+}
+.fntFam {
+  font-family: "Montserrat";
+  font-size: 34px;
+}
+.anm {
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+body {
+  background-color: #302f2e;
+  height: 100vh;
+  overflow: hidden;
+}
+.txt {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.btn {
+  margin-top: 250px;
+  z-index: 1;
+  animation-name: btn;
+  animation-duration: 4s;
+  animation-timing-function: ease-in;
+  background-color: #fff2c2;
+  border: none;
+  border-radius: 5px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 350;
+}
+.txt1 {
+  margin-top: 300px;
+  color: #ffffff;
+  width: 500px;
+  text-align: center;
+  animation-name: gg;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  background-color: transparent;
+  z-index: 1;
+}
+.c1 {
+  animation-name: c1;
+  height: 76%;
+  top: 0;
+  left: 0;
+}
+.c2 {
+  animation-name: c2;
+  height: 82%;
+  top: 0;
+  left: 0;
+}
+.c3 {
+  animation-name: c3;
+  height: 76%;
+  top: 0;
+  left: 0;
+}
+.c4 {
+  animation-name: c4;
+  height: 35%;
+  left: 0;
+  top: 0;
+}
+.c5 {
+  animation-name: c5;
+  height: 100%;
+  left: 0;
+  bottom: 0px;
+}
+.c6 {
+  animation-name: c6;
+  height: 41%;
+  right: 0;
+  top: 0;
+}
+.c8 {
+  animation-name: c8;
+  height: 77%;
+  right: -200px;
+  top: 0;
+}
+.c7 {
+  animation-name: c7;
+  height: 59%;
+  width: 70%;
+  bottom: 0;
+  left: 5cm;
+}
+.c9 {
+  animation-name: c9;
+  height: 38%;
+  width: 48%;
+  left: 700px;
+  bottom: 0;
+}
+.c10 {
+  animation-name: c10;
+  height: 27%;
+  width: 54%;
+  bottom: 0px;
+  left: 8%;
+}
+.c11 {
+  animation-name: c11;
+  height: 60%;
+  width: 70%;
+  right: 0;
+  bottom: 0;
+}
+.c12 {
+  animation-name: c12;
+  height: 60%;
+  width: 70%;
+  right: 0;
+  bottom: 0;
+}
+.pc1, .pc2, .pc3, .pc4, .pc5, .pc6, .pc7, .pc8 {
+  display: none;
+}
+@keyframes c12 {
+  0% {
+    right: 0px;
+    bottom: 0px;
+  }
+  100% {
+    right: -250px;
+    bottom: -200px;
+  }
+}
+
+@keyframes c11 {
+  0% {
+    right: 0px;
+    bottom: 0px;
+  }
+  100% {
+    right: -10px;
+    bottom: -100px;
+  }
+}
+
+@keyframes c9 {
+  0% {
+    right: 0px;
+    bottom: 0px;
+  }
+  100% {
+    right: 400px;
+    bottom: -100px;
+  }
+}
+
+@keyframes c10 {
+  0% {
+    right: 0px;
+    bottom: 0px;
+  }
+  100% {
+    left: 500px;
+    bottom: -100px;
+  }
+}
+@keyframes c7 {
+  0% {
+    right: 0px;
+    bottom: 0px;
+  }
+  100% {
+    left: 400px;
+    bottom: -250px;
+  }
+}
+@keyframes c8 {
+  0% {
+    right: -100px;
+    bottom: 0px;
+  }
+  100% {
+    right: -250px;
+    bottom: -190px;
+  }
+}
+@keyframes c6 {
+  0% {
+    right: 0px;
+    bottom: 0px;
+  }
+  100% {
+    right: -100px;
+    bottom: -190px;
+  }
+}
+@keyframes c4 {
+  0% {
+    left: 0px;
+    bottom: 0px;
+  }
+  100% {
+    top: 0px;
+    left: -200px;
+  }
+}
+@keyframes c5 {
+  0% {
+    left: 0px;
+    bottom: 0px;
+  }
+  100% {
+    top: 0px;
+    left: -100px;
+  }
+}
+@keyframes c3 {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    top: -10px;
+    left: -50px;
+  }
+}
+@keyframes c1 {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    top: 0px;
+    left: -100px;
+  }
+}
+@keyframes c2 {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    top: -70px;
+    left: -150px;
+  }
+}
+@keyframes gg {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 20%;
+  }
+  85% {
+    opacity: 40%;
+  }
+  90% {
+    opacity: 60%;
+  }
+  95% {
+    opacity: 80%;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes btn {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 20%;
+  }
+  85% {
+    opacity: 40%;
+  }
+  90% {
+    opacity: 60%;
+  }
+  95% {
+    opacity: 80%;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (max-width: 926px) {
+  body {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .dn {
+    display: none;
+  }
+  .db-pos{ 
+    display: block;
+    position: fixed;
+  }
+  .txt1 { 
+    display: none;
+  }
+  .pc1 {
+    animation-name: pc1;
+    width: 71%;
+    height: 94%;
+    top: 0px;
+    left: 0px;
+  }
+  .pc2 {
+    animation-name: pc2;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    left: 0px;
+  }
+  .pc3 {
+    animation-name: pc3;
+    width: 72%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+  }
+  .pc4 {
+    animation-name: pc4;
+    width: 60%;
+    height: 35%;
+    top: 0px;
+    left: 0px;
+  }
+  .pc5 {
+    animation-name: pc5;
+    width: 71%;
+    height: 38%;
+    top: 0px;
+    right: 0px;
+  }
+}

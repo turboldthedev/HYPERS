@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    background-color: black;
+    overflow-y:hidden;
+    overflow-x:hidden;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    
+}
+.outer {
+    
+    display: flex;
+    /* margin-right: 40px; */
+
+}
+.fonts {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+#canva {
+    position: relative;
+}
+.vector {
+    position: absolute;
+    z-index: 1;
+}
+img {
+    width: 40px;
+    height: 40px;
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+  
+
