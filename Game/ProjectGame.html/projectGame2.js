@@ -7,17 +7,13 @@ let arrowL = document.getElementById("arrowL");
 const c = canvas.getContext("2d");
 
 let button = document.getElementById("but");
+
+var pause = true;
 var stop = false;
 const currentHref = window.location.href;
 canvas.width = 420;
 canvas.height = 700;
 
-// canvas.width = 1000;
-// canvas.height = 700;
-// var tdown = null;
-// var tlmove = null;
-// var trmove = null;
-var pause = true;
 var mouseX, mouseY;
 let wiw = window.innerWidth,
   wih = window.innerHeight;
@@ -25,9 +21,6 @@ let wiw = window.innerWidth,
 var colors = ["green", "yellow", "orange", "brown", "blue", "grey", "black"];
 canvas.style.width = "420px";
 canvas.style.height = "700px";
-
-// canvas.style.width = "1000px";
-// canvas.style.height = "700px";
 
 let widthcent = (wiw - canvas.width) / 2;
 let heicent = (wih - canvas.height) / 2;
@@ -40,10 +33,6 @@ let hcan = canvas.width / 2;
 
 var gravity = 1;
 var grd = c.createLinearGradient(0, 0, canvas.width, canvas.height);
-
-// grd.addColorStop(0,"rgb(47, 108, 165)");
-// grd.addColorStop(1,"black");
-// Fill with gradient
 c.fillStyle = "white";
 
 c.fillRect(0, 0, canvas.width, canvas.height);
@@ -63,7 +52,7 @@ class Trash {
 }
 //Garbage classes
 class Garbage {
-  constructor({ x, y, velocity, color = "green" }) {
+  constructor({ x, y, velocity, color }) {
     this.x = x;
     this.y = y;
     this.velocity = velocity;
@@ -77,62 +66,68 @@ class Garbage {
   }
   update() {
     this.draw();
-    // if (!garbages[idx]) {
     this.velocity.y = gravity;
     this.y += this.velocity.y;
     // console.log(this.y);
-    // }
-
-    // Stop getting fall if
-    // if (this.y + this.height + this.velocity.y >= canvas.height) {
-    //     this.velocity.y = 0
-
-    // }
-    // else {
-    //     this.velocity.y = gravity
-    // }
   }
 }
 var trashes = [];
 
-trashes[3] = new Trash({
+trashes[0] = new Trash({
   position: {
-    x: hcan - 40,
+    x: -190,
     y: 585,
   },
-  color: "orange",
-});
-
-trashes[2] = new Trash({
-  position: {
-    x: trashes[3].position.x - 120,
-    y: 585,
-  },
-  color: "green",
-});
-
-trashes[4] = new Trash({
-  position: {
-    x: trashes[3].position.x + 120,
-    y: 585,
-  },
-  color: "blue",
+  color: "yellow",
 });
 
 trashes[1] = new Trash({
   position: {
-    x: trashes[2].position.x - 120,
+    x: -70,
     y: 585,
   },
   color: "brown",
 });
 
-trashes[0] = new Trash({
+trashes[2] = new Trash({
   position: {
-    x: trashes[1].position.x - 120,
+    x: 50,
     y: 585,
   },
-  color: "yellow",
+  color: "green",
+});
+
+trashes[3] = new Trash({
+  position: {
+    x: 170,
+    y: 585,
+  },
+  color: "orange",
+});
+
+
+trashes[4] = new Trash({
+  position: {
+    x: 290,
+    y: 585,
+  },
+  color: "blue",
+});
+
+trashes[5] = new Trash({
+  position: {
+    x: 410,
+    y: 585,
+  },
+  color: "grey",
+});
+
+trashes[6] = new Trash({
+  position: {
+    x: 530,
+    y: 585,
+  },
+  color: "black",
 });
 
 var cal = canvas.width - 45;
@@ -149,25 +144,20 @@ arrowR.style.top = heicent + canvas.height - 80 + "px";
 arrowL.style.left = widthcent + 2 + "px";
 arrowL.style.top = heicent + canvas.height - 82 + "px";
 
-
 arrowL.addEventListener("click", keyMoveL);
-
 arrowR.addEventListener("click", keyMoveR);
 
-document.addEventListener('keydown', function(e) {
-  if(e.key == 'A' || e.key == 'a' || e.key == 'ArrowLeft') {
-    keyMoveL()
+document.addEventListener("keydown", function (e) {
+  if (e.key == "A" || e.key == "a" || e.key == "ArrowLeft") {
+    keyMoveL();
   }
-  
-})
+});
 
-
-document.addEventListener('keydown', function(e) {
-  if(e.key == 'D' || e.key == 'd' || e.key == 'ArrowRight') {
-    keyMoveR()
+document.addEventListener("keydown", function (e) {
+  if (e.key == "D" || e.key == "d" || e.key == "ArrowRight") {
+    keyMoveR();
   }
-  
-})
+});
 
 const interval = setInterval(function () {
   if (pause) {
@@ -179,10 +169,8 @@ const interval = setInterval(function () {
       y: 1,
     };
     garbage = new Garbage({ x, y, velocity, color });
-
     garbages.push(garbage);
   }
-
   // console.log(garbages)
 }, 2000);
 
@@ -200,8 +188,6 @@ canvas.addEventListener("mousedown", function (event) {
       idx = garbages.indexOf(garbage);
       mouseX = event.clientX - mbx;
       mouseY = event.clientY - mby;
-      // garbages.slice(idx, 1);
-      console.log("ajilji");
     }
   });
 });
@@ -240,6 +226,7 @@ canvas.addEventListener("touchstart", (e) => {
     });
   });
 });
+
 canvas.addEventListener("touchend", (e) => {
   drag = false;
 });
@@ -251,6 +238,7 @@ canvas.addEventListener("touchmove", (e) => {
     });
   }
 });
+
 function dreg() {
   if (drag) {
     garbages[idx].x = mouseX;
@@ -261,32 +249,24 @@ function drawer() {
   trashes.forEach((trash) => {
     trash.draw();
   });
-
   canvas.style.backgroundColor = "white";
 }
 
-function detectCollission() {
-  garbages.forEach((garbage) => {
-    // if(garbage.y, trashes.y  > d)
-  });
-}
 function animate() {
   window.requestAnimationFrame(animate);
-  if (pause) {
-    c.clearRect(0, 0, canvas.width, canvas.height);
-    wiw = innerWidth
-  // wih = innerHeight
+
+  wiw = innerWidth;
   widthcent = (wiw - canvas.width) / 2;
   heicent = (wih - canvas.height) / 2;
-  arrowR.style.left = widthcent + canvas.width - 40 + 'px';
-  arrowR.style.top = heicent + canvas.height - 80 + 'px'
-  arrowL.style.left = widthcent + 2 + 'px'
-  arrowL.style.top = heicent + canvas.height - 82 + 'px'
+  arrowR.style.left = widthcent + canvas.width - 40 + "px";
+  arrowR.style.top = heicent + canvas.height - 80 + "px";
+  arrowL.style.left = widthcent + 2 + "px";
+  arrowL.style.top = heicent + canvas.height - 82 + "px";
+  if (pause) {
+    dreg();pop();
+    c.clearRect(0, 0, canvas.width, canvas.height);
     garbages.forEach((garbage) => {
       garbage.update();
-      if (garbage.y == 574) {
-        console.log("orson");
-      }
     });
   }
 
@@ -321,9 +301,9 @@ function keyMoveL() {
     trashes.splice(0, 0, trashes[6]);
     trashes.splice(7, 1);
     trashes[0].position.x -= 840;
-    console.log(trashes);
+    console.log(garbages[0]);
   }
-  setInterval(() => {
+  const interval = setInterval(() => {
     if (tlmove < 12) {
       trashes.forEach((trash) => {
         trash.position.x += 10;
@@ -333,15 +313,17 @@ function keyMoveL() {
   }, 30);
   if (tlmove >= 12) {
     tlmove = 0;
-  }
+    clearInterval(interval)
+  } 
 }
 function keyMoveR() {
   if (trashes[6].position.x == 410) {
     trashes.splice(7, 0, trashes[0]);
     trashes.splice(0, 1);
+    console.log(garbages[0]);
     trashes[6].position.x += 840;
   }
-  setInterval(() => {
+  const interval = setInterval(() => {
     if (trmove < 12) {
       trashes.forEach((trash) => {
         trash.position.x -= 10;
@@ -351,5 +333,17 @@ function keyMoveR() {
   }, 30);
   if (trmove >= 12) {
     trmove = 0;
+    clearInterval(interval)
   }
 }
+let yi;
+function pop() {
+  garbages.forEach((garbage) => {
+    if (garbage.y > 585 && garbage.y < 685 && garbage.x > 50 && garbage.x < 130) {
+      yi = garbages.indexOf(garbage);
+      console.log(garbage);
+      garbages.splice(yi, 1);
+    }
+  })
+}
+console.log(trashes);
