@@ -10,6 +10,7 @@ body {
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .outer {
   display: flex;
@@ -22,6 +23,7 @@ body {
 }
 #canva {
   position: relative;
+  
 }
 .vector {
   position: absolute;
@@ -57,3 +59,29 @@ img {
  img:focus {
   outline: none;
 }
+.pause {
+  position: absolute;
+  /* top: 0px; */
+  /* left: 0px; */
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+
+}
+.pauseInner {
+  color: white;
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.menu {
+  margin: 10px;
+  color: white;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+

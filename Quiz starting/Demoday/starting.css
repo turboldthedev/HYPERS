@@ -245,14 +245,19 @@ img {
   bottom: -5px;
   left: 10%;
 }
+.vib { 
+  animation-name: vibrate-1;
+  animation-delay: 1.5s;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite ;
+}
 
 .btn {
   position: absolute;
-  left: 46%;
-  top: 50%;
+  top: 75%;
   font-size: 34px;
   font-family: "Montserrat";
-  margin-top: 250px;
   z-index: 1;
   color: black;
   animation-name: btn;
@@ -396,6 +401,26 @@ img {
   100% {
     left: -150px;
     top: -30px;
+  }
+}
+@keyframes vibrate-1 {
+  0% {
+            transform: translate(0);
+  }
+  20% {
+            transform: translate(-2px, 2px);
+  }
+  40% {
+            transform: translate(-2px, -2px);
+  }
+  60% {
+            transform: translate(2px, 2px);
+  }
+  80% {
+            transform: translate(2px, -2px);
+  }
+  100% { 
+            transform: translate(0);
   }
 }
 @keyframes text {
