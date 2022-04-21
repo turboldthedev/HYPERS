@@ -39,11 +39,12 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 
 //TrashCans classes
 class Trash {
-  constructor({ position, color }) {
+  constructor({ position, color, id}) {
     this.position = position;
     this.width = 80;
     this.height = 100;
     this.color = color;
+    this.id = id;
   }
   draw() {
     c.fillStyle = this.color;
@@ -80,6 +81,7 @@ trashes.push(
       y: 585,
     },
     color: "yellow",
+    id: 0
   })
 );
 
@@ -89,6 +91,7 @@ trashes[1] = new Trash({
     y: 585,
   },
   color: "brown",
+  id: 1
 });
 
 trashes[2] = new Trash({
@@ -97,6 +100,7 @@ trashes[2] = new Trash({
     y: 585,
   },
   color: "green",
+  id: 2
 });
 
 trashes[3] = new Trash({
@@ -105,6 +109,7 @@ trashes[3] = new Trash({
     y: 585,
   },
   color: "orange",
+  id: 3
 });
 
 trashes[4] = new Trash({
@@ -113,6 +118,7 @@ trashes[4] = new Trash({
     y: 585,
   },
   color: "blue",
+  id: 4
 });
 
 trashes[5] = new Trash({
@@ -121,6 +127,7 @@ trashes[5] = new Trash({
     y: 585,
   },
   color: "grey",
+  id: 5
 });
 
 trashes[6] = new Trash({
@@ -129,6 +136,7 @@ trashes[6] = new Trash({
     y: 585,
   },
   color: "black",
+  id: 6
 });
 
 var cal = canvas.width - 45;
