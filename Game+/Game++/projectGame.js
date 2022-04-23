@@ -13,7 +13,7 @@ canvas.style.height = "670px";
 
 let widthcent = (window.innerWidth - canvas.width) / 2
 let heicent = (window.innerHeight - canvas.height) / 2
-
+r
 canvas.style.marginTop = heicent + 'px'
 let drag;
 let trag;
