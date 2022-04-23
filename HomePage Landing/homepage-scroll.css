@@ -1,0 +1,24 @@
+.ground-text{
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+}
+.ground-text p{
+    font-size: 20px;
+}
+.first-group-text{
+    width: 100%;
+    font-size: 30px;
+    margin: 20px 0px 20px 0px;
+}
+.first-group-text h1{
+    
+}
+.second-group-text {
+    width: 30%;
+    height: 10px;
+    flex-wrap: wrap;
+    font-size: 25px;
+}
