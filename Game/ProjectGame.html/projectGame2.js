@@ -176,6 +176,8 @@ const interval = setInterval(function () {
   }
 }, 2000);
 
+// Mouse down
+
 canvas.addEventListener("mousedown", function (event) {
   garbages.forEach((garbage) => {
     if (
