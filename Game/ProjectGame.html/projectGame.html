@@ -9,28 +9,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
-  <body>
-    <div class="container">
+  <body onresize = "reportSize()">
+    <div class="container" >
+      <div id="button">
+        <img src="img/button.webp" >
+      </div>
       
       <canvas id="canva"></canvas>
-      <!-- <div class="pause">
+      <div class="pause">
         <div class="pauseInner">
           Pause
         </div>
-        <div class="menu">Menu</div>
+        <div class="resume">Resume</div>
+        <div class="tutorial">Reset</div>
+        <div class="tutorial">Tutorial</div>
+        <div class="tutorial">Menu</div>
         
-      </div> -->
-      <!-- <div id="arrowR" class="vector">
+        
+      </div>
+      <div id="arrowR" class="vector">
         <img draggable="false" src="./img/icon.png" />
       </div>
       <div id="arrowL" class="vector left">
         <img draggable="false" src="./img/icon.png" />
-      </div> -->
+      </div>
     </div>
     <div class="timerCont">
       <div class="timer" id="timer"></div>
     </div>
-    <!-- <script src="projectGame2.js"></script> -->
-    <script src="test.js"></script> 
+    <script src="projectGame2.js"></script>
+    <!-- <script src="projectGame2.js"></script>  -->
   </body>
 </html>

@@ -15,6 +15,9 @@ let arrowL = document.getElementById("arrowL");
 let score = document.getElementById("timer");
 let scoreCount = 100;
 
+//Pause Button
+const buttonEl = document.getElementById("button");
+
 // States
 var pause = true;
 var stop = false;
@@ -24,8 +27,7 @@ var mouseX;
 var mouseY;
 
 var colors = ["yellow", "brown", "green", "orange", "blue", "grey", "black"];
-canvas.style.width = "420px";
-canvas.style.height = "700px"; // CSS bolgo
+
 
 let widthcent = (wiw - canvas.width) / 2;
 let heicent = (wih - canvas.height) / 2; // Nershil!
@@ -56,6 +58,7 @@ class Trash {
     c.fillStyle = this.color;
     c.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
+  
 }
 
 //Garbage classes
@@ -68,7 +71,6 @@ class Garbage {
     this.height = 30;
     this.color = color;
     this.id = id;
-    this.isDragging = false;
   }
   draw() {
     c.fillStyle = this.color;
@@ -78,6 +80,14 @@ class Garbage {
     this.draw();
     this.velocity.y = gravity;
     this.y += this.velocity.y;
+  }
+  detectr() {
+    delete this.x;
+    delete this.y;
+    delete this.width;
+    delete this.height;
+    delete this.color;
+    delete this.id;
   }
 }
 
@@ -108,6 +118,9 @@ arrowR.style.top = heicent + canvas.height - 80 + "px";
 
 arrowL.style.left = widthcent + 2 + "px";
 arrowL.style.top = heicent + canvas.height - 82 + "px";
+
+buttonEl.style.left = widthcent + 10 + "px";
+buttonEl.style.top = heicent + 10 + "px";
 
 arrowL.addEventListener("click", keyMoveR);
 arrowR.addEventListener("click", keyMoveL);
@@ -221,13 +234,13 @@ let garbageNull;
 function animate() {
   window.requestAnimationFrame(animate);
   dreg();
-  wiw = innerWidth;
-  widthcent = (wiw - canvas.width) / 2;
-  heicent = (wih - canvas.height) / 2;
-  arrowR.style.left = widthcent + canvas.width - 40 + "px";
-  arrowR.style.top = heicent + canvas.height - 80 + "px";
-  arrowL.style.left = widthcent + 2 + "px";
-  arrowL.style.top = heicent + canvas.height - 82 + "px";
+  // wiw = innerWidth;
+  // widthcent = (wiw - canvas.width) / 2;
+  // heicent = (wih - canvas.height) / 2;
+  // arrowR.style.left = widthcent + canvas.width - 40 + "px";
+  // arrowR.style.top = heicent + canvas.height - 80 + "px";
+  // arrowL.style.left = widthcent + 2 + "px";
+  // arrowL.style.top = heicent + canvas.height - 82 + "px";
 
   if (pause) {
     detect();
@@ -310,8 +323,8 @@ function keyMoveR() {
 let yi;
 
 garbageNull = new Garbage({
-  x: Math.floor(Math.random() * cal),
-  y: -80,
+  x: 0,
+  y: -100,
   color: "white",
   velocity: {
     x: 0,
@@ -325,21 +338,24 @@ function detect() {
       garbage.y > 585 &&
       garbage.y < 685 &&
       garbage.x > 40 &&
-      garbage.x < 130
+      garbage.x < 120
     ) {
       setTimeout(() => {
         if (trashes[2].id == garbage.id) {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount += 20;
         } else {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          // garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
           scoreCount -= 20;
+          console.log(101)
         }
       }, 0);
     }
@@ -347,21 +363,24 @@ function detect() {
       garbage.y > 585 &&
       garbage.y < 685 &&
       garbage.x > 160 &&
-      garbage.x < 260
+      garbage.x < 240
     ) {
       setTimeout(() => {
         if (trashes[3].id == garbage.id) {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount += 20;
         } else {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount -= 20;
+          console.log(202)
         }
       }, 0);
     }
@@ -369,21 +388,24 @@ function detect() {
       garbage.y > 585 &&
       garbage.y < 685 &&
       garbage.x > 280 &&
-      garbage.x < 380
+      garbage.x < 360
     ) {
       setTimeout(() => {
         if (trashes[4].id == garbage.id) {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount += 20;
         } else {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount -= 20;
+          console.log(303)
         }
       }, 0);
     }
@@ -393,43 +415,49 @@ function detect() {
       garbage.y > 585 &&
       garbage.y < 685 &&
       garbage.x > 400 &&
-      garbage.x < 500
+      garbage.x < 480
     ) {
       setTimeout(() => {
         if (trashes[5].id == garbage.id) {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount += 20;
         } else {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount -= 20;
+          console.log(404)
         }
       }, 0);
     }
     if (
       garbage.y > 585 &&
       garbage.y < 685 &&
-      garbage.x > -80 &&
-      garbage.x < 10
+      garbage.x > -60 &&
+      garbage.x < 5
     ) {
       setTimeout(() => {
         if (trashes[1].id == garbage.id) {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount += 20;
         } else {
           if (garbages[index] == garbages[idx]) {
             drag = false;
           }
-          garbages.splice(index, 1, garbageNull);
+          garbage.detectr();
+          // garbages.splice(index, 1, garbageNull);
           scoreCount -= 20;
+          console.log(505)
         }
       }, 0);
     }
@@ -439,8 +467,9 @@ function detect() {
 function scoreMine() {
   garbages.forEach((garbage) => {
     if (garbage.y == canvas.height) {
-      // garbages.splice(index, 1, garbageNull);
+      garbage.detectr();
       scoreCount -= 25;
+      console.log(666)
     }
     // if (scoreCount <= 0) {
     //   // alert("You Lose");
@@ -451,4 +480,16 @@ function scoreMine() {
     //   // scoreCount = 100;
     // }
   });
+}
+
+function resizer() {
+  wiw = innerWidth;
+  widthcent = (wiw - canvas.width) / 2;
+  heicent = (wih - canvas.height) / 2;
+  arrowR.style.left = widthcent + canvas.width - 40 + "px";
+  arrowR.style.top = heicent + canvas.height - 80 + "px";
+  arrowL.style.left = widthcent + 2 + "px";
+  arrowL.style.top = heicent + canvas.height - 82 + "px";
+  buttonEl.style.left = widthcent + 10 + "px";
+  buttonEl.style.top = heicent + 10 + "px";
 }
