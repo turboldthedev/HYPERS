@@ -12,21 +12,25 @@
 div{
     border: 0px solid black;
 }
-body{
-    background-color: red;
-}
     /* element styles */
 
     div.container{
-        width: 1250px;
-        height: 100vh;
+        width: 100%;
 
         display: flex;
         flex-direction: column;
+        align-items: center;
 
-        padding: 10px;
         padding-top: 30px;
     }
+        div.blockOne{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        div.title{
+            width: 1230px;
+        }
         div.blockTwo{
             width: 100%;
 
@@ -46,9 +50,9 @@ body{
                 padding-top: 0px;
             }
     div.memberCardContainer{
-        width: 900px;
+        width: 100%;
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: unwrap;
         justify-content: center;
     }
         div.memberCard{
@@ -56,8 +60,8 @@ body{
             flex-direction: column;
             align-items: center;
 
-            width: 186px;
-            height: 282px;
+            width: 175px;
+            height: 270px;
 
             margin: 10px;
             padding: 3px;
@@ -67,8 +71,7 @@ body{
             background:#756FB3;
         }
             img.memberPhoto{
-                width: 178px;
-                height: 220px;
+                width: 170px;
             }
             p.memberName{
                 font-weight: 500;
@@ -113,8 +116,8 @@ body{
             }
 
 @media only screen and (max-width: 1250px) {
-    div.blockOne{
-        width: 613px;
+    div.bigBlock{
+        width: 610px;
     }
     div.container{
         align-items: center;
@@ -123,5 +126,11 @@ body{
         margin-top: 20px;
         padding-left: 0px;
         height: fit-content;
+    }
+}
+
+@media only screen and (max-width: 1410px) {
+    div.memberCardContainer{
+        flex-wrap: wrap;
     }
 }
