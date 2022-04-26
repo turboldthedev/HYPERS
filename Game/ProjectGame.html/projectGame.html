@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trash</title>
-    <link rel="stylesheet" href="projectGame.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  </head>
 
-  <body>
-    <div class="container">
-      
-      <canvas id="canva"></canvas>
-      <!-- <div class="pause">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trash</title>
+  <link rel="stylesheet" href="projectGame.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body onresize="resizer()">
+  <div class="container">
+
+    <canvas id="canva"></canvas>
+    <!-- <div class="pause">
         <div class="pauseInner">
           Pause
         </div>
         <div class="menu">Menu</div>
-        
+            
       </div> -->
-      <div id="arrowR" class="vector">
-        <img draggable="false" src="./img/icon.png" />
-      </div>
-      <div id="arrowL" class="vector left">
-        <img draggable="false" src="./img/icon.png" />
-      </div>
+    <div id="arrowR" class="vector">
+      <img draggable="false" src="./img/icon.png" />
     </div>
-    <div class="timerCont">
-      <div class="timer" id="timer"></div>
+    <div id="arrowL" class="vector left">
+      <img draggable="false" src="./img/icon.png" />
     </div>
-    <script src="projectGame2.js"></script>
-    <!-- <script src="test.js"></script>  -->
-  </body>
+  </div>
+  <div class="timerCont">
+    <div class="timer" id="timer"></div>
+  </div>
+  <script src="projectGame2.js"></script>
+  <!-- <script src="test.js"></script> -->
+</body>
+
 </html>
