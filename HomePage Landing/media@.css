@@ -1,5 +1,4 @@
 @media (max-width: 350px) {
-
   .earth {
     opacity: 0;
   }
@@ -87,7 +86,7 @@
 }
 @media (min-width: 576px) {
   .scrolled-big-img {
-    width: 50%
+    width: 50%;
   }
   .earth {
     opacity: 0;
@@ -125,6 +124,7 @@
   .ehand {
     height: 70%;
   }
+}
 @media (min-width: 768px) {
   .earth {
     opacity: 0;
@@ -169,7 +169,6 @@
   .ehand {
     height: 80%;
   }
-    
 }
 @media (min-width: 992px) {
   .earth {
@@ -306,7 +305,7 @@
     margin: 0;
     text-align: center;
   }
-  .play{
+  .play {
     align-items: center;
     font-weight: 500;
     border: none;
@@ -327,5 +326,5 @@
   }
   .ehand {
     opacity: 0;
-  } 
+  }
 }
