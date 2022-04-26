@@ -30,7 +30,7 @@ body{
 
 }
 .invisible{
-    opacity: 0%;
+    display: none;
 }
 .comment{
     background: rgba(0, 0, 0, 0.6);
@@ -39,4 +39,30 @@ body{
     z-index: 100;
     backdrop-filter: blur(5.60732px);
     border-radius: 8.83907px 35.3563px;
+}
+.comment-q{
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    width: 856px;
+    height: 155px;
+    z-index: 100;
+    backdrop-filter: blur(5.60732px);
+    border-radius: 8.83907px 35.3563px;
+    bottom: 0;
+}
+.question{
+    z-index: 100;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.f-key{
+    width: 13%;
 }
