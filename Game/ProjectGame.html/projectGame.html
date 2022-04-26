@@ -11,21 +11,19 @@
 
   <body onresize = "reportSize()">
     <div class="container" >
-      <div id="button">
+      <div id="button" onclick="paused()">
         <img src="img/button.webp" >
       </div>
       
       <canvas id="canva"></canvas>
-      <div class="pause">
+      <div class="pause" id="pause">
         <div class="pauseInner">
           Pause
         </div>
-        <div class="resume">Resume</div>
+        <div class="tutorial" onclick="resumed()">Resume</div>
         <div class="tutorial">Reset</div>
         <div class="tutorial">Tutorial</div>
         <div class="tutorial">Menu</div>
-        
-        
       </div>
       <div id="arrowR" class="vector">
         <img draggable="false" src="./img/icon.png" />
