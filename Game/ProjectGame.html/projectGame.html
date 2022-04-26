@@ -9,19 +9,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
-  <body onresize = "reportSize()">
-    <div class="container" >
-      <div id="button" onclick="paused()">
-        <img src="img/button.webp" >
+  <body onresize="reportSize()">
+    <div class="container">
+      <div class="defeat" id="def">
+        <div class="pauseInner">Та хожигдлоо</div>
+        <div class="tutorial" onclick="reset()">Дахин оролдох</div>
+        <div class="tutorial">Гарах</div>
       </div>
-      
+
+      <div id="button" onclick="paused()">
+        <img draggable="false" src="img/button.webp" />
+      </div>
+
       <canvas id="canva"></canvas>
       <div class="pause" id="pause">
-        <div class="pauseInner">
-          Pause
-        </div>
+        <div class="pauseInner">Pause</div>
         <div class="tutorial" onclick="resumed()">Resume</div>
-        <div class="tutorial">Reset</div>
+        <div class="tutorial" onclick="reset()">Reset</div>
         <div class="tutorial">Tutorial</div>
         <div class="tutorial">Menu</div>
       </div>
@@ -35,6 +39,12 @@
     <div class="timerCont">
       <div class="timer" id="timer"></div>
     </div>
+    <!-- <script src="./img/Glass/bottle.png"></script> -->
+    <!-- <script src="./img/Glass/bottle.png"></script>
+    <script src="./img/Glass/bottle.png"></script>
+    <script src="./img/Glass/bottle.png"></script>
+    <script src="./img/Glass/bottle.png"></script> -->
+
     <script src="projectGame2.js"></script>
     <!-- <script src="projectGame2.js"></script>  -->
   </body>
