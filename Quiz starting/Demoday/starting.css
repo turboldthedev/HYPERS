@@ -7,6 +7,65 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+/* Map chose */
+.appear {
+  animation: appear 2000ms ease-out;
+}
+.container1 {
+  display: none;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(19, 18, 18, 0.7);
+  z-index: 1;
+}
+.size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  width: 385px;
+}
+.scale {
+  transition: 1000ms;
+}
+.scale:hover {
+  transform: scale(1.1);
+}
+.border {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.border img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover !important;
+}
+.imgContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
+}
+.txt1 {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 36px;
+  color: white;
+}
+.toptext {
+  flex-grow: 3;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.midText {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
 /* Main */
 .container {
   position: relative;
@@ -14,27 +73,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-
   overflow: hidden;
-}
-.text {
-  font-family: "Montserrat";
-  text-align: center;
-  width: 25%;
-  position: absolute;
-  color: #fff;
-  font-size: 34px;
-  animation-name: text;
-  animation-duration: 3s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  z-index: 1;
-}
-.animation {
-  animation-duration: 1.5s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
 }
 /* Images */
 .image {
@@ -44,215 +83,7 @@ img {
   height: 100%;
   width: 100%;
 }
-.phone {
-  display: none;
-}
-/* Phone */
-.pos1 {
-  animation-name: p1;
-  top: 0;
-  left: 0;
-  height: 100%;
-}
-.pos2 {
-  animation-name: p2;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-}
-.pos3 {
-  animation-name: p3;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-}
-.pos4 {
-  animation-name: p4;
-  top: 0px;
-  left: 0px;
-}
-.pos5 {
-  animation-name: p5;
-  top: 0px;
-  right: -5px;
-}
-.pos6 {
-  animation-name: p6;
-  bottom: -5px;
-  right: 25%;
-}
-.pos7 {
-  animation-name: p7;
-  bottom: 0px;
-  right: 0px;
-}
-.pos8 {
-  animation-name: p8;
-  bottom: -5px;
-  right: 0px;
-}
-/* PHONE ANIMATION */
-@keyframes p8 { 
-  0% {
-    right: 0px;
-    bottom: -5px;
-  }
-  100% {
-    right: -50px;
-    bottom: -50px;
-  }
-}
-@keyframes p7 { 
-  0% {
-    right: 0px;
-    bottom: 0px;
-  }
-  100% {
-    right: -50px;
-    bottom: 0px;
-  }
-}
-@keyframes p6 { 
-  0% {
-    right: 25%;
-    bottom: -5px;
-  }
-  100% {
-    right: 22%;
-    bottom: -50px;
-  }
-}
-@keyframes p5 { 
-  0% {
-    right: -5px;
-    top: 0px;
-  }
-  100% {
-    right: -50px;
-    top: -50px;
-  }
-}
-@keyframes p4 { 
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-  100% {
-    left: -50px;
-    top: -25px;
-  }
-}
-@keyframes p3 { 
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-  100% {
-    left: -50px;
-    top: 0px;
-  }
-}
-@keyframes p2 { 
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-  100% {
-    left: -100px;
-    top: -50px;
-  }
-}
-@keyframes p1 { 
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-  100% {
-    left: -100px;
-    top: -50px;
-  }
-}
-/* DESKTOP */
-.computer {
-  display: block;
-}
-.c1 {
-  animation-name: c1;
-  top: 0px;
-  left: 0px;
-}
-.c2 {
-  animation-name: c2;
-  top: 0px;
-  left: 0px;
-}
-.c3 {
-  animation-name: c3;
-  top: 0px;
-  left: 0px;
-}
-.c4 {
-  animation-name: c4;
-  top: 0px;
-  left: 0px;
-}
-.c5 {
-  animation-name: c5;
-  top: 0px;
-  left: 0px;
-}
-.c6 {
-  animation-name: c6;
-  bottom: 2%;
-  right: 14%;
-}
-.c7 {
-  animation-name: c7;
-  width: 10%;
-  bottom: -5px;
-  left: 33%;
-}
-.c8 {
-  animation-name: c8;
-  bottom: -5px;
-  left: 10%;
-}
-.c9 {
-  animation-name: c9;
-  top: 0px;
-  right: 0px;
-}
-.c10 {
-  animation-name: c10;
-  top: 0px;
-  right: -5px;
-}
-.c11 {
-  animation-name: c11;
-  bottom: -5px;
-  right: 0px;
-  height: 75%;
-  width: 85%;
-}
-.c12 {
-  animation-name: c12;
-  bottom: 0px;
-  left: 0px;
-}
-.c13 {
-  animation-name: c13;
-  width: 75%;
-  bottom: -5px;
-  left: 10%;
-}
-.vib { 
-  animation-name: vibrate-1;
-  animation-delay: 1.5s;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: infinite ;
-}
-
+/* TOOLS */
 .btn {
   position: absolute;
   top: 75%;
@@ -272,157 +103,34 @@ img {
   padding-bottom: 5px;
   font-weight: 350;
 }
-/* DESKTOP ANIMATION */
-@keyframes c11 {
-  0% {
-    right: 0px;
-    bottom: 0px;
-  }
-  100% {
-    right: -300px;
-    bottom: -100px;
-  }
+/* TEXT */
+.text {
+  font-family: "Montserrat";
+  text-align: center;
+  width: 25%;
+  position: absolute;
+  color: #fff;
+  font-size: 34px;
+  animation-name: text;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  z-index: 1;
 }
-@keyframes c12 {
-  0% {
-    left: 0px;
-    bottom: 0px;
-  }
-  100% {
-    left: -100px;
-    bottom: -100px;
-  }
+.txt {
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 48px;
+  font-weight: 500;
+  color: white;
 }
-@keyframes c10 {
-  0% {
-    right: 0px;
-    top: 0px;
-  }
-  100% {
-    right: -300px;
-    top: -100px;
-  }
+.txt1 {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 36px;
+  color: white;
 }
-@keyframes c9 {
-  0% {
-    right: 0px;
-    top: 0px;
-  }
-  100% {
-    right: 0px;
-    top: -100px;
-  }
-}
-@keyframes c8 {
-  0% {
-    left: 10%;
-    bottom: 0px;
-  }
-  100% {
-    left: 10%;
-    bottom: -100px;
-  }
-}
-@keyframes c7 {
-  0% {
-    left: 33%;
-    bottom: 0px;
-  }
-  100% {
-    left: 35%;
-    bottom: -100px;
-  }
-}
-@keyframes c13 {
-  0% {
-    left: 10%;
-    bottom: 0px;
-  }
-  100% {
-    left: 15%;
-    bottom: -200px;
-  }
-}
-@keyframes c6 {
-  0% {
-    right: 14%;
-    bottom: 0px;
-  }
-  100% {
-    right: 14%;
-    bottom: -75px;
-  }
-}
-@keyframes c5 {
-  0% {
-    left: 0%;
-    top: 0px;
-  }
-  100% {
-    left: -100px;
-    top: -75px;
-  }
-}
-@keyframes c4 {
-  0% {
-    left: 0%;
-    top: 0px;
-  }
-  100% {
-    left: -150px;
-    top: -30px;
-  }
-}
-@keyframes c3 {
-  0% {
-    left: 0%;
-    top: 0px;
-  }
-  100% {
-    left: -150px;
-    top: -30px;
-  }
-}
-@keyframes c2 {
-  0% {
-    left: 0%;
-    top: 0px;
-  }
-  100% {
-    left: -150px;
-    top: -30px;
-  }
-}
-@keyframes c1 {
-  0% {
-    left: 0%;
-    top: 0px;
-  }
-  100% {
-    left: -150px;
-    top: -30px;
-  }
-}
-@keyframes vibrate-1 {
-  0% {
-            transform: translate(0);
-  }
-  20% {
-            transform: translate(-2px, 2px);
-  }
-  40% {
-            transform: translate(-2px, -2px);
-  }
-  60% {
-            transform: translate(2px, 2px);
-  }
-  80% {
-            transform: translate(2px, -2px);
-  }
-  100% { 
-            transform: translate(0);
-  }
-}
+/* TOOLS ANIMATION*/
 @keyframes text {
   0% {
     opacity: 0;
