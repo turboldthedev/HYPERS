@@ -11,6 +11,58 @@ let trashX
 let trashY
 let trashSpace
 
+// time value
+let timing = 1800;
+let timer = 0;
+let timeq = 20;
+
+//Types of garbages
+
+const garbageImg = [];
+garbageImg[0] = ["./img/Glass/bottle.png",
+"./img/Glass/bottle.png",
+"./img/Glass/brokenCodka.png",
+"./img/Glass/brokenGlass.png",
+"./img/Glass/codka.png",
+"./img/Glass/vineGlass.png"]
+
+garbageImg[1] = [
+  "./img/Medical/medical1.png",
+"./img/Medical/medical2.png",
+"./img/Medical/medical3.png",
+"./img/Medical/medical4.png",
+"./img/Medical/medical5.png"
+]
+
+garbageImg[2] = [
+  "./img/Metal/bigCan.png",
+"./img/Metal/blueCan.png",
+"./img/Metal/can.png",
+]
+
+garbageImg[3] = [
+  "./img/NonRecyclable/image 10206.png",
+"./img/NonRecyclable/lamp.png",
+"./img/NonRecyclable/poison.png",
+"./img/NonRecyclable/Subtract.png",
+]
+
+garbageImg[4] = [
+  "./img/Organic/apple.png",
+"./img/Organic/bread.png",
+"./img/Organic/deadFish.png",
+"./img/Organic/egg.png",
+"./img/Organic/meat.png",
+]
+
+garbageImg[5] = [
+  "./img/paper/cardon.png",
+"./img/paper/eggBox.png",
+"./img/paper/newsPaper.png",
+"./img/paper/paperBag.png",
+"./img/paper/pizzaPack.png",
+]
+
 //Phone size
 if (screen.height >= 700 && screen.width >= 420) {
   canvas.width = 420;
@@ -28,7 +80,6 @@ if (screen.height >= 700 && screen.width >= 420) {
     trashWidth = canvas.width / 5.25;
     trashSpace = canvas.width / 3.5;
     trashX = (canvas.width / 2) - (trashSpace * 3.35);
-    console.log(trashX)
     trashY = canvas.height / 1.2;
   } else if (screen.width < 420 && screen.height >= 700) {
     canvas.width = screen.width;
@@ -37,7 +88,6 @@ if (screen.height >= 700 && screen.width >= 420) {
     trashWidth = canvas.width / 5.25;
     trashSpace = canvas.width / 3.5;
     trashX = (canvas.width / 2) - (trashSpace * 3.35);
-    console.log(trashX)
     trashY = 585;
   } else if (screen.width >= 420 && screen.height < 700) {
     canvas.width = 420;
@@ -62,6 +112,10 @@ let scoreCount = 100;
 //Pause Button
 const buttonEl = document.getElementById("button");
 const pauseEl = document.getElementById('pause');
+
+//Defeat
+const defeatEl = document.getElementById('def')
+
 // States
 var pause = true;
 
@@ -82,7 +136,7 @@ let heicent = (wih - canvas.height) / 2;
 canvas.style.marginTop = heicent + "px";
 
 //
-var gravity = 0.5;
+var gravity = 1;
 var grd = c.createLinearGradient(0, 0, canvas.width, canvas.height);
 c.fillStyle = "white";
 
@@ -191,8 +245,11 @@ const interval = setInterval(function () {
     const id = colors.indexOf(color);
     garbage = new Garbage({ x, y, velocity, color, id });
     garbages.push(garbage);
+    timer++;
+
+    console.log(timer);
   }
-}, 1800);
+}, timing);
 
 // Mouse down
 
@@ -284,6 +341,11 @@ function animate() {
     });
     score.innerText = scoreCount;
     scoreMine();
+    if (timer > timeq) {
+      gravity += 0.3;
+      timeq += 20;
+      console.log(timing)
+    }
   }
   drawer();
 }
@@ -300,9 +362,10 @@ function paused() {
 function resumed() {
   pause = true;
   pauseEl.style.display = 'none';
+  defeatEl.style.display = 'none'
 }
 
-window.addEventListener("focus", () => {
+window.addEventListener("focus", () => {  
   resumed()
 });
 
@@ -310,8 +373,6 @@ window.addEventListener("blur", () => {
   paused()
 });
 
-let timer = null;
-let timerId;
 
 // function decreaseTimer() {
 //   if (timer < 10000) {
@@ -332,7 +393,6 @@ function keyMoveL() {
         trashes.splice(0, 0, trashes[6]);
         trashes.splice(7, 1);
         trashes[0].position.x -= trashSpace * 7;
-        console.log('comp')
       }
     }
   }, 30);
@@ -341,8 +401,6 @@ function keyMoveL() {
     tlmove = 0;
     clearInterval(interval);
   }
-  console.log((trashes[0].position.x).toFixed(2));
-  console.log('> : ',(trashX + trashSpace).toFixed(2));
 }
 
 function keyMoveR() {
@@ -356,7 +414,6 @@ function keyMoveR() {
         trashes.splice(7, 0, trashes[0]);
         trashes.splice(0, 1);
         trashes[6].position.x += trashSpace * 7;
-        console.log('comp')
       }
     }
   }, 30);
@@ -364,8 +421,12 @@ function keyMoveR() {
     trmove = 0;
     clearInterval(interval);
   }
-  console.log((trashes[6].position.x).toFixed(2));
-  console.log('< : ',trashX + (trashSpace * 5))
+
+}
+
+function defeated() {
+  pause = false;
+  defeatEl.style.display = 'flex';
 }
 
 function detect() {
@@ -402,9 +463,12 @@ function scoreMine() {
     if (garbage.y == canvas.height) {
       garbage.detectr();
       scoreCount -= 25;
-      console.log(666)
     }
+
   });
+  if(scoreCount <= 0) {
+    defeated();
+  }
 }
 
 function reportSize() {
@@ -418,3 +482,22 @@ function reportSize() {
   buttonEl.style.left = widthcent + 10 + "px";
   buttonEl.style.top = heicent + 10 + "px";
 }
+
+function reset() {
+  scoreCount = 100;
+  pause = false;
+  garbages.splice(0, garbages.length);
+  for (let i = 0; i < 7; i++) {
+    trashes.push(
+      new Trash({
+        position: {
+          x: trashX + i * trashSpace,
+          y: trashY,
+        },
+        color: colors[i],
+        id: i,
+      })
+    );
+  }
+  resumed();
+} 

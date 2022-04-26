@@ -71,11 +71,7 @@ img {
   /* background-color: black; */
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,25,25,1) 100%, rgba(7,6,33,1) 100%, rgba(0,0,0,1) 100%);
-<<<<<<< HEAD
-  
-=======
   display: none;
->>>>>>> 3f3ce522651a7e805d2c8a3874153fd0a2b031be
   align-items: center;
   flex-direction: column;
   border-radius: 30px;
@@ -88,13 +84,7 @@ img {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
-/* .resume {
-  margin-top: 22px;
-  color: rgb(206, 206, 206);
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: 30ms;
-} */
+
 
 .tutorial {
   margin-top: 13px;
@@ -108,18 +98,6 @@ img {
   font-size: 18px;
   color: white;
 }
-/* .resume:hover {
-  font-size: 18px;
-  color: white;
-} */
-
-/* button {
-  border: none;
-  background-color: gray;
-  border-radius:  9px;
-  font-weight: bold;
-} */
-
 #button {
   position: absolute;
   width: 30px;
@@ -130,4 +108,18 @@ img {
 img {
   width: 30px;
   height: 30px;
+}
+
+.defeat {
+  position: absolute;
+  display: none;
+  width: 200px;
+  height: 85px;
+  padding: 20px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,25,25,1) 100%, rgba(7,6,33,1) 100%, rgba(0,0,0,1) 100%);
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  opacity: 90%;
 }
