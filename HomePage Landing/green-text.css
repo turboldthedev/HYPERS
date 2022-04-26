@@ -1,0 +1,228 @@
+    .green-text {
+    width: 100%;
+    background-color: #1fad66;
+    opacity: 0.8;
+  }
+  .green-text div {
+    justify-content: center;
+  }
+  .green-text-head {
+    color: white;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 400;
+    padding-bottom: 30px;
+    padding-top: 60px;
+  }
+  .green-text-mid {
+    color: white;
+    font-size: 32px;
+    font-weight: 300;
+    width: 70%;
+    margin: auto;
+    padding: 100px 0;
+  }
+  .green-text-mid2{
+    width: 0px;
+    font-size: 0px;
+  }
+  .last-text {
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+  .last-text-back {
+    background-color: #1fad66;
+    opacity: 0.8;
+  }
+  .under-logo {
+    padding: 32px;
+  }
+  .last-text-of-us {
+    padding: 24px;
+    font: 500;
+    font-size: 30px;
+  }
+  .last-text-of-us-little-font {
+    padding: 24px;
+    font: 100;
+    font-size: 20px;
+  }
+  .work-with-us a {
+    color: black;
+    display: inline-block;
+    justify-content: space-around;
+  }
+  .last-text-of-us2 {
+    padding: 24px;
+    font: 300;
+    font-size: 30px;
+  }
+  .logo-of-about {
+    width: 50px;
+  }
+  .inner-logo {
+    display: flex;
+    justify-content: space-around;
+  }
+  .onlyphone{
+    width: 0px;
+
+  }
+  @media (max-width: 992px) {
+    .green-text-head{
+        font-size: 26px;
+        width: 100%;
+        margin: 24px 0;
+    }
+    .green-text-mid{
+        width: 0px;
+        font-size: 0px;
+        height: 0px;
+        padding: 0px;
+        margin: 0px;
+    }
+    .green-text-mid2{
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+        width: 76%;
+        margin: auto;
+        padding-bottom:50px ;
+        text-align: center;
+        word-spacing: 5px;
+    }
+    .last-text {
+        flex-direction: column;
+    }     
+    .under-logo{
+        width: 0px;
+        height: 0px;
+    }
+    .last-text-of-us {
+        font-size: 18px;
+        width: 80%;
+    }
+    .last-text-of-us-little-font {
+        width: 0px;
+        height: 0px;
+        font-size: 0px;
+    }
+    .work-with-us a {
+    }
+    .work-with-us{
+        width: 100%;
+        font-size: 48px;
+        justify-content: space-around;
+    }
+    .last-text-of-us{
+        font-size: 75%;
+    }
+    .work-with-us2{
+        height: 0px;
+        width: 0px;
+    }
+    .work-with-us1{
+        height: 0px;
+        width: 0px;
+    }
+    .last-text-of-us2 {
+        width: 0px;
+        font-size: 0px;
+        height: 0px;
+    }
+    .logo-of-about {
+        width: 0px;
+        font-size: 0px;
+        height: 0px;
+    }
+    .inner-logo {
+        width: 0px;
+        font-size: 0px;
+        height: 0px;
+    }
+    .onlyphone{
+        width: 80%;
+      }
+  }
+  @media (max-width: 768px) {
+    .onlyphone{
+        width: 70%;
+      }
+  }
+
+  @media (max-width: 575px) {
+    .green-text-head{
+        font-size: 26px;
+        width: 100%;
+        margin: 24px 0;
+    }
+    .green-text-mid{
+        width: 0px;
+        font-size: 0px;
+        height: 0px;
+        padding: 0px;
+        margin: 0px;
+    }
+    .green-text-mid2{
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+        width: 76%;
+        margin: auto;
+        padding-bottom:50px ;
+        text-align: center;
+        word-spacing: 5px;
+    }
+    .last-text {
+        flex-direction: column;
+    }     
+    .under-logo{
+        width: 0px;
+        height: 0px;
+    }
+    .last-text-of-us {
+        font-size: 18px;
+        width: 80%;
+    }
+    .last-text-of-us-little-font {
+        width: 0px;
+        height: 0px;
+        font-size: 0px;
+    }
+    .work-with-us a {
+    }
+    .work-with-us{
+        width: 100%;
+    }
+    .work-with-us2{
+        height: 0px;
+        width: 0px;
+    }
+    .work-with-us1{
+        height: 0px;
+        width: 0px;
+    }
+    .last-text-of-us2 {
+        width: 0px;
+        font-size: 0px;
+        height: 0px;
+    }
+    .logo-of-about {
+        width: 0px;
+        font-size: 0px;
+        height: 0px;
+    }
+    .inner-logo {
+        width: 0px;
+        font-size: 0px;
+        height: 0px;
+    }
+    .onlyphone{
+        width: 80%;
+      }
+  }
+

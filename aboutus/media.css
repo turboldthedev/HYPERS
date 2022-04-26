@@ -1,0 +1,46 @@
+@media screen and (max-width: 900px) {
+    img#teamBigFatPhoto, .abb {
+      width: 610px;
+    }
+    .abb{
+        padding-left: 0px;
+    }
+    .a{
+        max-width: 610px;
+    }
+    .b{
+        max-width: 610px;
+    }
+}
+@media screen and (max-width: 610px) {
+    img#teamBigFatPhoto, .abb {
+        width: 100%;
+    }
+    .aa{
+        text-align: center;
+    }
+}
+@media screen and (max-width: 450px) {
+    img#teamBigFatPhoto, .abb {
+        min-width: 200px;
+    }
+    /*was 36px Semibold */
+    .textOne{
+        font-weight: 600;
+        font-size: 30px;
+    }
+
+    /*was 26px Semibold */
+    .textTwo{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    /*was 20px Medium */
+    .textThree{
+        font-weight: 200;
+        font-size: 14px;
+        line-height: 30px;
+    }
+}
