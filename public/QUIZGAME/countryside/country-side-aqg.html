@@ -10,22 +10,22 @@
 <body>
     <div class="center">
         <!-- worst -->
-        <img class="responsive absolute invisible" src="worst.svg" alt="Nature">
+        <img draggable="false" class="responsive absolute invisible" src="worst.svg" alt="Nature">
         <!-- bad  -->
-        <img class="responsive absolute invisible" src="bad.svg" alt="Nature">
+        <img draggable="false" class="responsive absolute invisible" src="bad.svg" alt="Nature">
         <!-- normal -->
-        <img class="responsive absolute visible" src="normal.svg" alt="Nature">
+        <img draggable="false" class="responsive absolute visible" src="normal.svg" alt="Nature" id="photo3">
         <!-- good  -->
-        <img class="responsive absolute invisible" src="good.svg" alt="Nature">
+        <img draggable="false" class="responsive absolute invisible" src="good.svg" alt="Nature">
         <!-- best  -->
-        <img class="responsive absolute invisible" src="best.svg" alt="Nature">
+        <img draggable="false" class="responsive absolute invisible" src="best.svg" alt="Nature">
         <!-- question -->
-        <div class="comment-q absolute visible" id="question">
+        <div class="comment-q absolute" id="question">
             <div class="question">Далайн усыг бохирдуулж буй хамгийн том хүчин зүйл юу вэ?</div>
-            <img class="f-key" src="./topF.svg" id="next-clicker">
+            <img draggable="false" class="f-key" src="./topF.svg" id="next-clicker" onclick="nextclick()">
         </div>
         <!-- ask -->
-        <div class="comment absolute invisible">
+        <div class="comment" id="answer">
             <div class="name">thit-gat</div> 
             <div class="answer1 ">Ахуйн хог хаяагдал</div>
             <div class="answer2">Үйлдвэрийн хог хаяагдал</div>

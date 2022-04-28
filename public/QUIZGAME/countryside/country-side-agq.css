@@ -5,7 +5,7 @@ body{
     overflow: hidden;
 }
 .responsive{
-    width: 74%;
+    /* width: 100%; */
 }
 .center{
     display: flex;
@@ -33,6 +33,9 @@ body{
     display: none;
 }
 .comment{
+    display: none;
+    position: absolute;
+    flex-direction: column;
     background: rgba(0, 0, 0, 0.6);
     width: 856px;
     height: 155px;
