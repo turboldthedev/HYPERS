@@ -1,0 +1,219 @@
+.computer {
+    display: block;
+  }
+  .c1 {
+    animation-name: c1;
+    top: 0px;
+    left: 0px;
+  }
+  .c2 {
+    animation-name: c2;
+    top: 0px;
+    left: 0px;
+  }
+  .c3 {
+    animation-name: c3;
+    top: 0px;
+    left: 0px;
+  }
+  .c4 {
+    animation-name: c4;
+    top: 0px;
+    left: 0px;
+  }
+  .c5 {
+    animation-name: c5;
+    top: 0px;
+    left: 0px;
+  }
+  .c6 {
+    animation-name: c6;
+    bottom: 2%;
+    right: 14%;
+  }
+  .c7 {
+    animation-name: c7;
+    width: 10%;
+    bottom: -5px;
+    left: 33%;
+  }
+  .c8 {
+    animation-name: c8;
+    bottom: -5px;
+    left: 10%;
+  }
+  .c9 {
+    animation-name: c9;
+    top: 0px;
+    right: 0px;
+  }
+  .c10 {
+    animation-name: c10;
+    top: 0px;
+    right: -5px;
+  }
+  .c11 {
+    animation-name: c11;
+    bottom: -5px;
+    right: 0px;
+    height: 75%;
+    width: 85%;
+  }
+  .c12 {
+    animation-name: c12;
+    bottom: 0px;
+    left: 0px;
+  }
+  .c13 {
+    animation-name: c13;
+    width: 75%;
+    bottom: -5px;
+    left: 10%;
+  }
+ /* ANIMATION */
+  @keyframes c11 {
+    0% {
+      right: 0px;
+      bottom: 0px;
+    }
+    100% {
+      right: -300px;
+      bottom: -100px;
+    }
+  }
+  @keyframes c12 {
+    0% {
+      left: 0px;
+      bottom: 0px;
+    }
+    100% {
+      left: -100px;
+      bottom: -100px;
+    }
+  }
+  @keyframes c10 {
+    0% {
+      right: 0px;
+      top: 0px;
+    }
+    100% {
+      right: -300px;
+      top: -100px;
+    }
+  }
+  @keyframes c9 {
+    0% {
+      right: 0px;
+      top: 0px;
+    }
+    100% {
+      right: 0px;
+      top: -100px;
+    }
+  }
+  @keyframes c8 {
+    0% {
+      left: 10%;
+      bottom: 0px;
+    }
+    100% {
+      left: 10%;
+      bottom: -100px;
+    }
+  }
+  @keyframes c7 {
+    0% {
+      left: 33%;
+      bottom: 0px;
+    }
+    100% {
+      left: 35%;
+      bottom: -100px;
+    }
+  }
+  @keyframes c13 {
+    0% {
+      left: 10%;
+      bottom: 0px;
+    }
+    100% {
+      left: 15%;
+      bottom: -200px;
+    }
+  }
+  @keyframes c6 {
+    0% {
+      right: 14%;
+      bottom: 0px;
+    }
+    100% {
+      right: 14%;
+      bottom: -75px;
+    }
+  }
+  @keyframes c5 {
+    0% {
+      left: 0%;
+      top: 0px;
+    }
+    100% {
+      left: -100px;
+      top: -75px;
+    }
+  }
+  @keyframes c4 {
+    0% {
+      left: 0%;
+      top: 0px;
+    }
+    100% {
+      left: -150px;
+      top: -30px;
+    }
+  }
+  @keyframes c3 {
+    0% {
+      left: 0%;
+      top: 0px;
+    }
+    100% {
+      left: -150px;
+      top: -30px;
+    }
+  }
+  @keyframes c2 {
+    0% {
+      left: 0%;
+      top: 0px;
+    }
+    100% {
+      left: -150px;
+      top: -30px;
+    }
+  }
+  @keyframes c1 {
+    0% {
+      left: 0%;
+      top: 0px;
+    }
+    100% {
+      left: -150px;
+      top: -30px;
+    }
+  }
+  @media (max-width: 926px) {
+    .phone {
+      display: block;
+    }
+    .computer {
+      display: none;
+    }
+    .text {
+      width: 231px;
+      font-size: 18px;
+      z-index: 1;
+    }
+    .btn {
+      font-size: 18px;
+    }
+  }

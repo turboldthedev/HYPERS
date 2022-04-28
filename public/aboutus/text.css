@@ -1,0 +1,25 @@
+*{
+    font-family: 'Montserrat'; 
+    font-style: normal;
+}
+
+/* 36px Semibold */
+.textOne{
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 60px;
+}
+
+/* 26px Semibold */
+.textTwo{
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 44px;
+}
+
+/* 20px Medium */
+.textThree{
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 44px;
+}
