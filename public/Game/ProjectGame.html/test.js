@@ -76,8 +76,8 @@ class Garbage {
       this.y += this.velocity;
       console.log("this", this.x, this.y);
     } else {
-      this.y = this.drag.x + mouse.deltaY;
-      this.x = this.drag.y + mouse.deltaX;
+      this.y = this.drag.y + mouse.deltaY;
+      this.x = this.drag.x + mouse.deltaX;
     }
   }
   grag() {
