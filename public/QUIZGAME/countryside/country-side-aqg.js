@@ -33,7 +33,7 @@ function backgroundChange(){
   photo[pCurrent].classList.add("invisible");
 
   photo[pCheck].classList.add("visible");
-  photo[pCheck].classList.remove("invisible");
+  photo[pCheck].classList.remove("invisible");f
 }
 
 document.addEventListener("keydown", function (event) {
