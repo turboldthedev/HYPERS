@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="country-side-agq.css">
+</head>
+<body>
+    <div class="center">
+        <!-- worst -->
+        <img draggable="false" class="responsive absolute invisible" src="worst.svg" alt="Nature">
+        <!-- bad  -->
+        <img draggable="false" class="responsive absolute invisible" src="bad.svg" alt="Nature">
+        <!-- normal -->
+        <img draggable="false" class="responsive absolute visible" src="normal.svg" alt="Nature" id="photo3">
+        <!-- good  -->
+        <img draggable="false" class="responsive absolute invisible" src="good.svg" alt="Nature">
+        <!-- best  -->
+        <img draggable="false" class="responsive absolute invisible" src="best.svg" alt="Nature">
+        <!-- question -->
+        <div class="comment-q absolute" id="question">
+            <div class="question">Далайн усыг бохирдуулж буй хамгийн том хүчин зүйл юу вэ?</div>
+            <img draggable="false" class="f-key" src="./topF.svg" id="next-clicker" onclick="nextclick()">
+        </div>
+        <!-- ask -->
+        <div class="comment" id="answer">
+            <div class="name">thit-gat</div> 
+            <div class="answer1 ">Ахуйн хог хаяагдал</div>
+            <div class="answer2">Үйлдвэрийн хог хаяагдал</div>
+            <div class="answer3">Газрын тос</div>
+        </div>
+    </div>
+
+
+
+    <!-- java -->
+    <script src="./country-side-aqg.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script type="module">
+      const firebaseConfig = {
+        apiKey: "AIzaSyDhr-ZIYYFf4S7BLNuyiWgCGB6aiyync0E",
+        authDomain: "hypers-7429f.firebaseapp.com",
+        projectId: "hypers-7429f",
+        storageBucket: "hypers-7429f.appspot.com",
+        messagingSenderId: "555045421472",
+        appId: "1:555045421472:web:994c9d34069ecd0ae5e4c5",
+        measurementId: "G-21QDC8WG79",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      db.collection("questions").where("question","==","Шил болон лааз хуванцар зэрэг нь хэдий хэр хугацаанд задардаг талаар та хэр мэдлэгтэй вэ?").get().then((doc)=>{
+          doc.forEach((doc)=>{
+              console.log(doc.id);
+              console.log(doc.data().answers);
+          })
+      });
+    
+    </script>
+</body>
+</html>

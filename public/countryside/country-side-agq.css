@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #8B4444 0%, #E87777 100%);
+    overflow: hidden;
+}
+.responsive{
+    width: 74%;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.talk-by-boy{
+    background-color: black;
+    width: 33%;
+    height: 10%;
+    top: 0;
+}
+.visible{
+    opacity: 100%;
+
+}
+.invisible{
+    opacity: 0%;
+}
+.comment{
+    background: rgba(0, 0, 0, 0.6);
+    width: 856px;
+    height: 155px;
+    z-index: 100;
+    backdrop-filter: blur(5.60732px);
+    border-radius: 8.83907px 35.3563px;
+}
