@@ -3,13 +3,15 @@ let wih = window.innerHeight;
 
 // Canvas
 const canvas = document.querySelector("canvas");
+// canvas.style.backgroundImage = 'img/Background/gameWallpaper1.webp'
 
 // trash values
-let trashWidth
-let trashHeight
-let trashX
-let trashY
-let trashSpace
+let trashWidth;
+let trashHeight;
+let trashX;
+let trashY;
+let trashSpace;
+let garbageSize;
 
 // time value
 let timing = 1800;
@@ -19,49 +21,55 @@ let timeq = 20;
 //Types of garbages
 
 const garbageImg = [];
-garbageImg[0] = ["./img/Glass/bottle.png",
-"./img/Glass/bottle.png",
-"./img/Glass/brokenCodka.png",
-"./img/Glass/brokenGlass.png",
-"./img/Glass/codka.png",
-"./img/Glass/vineGlass.png"]
+garbageImg[0] = [
+  "./img/Glass/bottle.png",
+  "./img/Glass/bottle.png",
+  "./img/Glass/brokenCodka.png",
+  "./img/Glass/brokenGlass.png",
+  "./img/Glass/codka.png",
+  "./img/Glass/vineGlass.png",
+];
 
 garbageImg[1] = [
   "./img/Medical/medical1.png",
-"./img/Medical/medical2.png",
-"./img/Medical/medical3.png",
-"./img/Medical/medical4.png",
-"./img/Medical/medical5.png"
-]
+  "./img/Medical/medical2.png",
+  "./img/Medical/medical3.png",
+  "./img/Medical/medical4.png",
+  "./img/Medical/medical5.png",
+];
 
 garbageImg[2] = [
   "./img/Metal/bigCan.png",
-"./img/Metal/blueCan.png",
-"./img/Metal/can.png",
-]
+  "./img/Metal/blueCan.png",
+  "./img/Metal/can.png",
+];
 
 garbageImg[3] = [
   "./img/NonRecyclable/image 10206.png",
-"./img/NonRecyclable/lamp.png",
-"./img/NonRecyclable/poison.png",
-"./img/NonRecyclable/Subtract.png",
-]
+  "./img/NonRecyclable/lamp.png",
+  "./img/NonRecyclable/poison.png",
+  "./img/NonRecyclable/Subtract.png",
+];
 
 garbageImg[4] = [
   "./img/Organic/apple.png",
-"./img/Organic/bread.png",
-"./img/Organic/deadFish.png",
-"./img/Organic/egg.png",
-"./img/Organic/meat.png",
-]
+  "./img/Organic/bread.png",
+  "./img/Organic/deadFish.png",
+  "./img/Organic/egg.png",
+  "./img/Organic/meat.png",
+];
 
 garbageImg[5] = [
   "./img/paper/cardon.png",
-"./img/paper/eggBox.png",
-"./img/paper/newsPaper.png",
-"./img/paper/paperBag.png",
-"./img/paper/pizzaPack.png",
-]
+  "./img/paper/eggBox.png",
+  "./img/paper/newsPaper.png",
+  "./img/paper/paperBag.png",
+  "./img/paper/pizzaPack.png",
+];
+//Background Img Src
+const bImg = [];
+bImg[0] = ["./img/Background/gameWallpaper1.webp"];
+bImg[1] = ["./img/Background/GAMEWALLPAPER2.jpeg"];
 
 //Phone size
 if (screen.height >= 700 && screen.width >= 420) {
@@ -72,6 +80,7 @@ if (screen.height >= 700 && screen.width >= 420) {
   trashHeight = 100;
   trashWidth = 80;
   trashSpace = 120;
+  garbageSize = trashWidth * 0.6;
 } else if (screen.width < 420 || screen.height < 700) {
   if (screen.width < 420 && screen.height < 700) {
     canvas.width = screen.width;
@@ -79,16 +88,18 @@ if (screen.height >= 700 && screen.width >= 420) {
     trashHeight = canvas.height / 7;
     trashWidth = canvas.width / 5.25;
     trashSpace = canvas.width / 3.5;
-    trashX = (canvas.width / 2) - (trashSpace * 3.35);
+    trashX = canvas.width / 2 - trashSpace * 3.35;
     trashY = canvas.height / 1.2;
+    garbageSize = trashWidth * 0.6;
   } else if (screen.width < 420 && screen.height >= 700) {
     canvas.width = screen.width;
     canvas.height = 700;
     trashHeight = 100;
     trashWidth = canvas.width / 5.25;
     trashSpace = canvas.width / 3.5;
-    trashX = (canvas.width / 2) - (trashSpace * 3.35);
+    trashX = canvas.width / 2 - trashSpace * 3.35;
     trashY = 585;
+    garbageSize = trashWidth * 0.6;
   } else if (screen.width >= 420 && screen.height < 700) {
     canvas.width = 420;
     canvas.height = screen.height * 0.8;
@@ -97,6 +108,7 @@ if (screen.height >= 700 && screen.width >= 420) {
     trashSpace = canvas.width / 3.5;
     trashX = -190;
     trashY = canvas.height / 1.2;
+    garbageSize = trashWidth * 0.6;
   }
 }
 const c = canvas.getContext("2d");
@@ -111,10 +123,10 @@ let scoreCount = 100;
 
 //Pause Button
 const buttonEl = document.getElementById("button");
-const pauseEl = document.getElementById('pause');
+const pauseEl = document.getElementById("pause");
 
 //Defeat
-const defeatEl = document.getElementById('def')
+const defeatEl = document.getElementById("def");
 
 // States
 var pause = true;
@@ -126,7 +138,6 @@ let drag;
 let mbx, mby;
 let mpx, mpy;
 
-
 // Colors
 var colors = ["yellow", "brown", "green", "orange", "blue", "grey", "black"];
 
@@ -135,13 +146,23 @@ let widthcent = (wiw - canvas.width) / 2;
 let heicent = (wih - canvas.height) / 2;
 canvas.style.marginTop = heicent + "px";
 
-//
+// Gravity
 var gravity = 1;
-var grd = c.createLinearGradient(0, 0, canvas.width, canvas.height);
-c.fillStyle = "white";
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
+//Background class
+class Background {
+  constructor({ backgroundImg }) {
+    this.image = new Image();
+    this.image.src = backgroundImg;
+    this.width = canvas.width;
+    this.height = canvas.height;
+  }
+  draw() {
+    c.drawImage(this.image, 0, 0, this.width, this.height);
+  }
+}
 //TrashCans classes
 class Trash {
   constructor({ position, color, id }) {
@@ -149,13 +170,14 @@ class Trash {
     this.width = trashWidth;
     this.height = trashHeight;
     this.color = color;
+    // this.image = new Image()
+    // this.image.src = image
     this.id = id;
   }
   draw() {
     c.fillStyle = this.color;
     c.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
-
 }
 
 //Garbage classes
@@ -164,15 +186,14 @@ class Garbage {
     this.x = x;
     this.y = y;
     this.velocity = velocity;
-    this.width = 40;
-    this.height = 30;
-    this.image = new Image()
+    this.width = garbageSize;
+    this.height = garbageSize;
+    this.image = new Image();
     this.image.src = image;
     this.id = id;
   }
   draw() {
-    // c.fillStyle = this.color;
-    c.drawImage(this.image,this.x, this.y, this.width, this.height);
+    c.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
   update() {
     this.draw();
@@ -203,6 +224,11 @@ for (let i = 0; i < 7; i++) {
   );
 }
 
+//Background Image by Class
+const backgroundImg = new Background({
+  backgroundImg: bImg[Math.floor(Math.random() * bImg.length)],
+});
+
 var cal = canvas.width - 45;
 let garbages = [];
 let garbage;
@@ -229,39 +255,28 @@ document.addEventListener("keydown", function (e) {
   if (e.key == "D" || e.key == "d" || e.key == "ArrowRight") {
     keyMoveL();
   }
-  if (e.key == ' ') {
-    paused();
+  if (e.key == " ") {
+    if (pause) {
+      paused();
+    } else {
+      resumed();
+    }
   }
 });
 
-// const interval = setInterval(function () {
-//   if (pause) {
-//     const x = Math.floor(Math.random() * cal);
-//     const y = -80;
-//     const color = colors[Math.floor(Math.random() * colors.length)];
-//     const velocity = {
-//       x: 0,
-//       y: 1,
-//     };
-//     const id = colors.indexOf(color);
-//     garbage = new Garbage({ x, y, velocity, color, id });
-//     garbages.push(garbage);
-//     timer++;
-
-//   }
-// }, timing);
 const interval = setInterval(function () {
   if (pause) {
     const x = Math.floor(Math.random() * cal);
     const y = -80;
-    
+
     const velocity = {
       x: 0,
       y: 1,
     };
     const id = Math.floor(Math.random() * garbageImg.length);
-    const image = garbageImg[id][Math.floor(Math.random() * garbageImg[id].length)]
-    garbage = new Garbage({ x, y, velocity,image,id });
+    const image =
+      garbageImg[id][Math.floor(Math.random() * garbageImg[id].length)];
+    garbage = new Garbage({ x, y, velocity, image, id });
     garbages.push(garbage);
     timer++;
     console.log(id);
@@ -341,10 +356,12 @@ function drawer() {
   trashes.forEach((trash) => {
     trash.draw();
   });
-  canvas.style.backgroundColor = "white";
+}
+function bgdraw() {
+  backgroundImg.draw();
 }
 let garbageNull;
-
+console.log(backgroundImg);
 // Main Animate Function
 
 function animate() {
@@ -353,9 +370,11 @@ function animate() {
   if (pause) {
     detect();
     c.clearRect(0, 0, canvas.width, canvas.height);
+    bgdraw();
     garbages.forEach((garbage) => {
       garbage.update();
     });
+    drawer();
     score.innerText = scoreCount;
     scoreMine();
     if (timer > timeq) {
@@ -363,7 +382,6 @@ function animate() {
       timeq += 20;
     }
   }
-  drawer();
 }
 
 animate();
@@ -371,83 +389,87 @@ animate();
 // Pause button clicked
 
 function paused() {
-  pause = false;
-  pauseEl.style.display = 'flex';
+  if (pause) {
+    pause = false;
+    pauseEl.style.display = "flex";
+  }
 }
 
 function resumed() {
-  pause = true;
-  pauseEl.style.display = 'none';
-  defeatEl.style.display = 'none'
+  if (!pause) {
+    pause = true;
+    pauseEl.style.display = "none";
+    defeatEl.style.display = "none";
+  }
 }
 
-window.addEventListener("focus", () => {  
-  resumed()
+window.addEventListener("focus", () => {
+  resumed();
 });
 
 window.addEventListener("blur", () => {
-  paused()
+  paused();
 });
 
-
-// function decreaseTimer() {
-//   if (timer < 10000) {
-//     timerId = setTimeout(decreaseTimer, 100);
-//     timer++;
-//     document.getElementById("timer").innerHTML = timer;
-//   }
-// }
-
 function keyMoveL() {
-  const interval = setInterval(() => {
-    if (tlmove < 12) {
-      trashes.forEach((trash) => {
-        trash.position.x += trashSpace / 12;
-      });
-      tlmove++;
-      if ((trashes[0].position.x).toFixed(2) == (trashX + trashSpace).toFixed(2)) {
-        trashes.splice(0, 0, trashes[6]);
-        trashes.splice(7, 1);
-        trashes[0].position.x -= trashSpace * 7;
+  if (pause) {
+    const interval = setInterval(() => {
+      if (tlmove < 12) {
+        trashes.forEach((trash) => {
+          trash.position.x += trashSpace / 12;
+        });
+        tlmove++;
+        if (
+          trashes[0].position.x.toFixed(2) == (trashX + trashSpace).toFixed(2)
+        ) {
+          trashes.splice(0, 0, trashes[6]);
+          trashes.splice(7, 1);
+          trashes[0].position.x -= trashSpace * 7;
+        }
       }
-    }
-  }, 30);
+    }, 30);
 
-  if (tlmove >= 12) {
-    tlmove = 0;
-    clearInterval(interval);
+    if (tlmove >= 12) {
+      tlmove = 0;
+      clearInterval(interval);
+    }
   }
 }
 
 function keyMoveR() {
-  const interval = setInterval(() => {
-    if (trmove < 12) {
-      trashes.forEach((trash) => {
-        trash.position.x -= trashSpace / 12;
-      });
-      trmove++;
-      if ((trashes[6].position.x).toFixed(2) == (trashX + (trashSpace * 5)).toFixed(2)) {
-        trashes.splice(7, 0, trashes[0]);
-        trashes.splice(0, 1);
-        trashes[6].position.x += trashSpace * 7;
+  if (pause) {
+    const interval = setInterval(() => {
+      if (trmove < 12) {
+        trashes.forEach((trash) => {
+          trash.position.x -= trashSpace / 12;
+        });
+        trmove++;
+        if (
+          trashes[6].position.x.toFixed(2) ==
+          (trashX + trashSpace * 5).toFixed(2)
+        ) {
+          trashes.splice(7, 0, trashes[0]);
+          trashes.splice(0, 1);
+          trashes[6].position.x += trashSpace * 7;
+        }
       }
+    }, 30);
+    if (trmove >= 12) {
+      trmove = 0;
+      clearInterval(interval);
     }
-  }, 30);
-  if (trmove >= 12) {
-    trmove = 0;
-    clearInterval(interval);
   }
-
 }
 
 function defeated() {
   pause = false;
-  defeatEl.style.display = 'flex';
+  defeatEl.style.display = "flex";
 }
 
+// Detect Trash
 function detect() {
   garbages.forEach((garbage, index) => {
-    for (let i=0; i<7; i++) {
+    for (let i = 0; i < 7; i++) {
       if (
         garbage.y > trashY &&
         garbage.y < trashY + trashHeight &&
@@ -473,20 +495,24 @@ function detect() {
     }
   });
 }
-
+let oneDetect = true;
 function scoreMine() {
-  garbages.forEach((garbage) => {
-    if (garbage.y == canvas.height) {
+  garbages.forEach((garbage, index) => {
+    if (garbage.y >= canvas.height) {
+      if (garbages[index] == garbages[idx]) {
+        drag = false;
+      }
       garbage.detectr();
       scoreCount -= 25;
+      console.log("detect");
     }
-
   });
-  if(scoreCount <= 0) {
+  if (scoreCount <= 0) {
     defeated();
   }
 }
 
+//Resize the Arrow & PauseButton according windows size
 function reportSize() {
   wiw = innerWidth;
   widthcent = (wiw - canvas.width) / 2;
@@ -499,10 +525,14 @@ function reportSize() {
   buttonEl.style.top = heicent + 10 + "px";
 }
 
+//Reset the Game
 function reset() {
   scoreCount = 100;
   pause = false;
   garbages.splice(0, garbages.length);
+  timer = 0;
+  timeq = 20;
+  gravity = 1;
   for (let i = 0; i < 7; i++) {
     trashes.push(
       new Trash({
@@ -516,4 +546,4 @@ function reset() {
     );
   }
   resumed();
-} 
+}
