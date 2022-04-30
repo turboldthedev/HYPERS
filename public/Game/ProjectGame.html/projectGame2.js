@@ -14,7 +14,7 @@ let trashSpace;
 let garbageSize;
 
 // time value
-let timing = 1800;
+let timing = 3700;
 let timer = 0;
 let timeq = 20;
 
@@ -22,8 +22,7 @@ let timeq = 20;
 
 const garbageImg = [];
 garbageImg[0] = [
-  "./img/Glass/bottle.png",
-  "./img/Glass/bottle.png",
+  "./img/Glass/greenGlass.png",
   "./img/Glass/brokenCodka.png",
   "./img/Glass/brokenGlass.png",
   "./img/Glass/codka.png",
@@ -33,7 +32,6 @@ garbageImg[0] = [
 garbageImg[1] = [
   "./img/Medical/medical1.png",
   "./img/Medical/medical2.png",
-  "./img/Medical/medical3.png",
   "./img/Medical/medical4.png",
   "./img/Medical/medical5.png",
 ];
@@ -44,14 +42,14 @@ garbageImg[2] = [
   "./img/Metal/can.png",
 ];
 
-garbageImg[3] = [
+garbageImg[6] = [
   "./img/NonRecyclable/image 10206.png",
   "./img/NonRecyclable/lamp.png",
   "./img/NonRecyclable/poison.png",
-  "./img/NonRecyclable/Subtract.png",
+  "./img/NonRecyclable/boiler.png",
 ];
 
-garbageImg[4] = [
+garbageImg[5] = [
   "./img/Organic/apple.png",
   "./img/Organic/bread.png",
   "./img/Organic/deadFish.png",
@@ -59,12 +57,19 @@ garbageImg[4] = [
   "./img/Organic/meat.png",
 ];
 
-garbageImg[5] = [
+garbageImg[4] = [
   "./img/paper/cardon.png",
   "./img/paper/eggBox.png",
   "./img/paper/newsPaper.png",
   "./img/paper/paperBag.png",
   "./img/paper/pizzaPack.png",
+];
+
+garbageImg[3] = [
+  "./img/Plastic/plastic1.png",
+  "./img/Plastic/plastic2.png",
+  "./img/Plastic/plastic3.png",
+  "./img/Plastic/plastic4.png",
 ];
 //Background Img Src
 const bImg = [];
@@ -138,8 +143,16 @@ let drag;
 let mbx, mby;
 let mpx, mpy;
 
-// Colors
-var colors = ["yellow", "brown", "green", "orange", "blue", "grey", "black"];
+// Trashcan types
+const tImage = [
+  "./img/TrashCan/trash1.png",
+  "./img/TrashCan/trash2.png",
+  "./img/TrashCan/trash3.png",
+  "./img/TrashCan/trash4.png",
+  "./img/TrashCan/trash5.png",
+  "./img/TrashCan/trash6.png",
+  "./img/TrashCan/trash7.png",
+];
 
 // Center
 let widthcent = (wiw - canvas.width) / 2;
@@ -147,7 +160,7 @@ let heicent = (wih - canvas.height) / 2;
 canvas.style.marginTop = heicent + "px";
 
 // Gravity
-var gravity = 1;
+var gravity = 0.5;
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -163,20 +176,26 @@ class Background {
     c.drawImage(this.image, 0, 0, this.width, this.height);
   }
 }
-//TrashCans classes
+
+//TrashCan classes
 class Trash {
-  constructor({ position, color, id }) {
+  constructor({ position, image, id }) {
     this.position = position;
     this.width = trashWidth;
     this.height = trashHeight;
-    this.color = color;
-    // this.image = new Image()
-    // this.image.src = image
+    this.image = new Image();
+    this.image.src = image;
     this.id = id;
   }
+
   draw() {
-    c.fillStyle = this.color;
-    c.fillRect(this.position.x, this.position.y, this.width, this.height);
+    c.drawImage(
+      this.image,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
   }
 }
 
@@ -218,11 +237,12 @@ for (let i = 0; i < 7; i++) {
         x: trashX + i * trashSpace,
         y: trashY,
       },
-      color: colors[i],
+      image: tImage[i],
       id: i,
     })
   );
 }
+console.log(trashes, "asdajhflksdhjkfhasdkflhjdshfkl");
 
 //Background Image by Class
 const backgroundImg = new Background({
@@ -360,8 +380,6 @@ function drawer() {
 function bgdraw() {
   backgroundImg.draw();
 }
-let garbageNull;
-console.log(backgroundImg);
 // Main Animate Function
 
 function animate() {
@@ -370,6 +388,7 @@ function animate() {
   if (pause) {
     detect();
     c.clearRect(0, 0, canvas.width, canvas.height);
+
     bgdraw();
     garbages.forEach((garbage) => {
       garbage.update();
@@ -509,6 +528,7 @@ function scoreMine() {
   });
   if (scoreCount <= 0) {
     defeated();
+    scoreCount = 0;
   }
 }
 
@@ -532,7 +552,8 @@ function reset() {
   garbages.splice(0, garbages.length);
   timer = 0;
   timeq = 20;
-  gravity = 1;
+  gravity = 0.5;
+  trashes = [];
   for (let i = 0; i < 7; i++) {
     trashes.push(
       new Trash({
@@ -540,7 +561,7 @@ function reset() {
           x: trashX + i * trashSpace,
           y: trashY,
         },
-        color: colors[i],
+        image: tImage[i],
         id: i,
       })
     );
