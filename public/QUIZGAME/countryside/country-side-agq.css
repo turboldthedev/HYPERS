@@ -1,11 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(90deg, #8B4444 0%, #E87777 100%);
+    background-color: white;
     overflow: hidden;
-}
-.responsive{
-    /* width: 100%; */
 }
 .center{
     display: flex;
@@ -19,33 +16,18 @@ body{
 .absolute{
     position: absolute;
 }
-.talk-by-boy{
-    background-color: black;
-    width: 33%;
-    height: 10%;
-    top: 0;
-}
 .visible{
-    opacity: 100%;
-
+    display: flex;
 }
 .invisible{
     display: none;
 }
-.comment{
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.6);
-    width: 856px;
-    height: 155px;
-    z-index: 100;
-    backdrop-filter: blur(5.60732px);
-    border-radius: 8.83907px 35.3563px;
+.bigphoto{
+    width: 75%;
 }
+
 .comment-q{
     z-index: 100;
-    display: flex;
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -57,6 +39,18 @@ body{
     border-radius: 8.83907px 35.3563px;
     bottom: 0;
 }
+.comment{
+    position: absolute;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.6);
+    width: 856px;
+    height: 155px;
+    z-index: 100;
+    backdrop-filter: blur(5.60732px);
+    border-radius: 8.83907px 35.3563px;
+    bottom: 0;
+    justify-content: center;
+}
 .question{
     z-index: 100;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -67,5 +61,25 @@ body{
     align-items: center;
 }
 .f-key{
-    width: 13%;
+    width: 50px;
+}
+.name{
+    font-size: 26px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+.answer{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    gap: 20px;
+}
+.answer img{
+    width: 25px;
 }
