@@ -20,28 +20,42 @@
   <div id="button" onclick="paused()">
     <img draggable="false" src="img/button.webp" />
   </div>
+  <div id="backButton" onclick="backToPause()" >
+    <img draggable="false" src="img/backButton.png" />
+  </div>
 
       <canvas id="canva"></canvas>
+      
       <div class="pause" id="pause">
-        <div class="pauseInner">Pause</div>
-        <div class="tutorial" onclick="resumed()">Resume</div>
-        <div class="tutorial" onclick="reset()">Reset</div>
-        <div class="tutorial">Tutorial</div>
-        <div class="tutorial">Menu</div>
+        <div class="pauseInner">Түр Зогсоох</div>
+        <div class="tutorial" onclick="resumed()">Үргэлжлүүлэх</div>
+        <div class="tutorial" onclick="reset()">Дахин Эхлэх</div>
+        <div class="tutorial" onclick="tutorial()">Заавар</div>
+        <div class="tutorial">Үндсэн Цэс</div>
       </div>
+
+      <div class="menu" id="menu">
+        <div class="pauseInner">Хог Ангилагч</div>
+        <div class="tutorial" >Тоглох</div>
+        <div class="tutorial" >Заавар</div>
+        <div class="tutorial" >Гарах</div>
+     
+      </div>
+      
       <div id="arrowR" class="vector">
         <img draggable="false" src="./img/icon.png" />
       </div>
       <div id="arrowL" class="vector left">
         <img draggable="false" src="./img/icon.png" />
       </div>
+      <div class="tutorialImg" id="tutorial">
+        <img draggable="false" src="./img/tutImg.png" class="tImg">
+      </div>
     </div>
 <div class="timerCont">
   <div class="timer" id="timer"></div>
 </div>
 </body>
-
-   
 
 <script src="projectGame2.js"></script>
 

@@ -18,6 +18,9 @@ let timing = 3700;
 let timer = 0;
 let timeq = 20;
 
+//tutorial
+const tutorialEl = document.getElementById("tutorial");
+
 //Types of garbages
 
 const garbageImg = [];
@@ -75,11 +78,15 @@ garbageImg[3] = [
 const bImg = [];
 bImg[0] = ["./img/Background/gameWallpaper1.webp"];
 bImg[1] = ["./img/Background/GAMEWALLPAPER2.jpeg"];
+bImg[2] = ["./img/Background/ulaanbaatar.jpeg"];
 
 //Phone size
 if (screen.height >= 700 && screen.width >= 420) {
   canvas.width = 420;
   canvas.height = 700;
+  tutorialEl.style.width = 420 + "px";
+  tutorialEl.style.height = 700 + "px";
+  // tutorial.style.marginTop = 14.8 + '%';
   trashX = -190;
   trashY = 585;
   trashHeight = 100;
@@ -90,6 +97,9 @@ if (screen.height >= 700 && screen.width >= 420) {
   if (screen.width < 420 && screen.height < 700) {
     canvas.width = screen.width;
     canvas.height = screen.height * 0.8;
+    tutorialEl.style.width = screen.width + "px";
+    tutorialEl.style.height = screen.height * 0.8 + "px";
+    // tutorial.style.marginTop = 18 + '%';
     trashHeight = canvas.height / 7;
     trashWidth = canvas.width / 5.25;
     trashSpace = canvas.width / 3.5;
@@ -99,6 +109,9 @@ if (screen.height >= 700 && screen.width >= 420) {
   } else if (screen.width < 420 && screen.height >= 700) {
     canvas.width = screen.width;
     canvas.height = 700;
+    tutorialEl.style.width = screen.width + "px";
+    tutorialEl.style.height = 700 + "px";
+    // tutorial.style.marginTop =  + 'px';
     trashHeight = 100;
     trashWidth = canvas.width / 5.25;
     trashSpace = canvas.width / 3.5;
@@ -108,6 +121,9 @@ if (screen.height >= 700 && screen.width >= 420) {
   } else if (screen.width >= 420 && screen.height < 700) {
     canvas.width = 420;
     canvas.height = screen.height * 0.8;
+    tutorialEl.style.width = 420 + "px";
+    tutorialEl.style.height = screen.height * 0.8 + "px";
+    // tutorial.style.marginTop = 14.8 + '%';
     trashHeight = canvas.height / 7;
     trashWidth = 80;
     trashSpace = canvas.width / 3.5;
@@ -116,6 +132,7 @@ if (screen.height >= 700 && screen.width >= 420) {
     garbageSize = trashWidth * 0.6;
   }
 }
+
 const c = canvas.getContext("2d");
 
 // Arrows
@@ -129,6 +146,9 @@ let scoreCount = 100;
 //Pause Button
 const buttonEl = document.getElementById("button");
 const pauseEl = document.getElementById("pause");
+
+//Back Button
+const backButtonEl = document.getElementById("backButton");
 
 //Defeat
 const defeatEl = document.getElementById("def");
@@ -145,20 +165,20 @@ let mpx, mpy;
 
 // Trashcan types
 const tImage = [
-  "./img/TrashCan/trash1.png",
-  "./img/TrashCan/trash2.png",
-  "./img/TrashCan/trash3.png",
-  "./img/TrashCan/trash4.png",
-  "./img/TrashCan/trash5.png",
-  "./img/TrashCan/trash6.png",
-  "./img/TrashCan/trash7.png",
+  "./img/TrashCan/trsh1.png",
+  "./img/TrashCan/trsh2.png",
+  "./img/TrashCan/trsh3.png",
+  "./img/TrashCan/trsh4.png",
+  "./img/TrashCan/trsh5.png",
+  "./img/TrashCan/trsh6.png",
+  "./img/TrashCan/trsh7.png",
 ];
 
 // Center
 let widthcent = (wiw - canvas.width) / 2;
 let heicent = (wih - canvas.height) / 2;
 canvas.style.marginTop = heicent + "px";
-
+tutorialEl.style.marginTop = heicent + "px";
 // Gravity
 var gravity = 0.5;
 
@@ -264,6 +284,9 @@ arrowL.style.top = heicent + canvas.height - 82 + "px";
 
 buttonEl.style.left = widthcent + 10 + "px";
 buttonEl.style.top = heicent + 10 + "px";
+
+backButtonEl.style.left = widthcent + 10 + "px";
+backButtonEl.style.top = heicent + 10 + "px";
 
 arrowL.addEventListener("click", keyMoveL);
 arrowR.addEventListener("click", keyMoveR);
@@ -422,6 +445,25 @@ function resumed() {
   }
 }
 
+function tutorial() {
+  if (!pause) {
+    pause = false
+    pauseEl.style.display = "none";
+    buttonEl.style.display = "none"
+    tutorialEl.style.display = "flex"
+    backButtonEl.style.display = 'flex'
+  }
+}
+
+function backToPause() {
+  if (!pause) {
+    pause = false
+    pauseEl.style.display = "flex";
+    buttonEl.style.display = "flex"
+    tutorialEl.style.display = "none"
+    backButtonEl.style.display = 'none'
+  }
+}
 window.addEventListener("focus", () => {
   resumed();
 });
@@ -543,6 +585,8 @@ function reportSize() {
   arrowL.style.top = heicent + canvas.height - 82 + "px";
   buttonEl.style.left = widthcent + 10 + "px";
   buttonEl.style.top = heicent + 10 + "px";
+  backButtonEl.style.left = widthcent + 10 + "px";
+  backButtonEl.style.top = heicent + 10 + "px";
 }
 
 //Reset the Game
