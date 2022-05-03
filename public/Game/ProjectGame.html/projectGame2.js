@@ -165,7 +165,7 @@ class Garbage {
     this.y = y;
     this.velocity = velocity;
     this.width = 40;
-    this.height = 30;
+    this.height = 40;
     this.image = new Image()
     this.image.src = image;
     this.id = id;
