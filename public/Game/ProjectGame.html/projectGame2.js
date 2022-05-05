@@ -1,5 +1,5 @@
-let wiw = window.innerWidth;
 let wih = window.innerHeight;
+let wiw = window.innerWidth;
 
 // Canvas
 const canvas = document.querySelector("canvas");
@@ -22,21 +22,21 @@ let timeq = 20;
 const tutorialEl = document.getElementById("tutorial");
 
 //Types of garbages
-
 const garbageImg = [];
+
 garbageImg[0] = [
+  "./img/Medical/medical1.png",
+  "./img/Medical/medical2.png",
+  "./img/Medical/medical4.png",
+  "./img/Medical/medical5.png",
+];
+
+garbageImg[1] = [
   "./img/Glass/greenGlass.png",
   "./img/Glass/brokenCodka.png",
   "./img/Glass/brokenGlass.png",
   "./img/Glass/codka.png",
   "./img/Glass/vineGlass.png",
-];
-
-garbageImg[1] = [
-  "./img/Medical/medical1.png",
-  "./img/Medical/medical2.png",
-  "./img/Medical/medical4.png",
-  "./img/Medical/medical5.png",
 ];
 
 garbageImg[2] = [
@@ -136,8 +136,8 @@ if (screen.height >= 700 && screen.width >= 420) {
 const c = canvas.getContext("2d");
 
 // Arrows
-let arrowR = document.getElementById("arrowR");
-let arrowL = document.getElementById("arrowL");
+const arrowR = document.getElementById("arrowR");
+const arrowL = document.getElementById("arrowL");
 
 // Score
 let score = document.getElementById("timer");
@@ -146,7 +146,8 @@ let scoreCount = 100;
 //Pause Button
 const buttonEl = document.getElementById("button");
 const pauseEl = document.getElementById("pause");
-
+const menuEl = document.getElementById("menu");
+const gameNameEl = document.getElementById("gameName");
 //Back Button
 const backButtonEl = document.getElementById("backButton");
 
@@ -155,6 +156,7 @@ const defeatEl = document.getElementById("def");
 
 // States
 var pause = true;
+var game = true;
 
 // Drag
 var mouseX;
@@ -262,7 +264,6 @@ for (let i = 0; i < 7; i++) {
     })
   );
 }
-console.log(trashes, "asdajhflksdhjkfhasdkflhjdshfkl");
 
 //Background Image by Class
 const backgroundImg = new Background({
@@ -298,10 +299,10 @@ document.addEventListener("keydown", function (e) {
   if (e.key == "D" || e.key == "d" || e.key == "ArrowRight") {
     keyMoveL();
   }
-  if (e.key == " ") {
-    if (pause) {
+  if (e.key == "Escape") {
+    if (pause && !game) {
       paused();
-    } else {
+    } else if (!game) {
       resumed();
     }
   }
@@ -433,6 +434,7 @@ animate();
 function paused() {
   if (pause) {
     pause = false;
+    game = false;
     pauseEl.style.display = "flex";
   }
 }
@@ -440,36 +442,97 @@ function paused() {
 function resumed() {
   if (!pause) {
     pause = true;
+    game = false;
+    menuEl.style.display = "none";
     pauseEl.style.display = "none";
     defeatEl.style.display = "none";
+    score.style.display = "flex";
+    arrowL.style.display = "flex";
+    arrowR.style.display = "flex";
+    buttonEl.style.display = "flex";
+    canvas.style.opacity = "100%";
   }
 }
 
 function tutorial() {
-  if (!pause) {
-    pause = false
+  if (!pause && !game) {
+    pause = false;
     pauseEl.style.display = "none";
-    buttonEl.style.display = "none"
-    tutorialEl.style.display = "flex"
-    backButtonEl.style.display = 'flex'
+    buttonEl.style.display = "none";
+    tutorialEl.style.display = "flex";
+    backButtonEl.style.display = "flex";
   }
+  if (!pause && game) {
+    game = true;
+    menuEl.style.display = "none";
+    buttonEl.style.display = "none";
+    tutorialEl.style.display = "flex";
+    backButtonEl.style.display = "flex";
+  }
+}
+
+function menu() {
+  if (game) {
+    pause = false;
+    game = true;
+    pauseEl.style.display = "none";
+    defeatEl.style.display = "none";
+    menuEl.style.display = "flex";
+    score.style.display = "none";
+    arrowL.style.display = "none";
+    arrowR.style.display = "none";
+    buttonEl.style.display = "none";
+  }
+}
+
+function menu2() {
+  pause = false;
+  game = true;
+  pauseEl.style.display = "none";
+  defeatEl.style.display = "none";
+  menuEl.style.display = "flex";
+  arrowL.style.display = "none";
+  arrowR.style.display = "none";
+  buttonEl.style.display = "none";
+  score.style.display = "none";
+  canvas.style.opacity = "0%";
+  reset();
 }
 
 function backToPause() {
-  if (!pause) {
-    pause = false
+  if (!pause && !game) {
+    pause = false;
+    game = false;
+    menuEl.style.display = "none";
     pauseEl.style.display = "flex";
-    buttonEl.style.display = "flex"
-    tutorialEl.style.display = "none"
-    backButtonEl.style.display = 'none'
+    buttonEl.style.display = "flex";
+    tutorialEl.style.display = "none";
+    backButtonEl.style.display = "none";
+  }
+  if (!pause && game) {
+    pause = false;
+    game = true;
+    pauseEl.style.display = "none";
+    menuEl.style.display = "flex";
+    buttonEl.style.display = "flex";
+    tutorialEl.style.display = "none";
+    backButtonEl.style.display = "none";
   }
 }
 window.addEventListener("focus", () => {
-  resumed();
+  if (game) {
+    menu2();
+  } else {
+    resumed();
+  }
 });
 
 window.addEventListener("blur", () => {
-  paused();
+  if (game) {
+    menu2();
+  } else {
+    paused();
+  }
 });
 
 function keyMoveL() {
@@ -556,7 +619,7 @@ function detect() {
     }
   });
 }
-let oneDetect = true;
+
 function scoreMine() {
   garbages.forEach((garbage, index) => {
     if (garbage.y >= canvas.height) {
@@ -610,5 +673,8 @@ function reset() {
       })
     );
   }
-  resumed();
+  if (!game) {
+    resumed();
+  }
 }
+menu();

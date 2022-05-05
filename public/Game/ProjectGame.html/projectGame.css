@@ -1,5 +1,5 @@
 * {
-  user-select: none;  
+  user-select: none;
 }
 body {
   margin: 0;
@@ -33,7 +33,6 @@ body {
 img {
   width: 40px;
   height: 40px;
-
 }
 .right {
   transform: rotate(-45deg);
@@ -51,32 +50,63 @@ img {
 .timer {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  
+  font-size: 30px;
 }
 .scoreCont {
   display: flex;
 }
- img:focus {
+img:focus {
   outline: none;
 }
 .menu {
   position: absolute;
-  display: flex;
+  display: none;
   /* top: 0px; */
   /* left: 0px; */
-  width: 200px;
-  height: 130px;
+  /* width: 200px;
+  height: 130px; */
   padding: 20px;
   /* background-color: black; */
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,25,25,1) 100%, rgba(7,6,33,1) 100%, rgba(0,0,0,1) 100%);
   align-items: center;
   flex-direction: column;
   border-radius: 30px;
   opacity: 90%;
-
 }
+
+.otherSize {
+  height: 30vh;
+  width: 40vh;
+}
+.menuSize {
+  height: 130px;
+  width: 200px;
+}
+.blackBG {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(24, 25, 25, 1) 100%,
+    rgba(7, 6, 33, 1) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.greenBG {
+  background: linear-gradient(
+    90deg,
+    rgba(191, 255, 0, 1) 0%,
+    rgba(0, 255, 224, 1) 100%
+  );
+}
+.white {
+  color: white;
+}
+.basiColor {
+  color: rgb(206, 206, 206);
+}
+.otherColor {
+  color: rgb(52, 84, 110);
+}
+
 .pause {
   position: absolute;
   display: none;
@@ -86,35 +116,51 @@ img {
   height: 170px;
   padding: 20px;
   /* background-color: black; */
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,25,25,1) 100%, rgba(7,6,33,1) 100%, rgba(0,0,0,1) 100%);
   align-items: center;
   flex-direction: column;
   border-radius: 30px;
   opacity: 90%;
-
 }
 .pauseInner {
-  color: white;
-  font-size: 23px;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
 }
 
-
 .tutorial {
   margin-top: 13px;
-  color: rgb(206, 206, 206);
-  font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  transition: 30ms ;
+  transition: 30ms;
 }
 
-.tutorial:hover {
+.innerStuffs {
+  font-size: 23px;
+}
+
+.menunner {
+  color: rgb(65, 90, 110);
+  font-size: 5vh;
+  margin-bottom: 2vh;
+}
+
+.stuffs {
+  font-size: 15px;
+}
+
+.menuStuff {
+  font-size: 3vh;
+}
+
+.stuffs:hover {
   font-size: 18px;
   color: white;
 }
+
+.menuStuff:hover {
+  font-size: 3.5vh;
+  color: white;
+}
+
 #button {
   position: absolute;
   width: 30px;
@@ -148,8 +194,6 @@ img {
   width: 200px;
   height: 85px;
   padding: 20px;
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,25,25,1) 100%, rgba(7,6,33,1) 100%, rgba(0,0,0,1) 100%);
   align-items: center;
   flex-direction: column;
   border-radius: 30px;
@@ -169,6 +213,6 @@ img {
 }
 
 .tutorialImg {
--ms-overflow-style: none; 
-scrollbar-width: none;  
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
