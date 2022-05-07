@@ -76,6 +76,8 @@ if (screen.height >= 700 && screen.width >= 420) {
 }
 
 const c = canvas.getContext("2d");
+c.imageSmoothingEnabled = true
+c.imageSmoothingQuality = 'high';
 
 // Arrows
 const arrowR = document.getElementById("arrowR");
@@ -116,8 +118,6 @@ const tImage = [
     "./img/TrashcaNew/metals.png",
     "./img/TrashcaNew/e-waste.png"
 ];
-
-// "./img/TrashCan/trsh1.png",
 
 // Center
 let widthcent = (wiw - canvas.width) / 2;
@@ -367,6 +367,8 @@ function resumed() {
         arrowR.style.display = "flex";
         buttonEl.style.display = "flex";
         canvas.style.opacity = "100%";
+        tutorialEl.style.display = 'none';
+        backButtonEl.style.display = "none";
     }
 }
 
