@@ -1,5 +1,5 @@
-let wiw = window.innerWidth;
 let wih = window.innerHeight;
+let wiw = window.innerWidth;
 
 // Canvas
 const canvas = document.querySelector("canvas");
@@ -20,60 +20,60 @@ let timeq = 20;
 //tutorial
 const tutorialEl = document.getElementById("tutorial");
 
-//Types of garbages
+// //Types of garbages
+// const garbageImg = [];
 
-const garbageImg = [];
-garbageImg[0] = [
-  "./img/Glass/greenGlass.png",
-  "./img/Glass/brokenCodka.png",
-  "./img/Glass/brokenGlass.png",
-  "./img/Glass/codka.png",
-  "./img/Glass/vineGlass.png",
-];
+// garbageImg[0] = [
+//   "./img/Medical/medical1.png",
+//   "./img/Medical/medical2.png",
+//   "./img/Medical/medical4.png",
+//   "./img/Medical/medical5.png",
+// ];
 
-garbageImg[1] = [
-  "./img/Medical/medical1.png",
-  "./img/Medical/medical2.png",
-  "./img/Medical/medical4.png",
-  "./img/Medical/medical5.png",
-];
+// garbageImg[1] = [
+//   "./img/Glass/greenGlass.png",
+//   "./img/Glass/brokenCodka.png",
+//   "./img/Glass/brokenGlass.png",
+//   "./img/Glass/codka.png",
+//   "./img/Glass/vineGlass.png",
+// ];
 
-garbageImg[2] = [
-  "./img/Metal/bigCan.png",
-  "./img/Metal/blueCan.png",
-  "./img/Metal/can.png",
-];
+// garbageImg[2] = [
+//   "./img/Metal/bigCan.png",
+//   "./img/Metal/blueCan.png",
+//   "./img/Metal/can.png",
+// ];
 
-garbageImg[6] = [
-  "./img/NonRecyclable/image 10206.png",
-  "./img/NonRecyclable/lamp.png",
-  "./img/NonRecyclable/poison.png",
-  "./img/NonRecyclable/boiler.png",
-];
+// garbageImg[3] = [
+//   "./img/Plastic/plastic1.png",
+//   "./img/Plastic/plastic2.png",
+//   "./img/Plastic/plastic3.png",
+//   "./img/Plastic/plastic4.png",
+// ];
 
-garbageImg[5] = [
-  "./img/Organic/apple.png",
-  "./img/Organic/bread.png",
-  "./img/Organic/deadFish.png",
-  "./img/Organic/egg.png",
-  "./img/Organic/meat.png",
-];
+// garbageImg[4] = [
+//   "./img/paper/cardon.png",
+//   "./img/paper/eggBox.png",
+//   "./img/paper/newsPaper.png",
+//   "./img/paper/paperBag.png",
+//   "./img/paper/pizzaPack.png",
+// ];
+// garbageImg[6] = [
+//   "./img/NonRecyclable/image 10206.png",
+//   "./img/NonRecyclable/lamp.png",
+//   "./img/NonRecyclable/poison.png",
+//   "./img/NonRecyclable/boiler.png",
+// ];
 
-garbageImg[4] = [
-  "./img/paper/cardon.png",
-  "./img/paper/eggBox.png",
-  "./img/paper/newsPaper.png",
-  "./img/paper/paperBag.png",
-  "./img/paper/pizzaPack.png",
-];
+// garbageImg[5] = [
+//   "./img/Organic/apple.png",
+//   "./img/Organic/bread.png",
+//   "./img/Organic/deadFish.png",
+//   "./img/Organic/egg.png",
+//   "./img/Organic/meat.png",
+// ];
 
-garbageImg[3] = [
-  "./img/Plastic/plastic1.png",
-  "./img/Plastic/plastic2.png",
-  "./img/Plastic/plastic3.png",
-  "./img/Plastic/plastic4.png",
-];
-//Background Img Src
+// //Background Img Src
 const bImg = [];
 bImg[0] = ["./img/Background/gameWallpaper1.webp"];
 bImg[1] = ["./img/Background/GAMEWALLPAPER2.jpeg"];
@@ -135,8 +135,8 @@ if (screen.height >= 700 && screen.width >= 420) {
 const c = canvas.getContext("2d");
 
 // Arrows
-let arrowR = document.getElementById("arrowR");
-let arrowL = document.getElementById("arrowL");
+const arrowR = document.getElementById("arrowR");
+const arrowL = document.getElementById("arrowL");
 
 // Score
 let score = document.getElementById("timer");
@@ -145,7 +145,8 @@ let scoreCount = 100;
 //Pause Button
 const buttonEl = document.getElementById("button");
 const pauseEl = document.getElementById("pause");
-
+const menuEl = document.getElementById("menu");
+const gameNameEl = document.getElementById("gameName");
 //Back Button
 const backButtonEl = document.getElementById("backButton");
 
@@ -154,6 +155,7 @@ const defeatEl = document.getElementById("def");
 
 // States
 var pause = true;
+var game = true;
 
 // Drag
 var mouseX;
@@ -219,34 +221,34 @@ class Trash {
 }
 
 //Garbage classes
-class Garbage {
-  constructor({ x, y, velocity, image, id }) {
-    this.x = x;
-    this.y = y;
-    this.velocity = velocity;
-    this.width = garbageSize;
-    this.height = garbageSize;
-    this.image = new Image();
-    this.image.src = image;
-    this.id = id;
-  }
-  draw() {
-    c.drawImage(this.image, this.x, this.y, this.width, this.height);
-  }
-  update() {
-    this.draw();
-    this.velocity.y = gravity;
-    this.y += this.velocity.y;
-  }
-  detectr() {
-    delete this.x;
-    delete this.y;
-    delete this.width;
-    delete this.height;
-    delete this.color;
-    delete this.id;
-  }
-}
+// class Garbage {
+//   constructor({ x, y, velocity, image, id }) {
+//     this.x = x;
+//     this.y = y;
+//     this.velocity = velocity;
+//     this.width = garbageSize;
+//     this.height = garbageSize;
+//     this.image = new Image();
+//     this.image.src = image;
+//     this.id = id;
+//   }
+//   draw() {
+//     c.drawImage(this.image, this.x, this.y, this.width, this.height);
+//   }
+//   update() {
+//     this.draw();
+//     this.velocity.y = gravity;
+//     this.y += this.velocity.y;
+//   }
+//   detectr() {
+//     delete this.x;
+//     delete this.y;
+//     delete this.width;
+//     delete this.height;
+//     delete this.color;
+//     delete this.id;
+//   }
+// }
 
 var trashes = [];
 for (let i = 0; i < 7; i++) {
@@ -261,7 +263,6 @@ for (let i = 0; i < 7; i++) {
     })
   );
 }
-console.log(trashes, "asdajhflksdhjkfhasdkflhjdshfkl");
 
 //Background Image by Class
 const backgroundImg = new Background({
@@ -297,10 +298,10 @@ document.addEventListener("keydown", function (e) {
   if (e.key == "D" || e.key == "d" || e.key == "ArrowRight") {
     keyMoveL();
   }
-  if (e.key == " ") {
-    if (pause) {
+  if (e.key == "Escape") {
+    if (pause && !game) {
       paused();
-    } else {
+    } else if (!game) {
       resumed();
     }
   }
@@ -435,6 +436,7 @@ animate();
 function paused() {
   if (pause) {
     pause = false;
+    game = false;
     pauseEl.style.display = "flex";
   }
 }
@@ -442,36 +444,97 @@ function paused() {
 function resumed() {
   if (!pause) {
     pause = true;
+    game = false;
+    menuEl.style.display = "none";
     pauseEl.style.display = "none";
     defeatEl.style.display = "none";
+    score.style.display = "flex";   
+    arrowL.style.display = "flex";
+    arrowR.style.display = "flex";
+    buttonEl.style.display = "flex";
+    canvas.style.opacity = "100%";
   }
 }
 
 function tutorial() {
-  if (!pause) {
-    pause = false
+  if (!pause && !game) {
+    pause = false;
     pauseEl.style.display = "none";
-    buttonEl.style.display = "none"
-    tutorialEl.style.display = "flex"
-    backButtonEl.style.display = 'flex'
+    buttonEl.style.display = "none";
+    tutorialEl.style.display = "flex";
+    backButtonEl.style.display = "flex";
   }
+  if (!pause && game) {
+    game = true;
+    menuEl.style.display = "none";
+    buttonEl.style.display = "none";
+    tutorialEl.style.display = "flex";
+    backButtonEl.style.display = "flex";
+  }
+}
+
+function menu() {
+  if (game) {
+    pause = false;
+    game = true;
+    pauseEl.style.display = "none";
+    defeatEl.style.display = "none";
+    menuEl.style.display = "flex";
+    score.style.display = "none";
+    arrowL.style.display = "none";
+    arrowR.style.display = "none";
+    buttonEl.style.display = "none";
+  }
+}
+
+function menu2() {
+  pause = false;
+  game = true;
+  pauseEl.style.display = "none";
+  defeatEl.style.display = "none";
+  menuEl.style.display = "flex";
+  arrowL.style.display = "none";
+  arrowR.style.display = "none";
+  buttonEl.style.display = "none";
+  score.style.display = "none";
+  canvas.style.opacity = "0%";
+  reset();
 }
 
 function backToPause() {
-  if (!pause) {
-    pause = false
+  if (!pause && !game) {
+    pause = false;
+    game = false;
+    menuEl.style.display = "none";
     pauseEl.style.display = "flex";
-    buttonEl.style.display = "flex"
-    tutorialEl.style.display = "none"
-    backButtonEl.style.display = 'none'
+    buttonEl.style.display = "flex";
+    tutorialEl.style.display = "none";
+    backButtonEl.style.display = "none";
+  }
+  if (!pause && game) {
+    pause = false;
+    game = true;
+    pauseEl.style.display = "none";
+    menuEl.style.display = "flex";
+    buttonEl.style.display = "flex";
+    tutorialEl.style.display = "none";
+    backButtonEl.style.display = "none";
   }
 }
 window.addEventListener("focus", () => {
-  resumed();
+  if (game) {
+    menu2();
+  } else {
+    resumed();
+  }
 });
 
 window.addEventListener("blur", () => {
-  paused();
+  if (game) {
+    menu2();
+  } else {
+    paused();
+  }
 });
 
 function keyMoveL() {
@@ -558,7 +621,7 @@ function detect() {
     }
   });
 }
-let oneDetect = true;
+
 function scoreMine() {
   garbages.forEach((garbage, index) => {
     if (garbage.y >= canvas.height) {
@@ -612,5 +675,8 @@ function reset() {
       })
     );
   }
-  resumed();
+  if (!game) {
+    resumed();
+  }
 }
+menu();
