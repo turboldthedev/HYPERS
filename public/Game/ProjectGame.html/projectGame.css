@@ -1,6 +1,9 @@
 * {
   user-select: none;
 }
+a {
+  text-decoration: none;
+}
 body {
   margin: 0;
   background-color: black;
