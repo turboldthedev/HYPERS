@@ -2,6 +2,9 @@
   box-sizing: border-box;
   margin: 0px;
 }
+a { 
+  text-decoration: none;
+}
 body {
   background-color: #302f2e;
   height: 100vh;
@@ -186,11 +189,26 @@ img {
     display: none;
   }
   .text {
-    width: 231px;
+    width: 231px;x  
     font-size: 18px;
     z-index: 1;
   }
   .btn {
     font-size: 18px;
+  }
+  .border{ 
+
+  }
+  .txt { 
+    font-size: 22px;
+  }
+  .size { 
+    height: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 200px;
+  }
+  .imgContainer { 
+   align-items: unset;
   }
 }
