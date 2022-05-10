@@ -189,15 +189,12 @@ img {
     display: none;
   }
   .text {
-    width: 231px;x  
+    width: 231px;
     font-size: 18px;
     z-index: 1;
   }
   .btn {
     font-size: 18px;
-  }
-  .border{ 
-
   }
   .txt { 
     font-size: 22px;
