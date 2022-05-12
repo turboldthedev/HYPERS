@@ -107,7 +107,7 @@ body {
   border: none;
   color: #fff;
   font-size: large;
-
+  z-index: 1;
   margin-left: auto;
   margin-right: auto;
 }

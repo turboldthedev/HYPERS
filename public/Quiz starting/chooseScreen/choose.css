@@ -3,7 +3,9 @@ body {
   margin: 0px;
   overflow: hidden;
 }
-
+a  {
+  text-decoration: none;
+}
 .container {
   height: 100vh;
   display: flex;
