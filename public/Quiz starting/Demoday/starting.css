@@ -14,6 +14,9 @@ body {
 .appear {
   animation: appear 2000ms ease-out;
 }
+.invisible { 
+  display: none !important;
+}
 .container1 {
   display: none;
   flex-direction: column;
@@ -126,12 +129,24 @@ img {
   font-size: 48px;
   font-weight: 500;
   color: white;
+  z-index: 1;
 }
 .txt1 {
   font-family: "Montserrat";
   font-weight: 500;
   font-size: 36px;
   color: white;
+}
+.rotate { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgb(190,129,76);
+background: radial-gradient(circle, rgba(190,129,76,1) 0%, rgba(95,45,45,1) 100%);
+}
+.Plsrotate { 
+  text-align: center;
 }
 /* TOOLS ANIMATION*/
 @keyframes text {
@@ -189,16 +204,14 @@ img {
     display: none;
   }
   .text {
-    width: 231px;x  
+    width: 231px;
     font-size: 18px;
     z-index: 1;
   }
   .btn {
     font-size: 18px;
   }
-  .border{ 
 
-  }
   .txt { 
     font-size: 22px;
   }
