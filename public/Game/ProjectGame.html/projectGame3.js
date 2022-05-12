@@ -98,6 +98,13 @@ const backButtonEl = document.getElementById("backButton");
 //Defeat
 const defeatEl = document.getElementById("def");
 
+// Starting Bonus
+const bonusEl = document.getElementById('bonus')
+const okEl = document.getElementById('ok')
+
+//Victory
+const victoryEL = document.getElementById("vic");
+
 // States
 var pause = true;
 var game = true;
@@ -111,12 +118,12 @@ let mpx, mpy;
 
 // Trashcan types
 const tImage = [
-    "./img/TrashcaNew/Trashcan0.png",
-    "./img/TrashcaNew/Trashcan1.png",
-    "./img/TrashcaNew/Trashcan2.png",
-    "./img/TrashcaNew/Trashcan3.png",
-    "./img/TrashcaNew/Trashcan4.png",
-    "./img/TrashcaNew/Trashcan5.png",
+    "./img/TrashCaNew/Trashcan0.png",
+    "./img/TrashCaNew/Trashcan1.png",
+    "./img/TrashCaNew/Trashcan2.png",
+    "./img/TrashCaNew/Trashcan3.png",
+    "./img/TrashCaNew/Trashcan4.png",
+    "./img/TrashCaNew/Trashcan5.png",
 ];
 
 // Center
@@ -343,6 +350,7 @@ function animate() {
 
 animate();
 
+let okCount = 0;
 // Pause button clicked
 
 function paused() {
@@ -350,16 +358,41 @@ function paused() {
         pause = false;
         game = false;
         pauseEl.style.display = "flex";
+        victoryEL.style.display = "none";
     }
 }
 
 function resumed() {
-    if (!pause) {
+    if (!pause ) {
         pause = true;
         game = false;
         menuEl.style.display = "none";
         pauseEl.style.display = "none";
         defeatEl.style.display = "none";
+       
+        victoryEL.style.display = "none";
+        score.style.display = "flex";
+        arrowL.style.display = "flex";
+        arrowR.style.display = "flex";
+        buttonEl.style.display = "flex";
+        canvas.style.opacity = "100%";
+        tutorialEl.style.display = 'none';
+        backButtonEl.style.display = "none";
+        
+        if(okCount == 0) {
+             bonusEl.style.display = 'flex';
+             okCount += 1;
+        }
+    }
+}
+
+function ok() {
+    if(pause) {
+        menuEl.style.display = "none";
+        pauseEl.style.display = "none";
+        defeatEl.style.display = "none";
+        bonusEl.style.display = 'none';
+        victoryEL.style.display = "none";
         score.style.display = "flex";
         arrowL.style.display = "flex";
         arrowR.style.display = "flex";
@@ -407,6 +440,7 @@ function menu2() {
     game = true;
     pauseEl.style.display = "none";
     defeatEl.style.display = "none";
+    victoryEL.style.display = "none";
     menuEl.style.display = "flex";
     arrowL.style.display = "none";
     arrowR.style.display = "none";
@@ -507,7 +541,10 @@ function defeated() {
     pause = false;
     defeatEl.style.display = "flex";
 }
-
+function victory() {
+    pause = false;
+    victoryEL.style.display = "flex"
+}
 // Detect Trash
 function detect() {
     garbages.forEach((garbage, index) => {
@@ -552,8 +589,18 @@ function scoreMine() {
         defeated();
         scoreCount = 0;
     }
+    if(scoreCount >= 5000) {
+        victory();
+        // scoreCount = 5000;
+    }
 }
 
+
+document.addEventListener('keydown', function(e) {
+    if(e.key == "m") {
+        scoreCount = 5000
+    }
+})
 //Resize the Arrow & PauseButton according windows size
 function reportSize() {
     wiw = innerWidth;
