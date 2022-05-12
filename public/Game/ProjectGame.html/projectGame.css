@@ -47,7 +47,7 @@ img {
 .timerCont {
   display: flex;
   justify-content: center;
-}
+} 
 .timer {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -75,8 +75,8 @@ img:focus {
 }
 
 .otherSize {
-  height: 30vh;
-  width: 40vh;
+  height: 25vh;
+  width: 35vh;
 }
 .menuSize {
   height: 130px;
@@ -125,7 +125,6 @@ img:focus {
 .pauseInner {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 5px;
 }
 
 .tutorial {
@@ -140,7 +139,7 @@ img:focus {
 
 .menunner {
   color: rgb(65, 90, 110);
-  font-size: 5vh;
+  font-size: 4vh;
   margin-bottom: 2vh;
 }
 
@@ -149,7 +148,7 @@ img:focus {
 }
 
 .menuStuff {
-  font-size: 3vh;
+  font-size: 2.5vh;
 }
 
 .stuffs:hover {
@@ -199,6 +198,43 @@ img {
   flex-direction: column;
   border-radius: 30px;
   opacity: 90%;
+}
+
+.victory {
+  position: absolute;
+  display: none;
+  width: 200px;
+  /* height: 250px; */
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  opacity: 90%;
+}
+
+.bonus {
+  position: absolute;
+  display: none;
+  width: 200px;
+  /* height: 250px; */
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  opacity: 90%;
+  gap: 10px;
+}
+#ok {
+  width: 50px;
+  height: 30px;
+  border-radius: 3px;
+  color: white;
+  background-color: rgba(2, 0, 36, 1) ;
+  border-color: rgba(2, 0, 36, 1) ;
+  font-weight: bold;
+}
+.margin {
+  margin-top: 5px;
 }
 .tutorialImg {
   position: absolute;
