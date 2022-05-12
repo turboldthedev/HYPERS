@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City</title>
+    <link rel="stylesheet" href="country-side-agq.css" />
+    <link rel="stylesheet" href="aqg-container.css" />
+  </head>
+  <body>
+    <div class="center relative">
+      <div class="container loading">
+        <div class="loadingGif">
+          <img src="loading.gif" style="height: 658px" />
+        </div>
+      </div>
+      <!-- worst -->
+      <img
+        id="0"
+        draggable="false"
+        class="invisible bigphoto absolute"
+        src="worst-city.svg"
+        alt="Nature"
+      />
+      <!-- bad  -->
+      <img
+        id="1"
+        draggable="false"
+        class="invisible bigphoto absolute"
+        src="bad-city.svg"
+        alt="Nature"
+      />
+      <!-- normal -->
+      <img
+        id="2"
+        draggable="false"
+        class="visible bigphoto absolute"
+        src="normal-city.svg"
+        alt="Nature"
+      />
+      <!-- good  -->
+      <img
+        id="3"
+        draggable="false"
+        class="invisible bigphoto absolute"
+        src="good-city.svg"
+        alt="Nature"
+      />
+      <!-- best  -->
+      <img
+        id="4"
+        draggable="false"
+        class="invisible bigphoto absolute"
+        src="best-city.svg"
+        alt="Nature"
+      />
+      <!-- question -->
+      <div class="absolute q g">
+        <div class="comment-q visible" id="question">
+          <div id="text" class="question"></div>
+          <button class="btn" onclick="tap()">
+            <img draggable="false" class="f-key" src="./fkey.svg" id="Fbtn" />
+          </button>
+        </div>
+      </div>
+      <!-- ask -->
+      <div class="absolute w">
+        <div class="comment-q invisible column" id="answer">
+          <div class="question" id="text1"></div>
+          <div class="AnswerCont">
+            <button class="btn" onclick="aBut()">
+              <img src="./A.svg" class="fa-key" />
+            </button>
+            <div class="answer" id="answer1"></div>
+          </div>
+          <div class="AnswerCont">
+            <button class="btn" onclick="sBut()">
+              <img src="./S.svg" class="fa-key" />
+            </button>
+            <div class="answer" id="answer2"></div>
+          </div>
+          <div class="AnswerCont">
+            <button class="btn">
+              <img src="./D.svg" class="fa-key" />
+            </button>
+            <div class="answer" id="answer3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- java -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script>
+      var questionBar = document.getElementById("question");
+      var answerBar = document.getElementById("answer");
+      var photos = [];
+      photos[0] = document.getElementById("0");
+      photos[1] = document.getElementById("1");
+      photos[2] = document.getElementById("2");
+      photos[3] = document.getElementById("3");
+      photos[4] = document.getElementById("4");
+      console.log(photos);
+      let Cphoto = 2;
+
+      var text = document.getElementById("text");
+
+      var text1 = document.getElementById("text1");
+      var answer1 = document.getElementById("answer1");
+      var answer2 = document.getElementById("answer2");
+      var answer3 = document.getElementById("answer3");
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDhr-ZIYYFf4S7BLNuyiWgCGB6aiyync0E",
+        authDomain: "hypers-7429f.firebaseapp.com",
+        projectId: "hypers-7429f",
+        storageBucket: "hypers-7429f.appspot.com",
+        messagingSenderId: "555045421472",
+        appId: "1:555045421472:web:994c9d34069ecd0ae5e4c5",
+        measurementId: "G-21QDC8WG79",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore().collection("questions");
+
+      const questionData = [];
+      var answers = [];
+      let questionIndex = 0;
+      db.get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            questionData.push(doc.data());
+          });
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+          document.querySelector(".loading").classList.remove("loading");
+          document.querySelector(".g").classList.remove("g");
+          showQuestion();
+        });
+      console.log(questionData);
+
+      function showQuestion(questionIndex = 0) {
+        let q = questionData[questionIndex];
+        
+        text.innerText = q.question;
+            
+        text1.innerText = q.question;
+        answer1.innerText = q.answers[0];
+        answer2.innerText = q.answers[1];
+        answer3.innerText = q.answers[2];
+        questionIndex += 1;
+        document.addEventListener("keydown", function (event) {
+          if (event.key == "f" || event.key == "F") {
+            nextclick();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key == "a" || event.key == "A") {
+          console.log("icka");
+          if (answer1.innerText == questionData[questionIndex].correctAnswer) {
+            if (Cphoto != 4) {
+              display1(Cphoto);
+              Cphoto = Cphoto + 1;
+              display(Cphoto);
+            }
+          } else {
+            if (Cphoto != 0) {
+              display1(Cphoto);
+              Cphoto = Cphoto - 1;
+              display(Cphoto);
+            }
+          }
+          questionIndex = questionIndex + 1;
+          question();
+          showQuestion(questionIndex);
+        }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key == "s" || event.key == "S") {
+          console.log("nomio");
+          if (answer2.innerText == questionData[questionIndex].correctAnswer) {
+            if (Cphoto != 4) {
+              display1(Cphoto);
+              Cphoto = Cphoto + 1;
+              display(Cphoto);
+              console.log("gg");
+            }
+          } else {
+            if (Cphoto != 0) {
+              display1(Cphoto);
+              Cphoto = Cphoto - 1;
+              display(Cphoto);
+              console.log("gge");
+            }
+          }
+          questionIndex = questionIndex + 1;
+          question();
+          showQuestion(questionIndex);
+        }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key == "d" || event.key == "D") {
+          console.log("agimaa");
+          if (answer3.innerText == questionData[questionIndex].correctAnswer) {
+            if (Cphoto != 4) {
+              display1(Cphoto);
+              Cphoto = Cphoto + 1;
+              display(Cphoto);
+              console.log("gg");
+            }
+          } else {
+            if (Cphoto != 0) {
+              display1(Cphoto);
+              Cphoto = Cphoto - 1;
+              display(Cphoto);
+              console.log("gge");
+            }
+          }
+          questionIndex = questionIndex + 1;
+          question();
+          showQuestion(questionIndex);
+        }
+      });
+
+      function tap() {
+        console.log("odko");
+        nextclick();
+      }
+      function aBut() {
+        console.log("ariyaa");
+        if (answer1.innerText == questionData.correctAnswer) {
+          if (Cphoto != 4) {
+            display1(Cphoto);
+            Cphoto = Cphoto + 1;
+            display(Cphoto);
+            console.log("gg");
+          }
+        } else {
+          if (Cphoto != 0) {
+            display1(Cphoto);
+            Cphoto = Cphoto - 1;
+            display(Cphoto);
+            console.log("gge");
+          }
+        }
+        questionIndex = questionIndex + 1;
+        question();
+        showQuestion(questionIndex);
+      }
+      function sBut() {
+        console.log("maaka");
+        if (answer1.innerText == questionData.correctAnswer) {
+          if (Cphoto != 4) {
+            display1(Cphoto);
+            Cphoto = Cphoto + 1;
+            display(Cphoto);
+            console.log("gg");
+          }
+        } else {
+          if (Cphoto != 0) {
+            display1(Cphoto);
+            Cphoto = Cphoto - 1;
+            display(Cphoto);
+            console.log("gge");
+          }
+        }
+        questionIndex = questionIndex + 1;
+        question();
+        showQuestion(questionIndex);
+      }
+      function dBut() {
+        console.log("jaga");
+        if (answer1.innerText == questionData.correctAnswer) {
+          if (Cphoto != 4) {
+            display1(Cphoto);
+            Cphoto = Cphoto + 1;
+            display(Cphoto);
+            console.log("gg");
+          }
+        } else {
+          if (Cphoto != 0) {
+            display1(Cphoto);
+            Cphoto = Cphoto - 1;
+            display(Cphoto);
+            console.log("gge");
+          }
+        }
+        questionIndex = questionIndex + 1;
+        question();
+        showQuestion(questionIndex);
+      }
+      function nextclick() {
+        console.log("mb");
+        questionBar.classList.add("invisible");
+        answerBar.classList.add("visible-two");
+      }
+      function question() {
+        console.log("beku");
+        questionBar.classList.remove("invisible");
+        answerBar.classList.remove("visible-two");
+      }
+      function display(Cphoto) {
+        let p = photos[Cphoto];
+        p.classList.remove("invisible");
+        p.classList.add("visible");
+      }
+      function display1(Cphoto) {
+        let p = photos[Cphoto];
+        p.classList.add("invisible");
+        p.classList.remove("visible");
+      }
+    </script>
+  </body>
+</html>
