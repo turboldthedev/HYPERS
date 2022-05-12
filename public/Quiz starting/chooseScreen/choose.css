@@ -3,7 +3,9 @@ body {
   margin: 0px;
   overflow: hidden;
 }
-
+a  {
+  text-decoration: none;
+}
 .container {
   height: 100vh;
   display: flex;
@@ -68,6 +70,7 @@ img:hover {
   .container {
     height: 100vh;
     padding-top: 2%;
+    padding: 0px;
   }
   .header {
     padding-top: 10px;

@@ -80,3 +80,5 @@ class Garbage {
         delete this.id;
     }
 }
+
+

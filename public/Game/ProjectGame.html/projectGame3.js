@@ -23,8 +23,7 @@ const tutorialEl = document.getElementById("tutorial");
 // //Background Img Src
 const bImg = [];
 bImg[0] = ["./img/Background/gameWallpaper1.webp"];
-bImg[1] = ["./img/Background/GAMEWALLPAPER2.jpeg"];
-bImg[2] = ["./img/Background/ulaanbaatar.jpeg"];
+bImg[1] = ["./img/Background/ulaanbaatar.jpeg"];
 
 //Phone size
 if (screen.height >= 700 && screen.width >= 420) {
@@ -102,6 +101,13 @@ const backButtonEl = document.getElementById("backButton");
 
 //Defeat
 const defeatEl = document.getElementById("def");
+
+// Starting Bonus
+const bonusEl = document.getElementById('bonus')
+const okEl = document.getElementById('ok')
+
+//Victory
+const victoryEL = document.getElementById("vic");
 
 // States
 var pause = true;
@@ -375,6 +381,7 @@ function animate() {
 
 animate();
 
+let okCount = 0;
 // Pause button clicked
 
 function paused() {
@@ -382,16 +389,19 @@ function paused() {
         pause = false;
         game = false;
         pauseEl.style.display = "flex";
+        victoryEL.style.display = "none";
     }
 }
 
 function resumed() {
-    if (!pause) {
+    if (!pause ) {
         pause = true;
         game = false;
         menuEl.style.display = "none";
         pauseEl.style.display = "none";
         defeatEl.style.display = "none";
+       
+        victoryEL.style.display = "none";
         score.style.display = "flex";
         arrowL.style.display = "flex";
         arrowR.style.display = "flex";
@@ -399,8 +409,30 @@ function resumed() {
         canvas.style.opacity = "100%";
         tutorialEl.style.display = 'none';
         backButtonEl.style.display = "none";
+        
+        // if(okCount == 0) {
+        //      bonusEl.style.display = 'flex';
+        //      okCount += 1;
+        // }
     }
 }
+
+// function ok() {
+//     if(pause) {
+//         menuEl.style.display = "none";
+//         pauseEl.style.display = "none";
+//         defeatEl.style.display = "none";
+//         bonusEl.style.display = 'none';
+//         victoryEL.style.display = "none";
+//         score.style.display = "flex";
+//         arrowL.style.display = "flex";
+//         arrowR.style.display = "flex";
+//         buttonEl.style.display = "flex";
+//         canvas.style.opacity = "100%";
+//         tutorialEl.style.display = 'none';
+//         backButtonEl.style.display = "none";
+//     }
+// }
 
 function tutorial() {
     if (!pause && !game) {
@@ -425,7 +457,7 @@ function menu() {
         game = true;
         pauseEl.style.display = "none";
         defeatEl.style.display = "none";
-        defeatEl.style.display = "none";
+        victoryEL.style.display = "none";
         menuEl.style.display = "flex";
         score.style.display = "none";
         arrowL.style.display = "none";
@@ -440,6 +472,7 @@ function menu2() {
     game = true;
     pauseEl.style.display = "none";
     defeatEl.style.display = "none";
+    victoryEL.style.display = "none";
     menuEl.style.display = "flex";
     arrowL.style.display = "none";
     arrowR.style.display = "none";
@@ -538,7 +571,10 @@ function defeated() {
     pause = false;
     defeatEl.style.display = "flex";
 }
-
+function victory() {
+    pause = false;
+    victoryEL.style.display = "flex"
+}
 // Detect Trash
 function detect() {
     garbages.forEach((garbage, index) => {
@@ -582,6 +618,10 @@ function scoreMine() {
     if (scoreCount <= 0) {
         defeated();
         scoreCount = 0;
+    }
+    if(scoreCount >= 5000) {
+        victory();
+        // scoreCount = 5000;
     }
 }
 
