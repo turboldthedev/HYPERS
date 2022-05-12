@@ -70,6 +70,7 @@ img:hover {
   .container {
     height: 100vh;
     padding-top: 2%;
+    padding: 0px;
   }
   .header {
     padding-top: 10px;
