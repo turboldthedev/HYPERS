@@ -1,89 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="./homepage.css" />
+    <link rel="stylesheet" href="./container.css" />
+    <link rel="stylesheet" href="./media@.css" />
+    <link rel="stylesheet" href="./scroll.css" />
+    <link rel="stylesheet" href="./green-text.css" />
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.6.11/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.6.11/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.6.11/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.6.11/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.6.11/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.6.11/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.6.11/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.6.11/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.6.11/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.6.11/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+    <style>
+      a{
+        color: white ;
       }
     </style>
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <div class="header">
+      <div class="inner-header">
+        <!-- earth img -->
+
+        <img class="earth" src="111.png" />
+
+        <!-- hand img -->
+
+        <img class="ehand" src="Subtract12.svg" />
+
+        <!-- content -->
+
+        <div class="container mainContainer">
+          <div class="navbar">
+            <a  href="https://www.youtube.com/results?search_query=trash+game+2d"><p>Бидний талаар мэдэх</p></a>
+            <img src="Logo.svg" />
+            <a  href="https://www.youtube.com/results?search_query=trash+game+2d" ><p>Хамт ажиллах санал?</p></a>
+          </div>
+          <div class="content">
+            <h1>Бидний тоглоом бол дэлхийг хамгаалах тухай юм.</h1>
+            <p>
+              Бидний тоглоом бол дэлхийг хамгаалах тухай юм. Судлаачдын
+              тооцоолсноор жил бүр ойролцоогоор 15 тэрбум мод тайрдаг.
+            </p>
+            <a
+              class="play"
+              href="https://www.youtube.com/results?search_query=trash+game+2d"
+            >
+              Тоглох
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Wave -->
+
+      <div class="wave">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://
+            www.w3.org/1999/xlink"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          shape-rendering="auto"
+        >
+          <defs>
+            <path
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 
+            58-18 88-18 58 18 88 18 v44h 352z"
+            />
+          </defs>
+          <g class="parallax">
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="0"
+              fill="rgba(255,255,255,
+                0.2"
+            />
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="3"
+              fill="rgba(255,255,255,
+                0.3"
+            />
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="5"
+              fill="rgba(255,255,255,
+                0.4"
+            />
+            <use xlink:href="#gentle=wave" x="45" y="7" fill="#fff" />
+          </g>
+        </svg>
+
+        <!-- wave body -->
+
+        <div></div>
+      </div>
+      <!-- <p class="Text-News">Бичвэр мэдээлэлүүд</p> -->
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- scrolled down -->
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
+    <div class="container ground-text">
+      <p class="first-text">Бичвэр мэдээлэлүүд</p>
+      <!-- first -->
+      <div class="scrolled-group-text">
+        <div class="info-container">
+          <img src="num1.svg" class="under-img-1" />
+          <p class="header-text">
+            Мод бол дэлхий дээрх хамгийн урт насалдаг организм бөгөөд хөгширч
+            үхдэггүй.
+          </p>
+          <p class="midder-text">
+            Калифорниа мужид хамгийн өндөр настай модны дээд амжилтыг эзэмшдэг.
+            Мужийн зарим хялгасан нарс, аварга секвойа нь 4000-5000 жилийн
+            настай.
+          </p>
+          <p class="from">Эх сурвалж: Википедиа</p>
+        </div>
+        <img src="4.svg" class="scrolled-big-img" />
+      </div>
+      <!-- second -->
+      <div class="scrolled-group-text">
+        <img src="15.svg" class="scrolled-big-img" />
+        <div class="info-container">
+          <img src="num2.svg" class="under-img" />
+          <p class="header-text">
+            Модны цагираг нь уур амьсгалын өөрчлөлтийг урьдчилан таамаглаж
+            чадна.
+          </p>
+          <p class="midder-text">
+            Модны цагиргийг судлах замаар болзохыг Дендрохронологи гэж нэрлэдэг.
+            Гэсэн хэдий ч модны цагираг нь түүний насыг илтгэхээс гадна галт
+            уулын дэлбэрэлт, ган гачиг зэрэг байгалийн гамшиг тохиолдож байгааг
+            илтгэж чаддаг.
+          </p>
+          <p class="from">Эх сурвалж: Lolo.mn</p>
+        </div>
+      </div>
+      <!-- third -->
+      <div class="scrolled-group-text">
+        <div class="info-container">
+          <img src="num3.svg" class="under-img" />
+          <p class="header-text">Мод тарьснаар эрчим хүчний зардлаа бууруулах боломжтой.</p>
+          <p class="midder-text">
+            Стратегийн хувьд мод, бут сөөг тарих нь таны эрчим хүчний төлбөрийг
+            25 хүртэл хувиар хэмнэх болно.
+          </p>
+          <p class="from">Эх сурвалж: Ikon.mn</p>
+        </div>
+        <img src="4.svg" class="scrolled-big-img" />
+      </div>
+      <!-- fourth -->
+      <div class="scrolled-group-text">
+        <img src="girl.svg" class="scrolled-big-img invisible" />
+        <div class="info-container" >
+          <img src="num4.svg" class="under-img" />
+          <p class="header-text">Дэлхийн хамгын том мод буюу Гиперион - 115.61 метр.</p>
+          <p class="midder-text">
+            Яг хаана байдаг байршлыг нь уг модны экосистемийн амьдралыг
+            хамгаалах, жуулчдын маршрутаас хол хөндий байлгах үүднээс нийтэд
+            зарлаагүй. Модны нийт талбай 502 шоо метр, ойролцоогоор 700 – 800
+            жилийн настай.
+          </p>
+          <p class="from">Эх сурвалж: Caak.mn</p>
+        </div>
+      </div>
+    </div>
+    <!-- green-text -->
+    <div>
+        <div class="green-text container">
+          <p class="green-text-head">Та бол хамгийн шилдэг нь</p>
+          <p class="green-text-mid">Бидний зорилго бол дэлхийг хамгаалах явдал юм. Бид дэлхийн хамгаалагчид болно. Хэн ч дэлхийг хамгаалж чадна. Бяцхан хөдөлгөөн маш чухал. Та бол дэлхийн хамгаалагч юм.</p>
+          <p class="green-text-mid2">Бидний зорилго бол дэлхийг хамгаалах явдал юм. Хэн ч дэлхийг хамгаалж чадна. Бяцхан хөдөлгөөн маш чухал. Та бол дэлхийн хамгаалагч юм.</p>
+        </div>
+      </div>
+    <!-- white text -->
+      <div class="last-text-back">
+        <div class="last-text">
+          <img src="./follow.svg" class="onlyphone">
+          <img class="under-logo"src="black-logo.svg">
+          <div class="work-with-us">
+            <p class="last-text-of-us">Хамт ажиллах санал ?</p>
+            <p class="last-text-of-us">72-700-800</p>
+          </div>
+          <div class="work-with-us1">
+            <p class="last-text-of-us2">Бидний тухай </p>
+            <a href=""class="last-text-of-us-little-font">Бидний талаар</a>
+          </div>
+          <div class="work-with-us2">
+            <p class="last-text-of-us2">Биднийг дагаарай </p>
+            <div class="inner-logo">
+              <img class="logo-of-about" src="facebook.png">
+              <img class="logo-of-about" src="nest.png">
+              <img class="logo-of-about" src="instagram.png">
+            </div>
+          </div>
+        </div>
+    <!-- green-text -->
+      </div>
+    </div>
   </body>
 </html>
