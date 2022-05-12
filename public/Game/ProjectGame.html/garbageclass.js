@@ -52,7 +52,6 @@ garbageImg[5] = [
 ];
 
 
-
 class Garbage {
     constructor({ x, y, velocity, image, id }) {
         this.x = x;

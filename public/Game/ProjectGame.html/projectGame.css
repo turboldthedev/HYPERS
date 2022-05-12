@@ -7,6 +7,14 @@ body {
   overflow-y: hidden;
   overflow-x: hidden;
 }
+
+canvas, img {
+  image-rendering: optimizeQuality;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -25,7 +33,6 @@ body {
   /* position: relative; */
   max-width: 420px;
   max-height: 700px;
-  
 }
 .vector {
   position: absolute;
