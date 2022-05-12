@@ -118,12 +118,12 @@ let mpx, mpy;
 
 // Trashcan types
 const tImage = [
-    "./img/TrashcaNew/organic.png",
-    "./img/TrashcaNew/paper.png",
-    "./img/TrashcaNew/plastic.png",
-    "./img/TrashcaNew/glass.png",
-    "./img/TrashcaNew/metals.png",
-    "./img/TrashcaNew/e-waste.png"
+    "./img/TrashcaNew/Trashcan0.png",
+    "./img/TrashcaNew/Trashcan1.png",
+    "./img/TrashcaNew/Trashcan2.png",
+    "./img/TrashcaNew/Trashcan3.png",
+    "./img/TrashcaNew/Trashcan4.png",
+    "./img/TrashcaNew/Trashcan5.png",
 ];
 
 // Center
@@ -201,9 +201,7 @@ let tlmove = 0;
 arrowR.style.left = widthcent + canvas.width - 40 + "px";
 arrowR.style.top = heicent + canvas.height - 80 + "px";
 
-arrowL.style.left = widthcent + 2 + "px";
-arrowL.style.top = heicent + canvas.height - 82 + "px";
-
+arrowL.style.left = widthcent + 2 + "px"; 
 buttonEl.style.left = widthcent + 10 + "px";
 buttonEl.style.top = heicent + 10 + "px";
 
@@ -428,7 +426,11 @@ function menu() {
         game = true;
         pauseEl.style.display = "none";
         defeatEl.style.display = "none";
+<<<<<<< HEAD
         victoryEL.style.display = "none";
+=======
+        defeatEl.style.display = "none";
+>>>>>>> bac5d22e7c58afccbc557780cd7fdf7d21d167cd
         menuEl.style.display = "flex";
         score.style.display = "none";
         arrowL.style.display = "none";

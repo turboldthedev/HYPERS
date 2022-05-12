@@ -1,6 +1,9 @@
 * {
   user-select: none;
 }
+a {
+  text-decoration: none;
+}
 body {
   margin: 0;
   background-color: black;
@@ -62,12 +65,7 @@ img:focus {
 .menu {
   position: absolute;
   display: none;
-  /* top: 0px; */
-  /* left: 0px; */
-  /* width: 200px;
-  height: 130px; */
   padding: 20px;
-  /* background-color: black; */
   align-items: center;
   flex-direction: column;
   border-radius: 30px;
@@ -128,7 +126,7 @@ img:focus {
 }
 
 .tutorial {
-  margin-top: 13px;
+  margin-top: 10px;
   font-family: Arial, Helvetica, sans-serif;
   transition: 30ms;
 }
@@ -143,7 +141,7 @@ img:focus {
   margin-bottom: 2vh;
 }
 
-.stuffs {
+.stuffs { 
   font-size: 15px;
 }
 
@@ -193,7 +191,7 @@ img {
   display: none;
   width: 200px;
   height: 85px;
-  padding: 20px;
+  padding: 20px;  
   align-items: center;
   flex-direction: column;
   border-radius: 30px;
