@@ -457,7 +457,11 @@ function menu() {
         game = true;
         pauseEl.style.display = "none";
         defeatEl.style.display = "none";
+<<<<<<< HEAD
         victoryEL.style.display = "none";
+=======
+        defeatEl.style.display = "none";
+>>>>>>> 9aca513866ce613046f8d0815cddcaef183ecf76
         menuEl.style.display = "flex";
         score.style.display = "none";
         arrowL.style.display = "none";
