@@ -3,10 +3,16 @@
     padding: 0px;
 
     box-sizing: border-box;
+    background-color: #EFFFE8;
 }
 div{
-    background-color: #EFFFE8;
     border: 0px solid black;
+}
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
 .container
 {
