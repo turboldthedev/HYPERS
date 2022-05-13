@@ -1,6 +1,9 @@
 * {
   user-select: none;
 }
+a {
+  text-decoration: none;
+}
 body {
   margin: 0;
   background-color: black;
@@ -8,8 +11,12 @@ body {
   overflow-x: hidden;
 }
 
-a{
-  text-decoration: none;
+canvas, img {
+  image-rendering: optimizeQuality;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
 }
 .container {
   display: flex;
@@ -29,7 +36,6 @@ a{
   /* position: relative; */
   max-width: 420px;
   max-height: 700px;
-  
 }
 .vector {
   position: absolute;
@@ -51,7 +57,7 @@ img {
 .timerCont {
   display: flex;
   justify-content: center;
-}
+} 
 .timer {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -124,7 +130,6 @@ img:focus {
 .pauseInner {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 5px;
 }
 
 .tutorial {
@@ -198,6 +203,43 @@ img {
   flex-direction: column;
   border-radius: 30px;
   opacity: 90%;
+}
+
+.victory {
+  position: absolute;
+  display: none;
+  width: 200px;
+  /* height: 250px; */
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  opacity: 90%;
+}
+
+.bonus {
+  position: absolute;
+  display: none;
+  width: 200px;
+  /* height: 250px; */
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  opacity: 90%;
+  gap: 10px;
+}
+#ok {
+  width: 50px;
+  height: 30px;
+  border-radius: 3px;
+  color: white;
+  background-color: rgba(2, 0, 36, 1) ;
+  border-color: rgba(2, 0, 36, 1) ;
+  font-weight: bold;
+}
+.margin {
+  margin-top: 5px;
 }
 .tutorialImg {
   position: absolute;
