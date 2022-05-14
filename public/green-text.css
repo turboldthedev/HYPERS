@@ -74,7 +74,7 @@
 }
 @media (max-width: 992px) {
   .green-text-head {
-    font-size: 26px;
+    font-size: 30px;
     width: 100%;
     margin: 24px 0;
   }
@@ -87,7 +87,7 @@
   }
   .green-text-mid2 {
     color: white;
-    font-size: 18px;
+    font-size: 23.4px;
     font-weight: 300;
     width: 76%;
     margin: auto;
@@ -99,17 +99,14 @@
     flex-direction: column;
   }
   .under-logo {
-    width: 0px;
-    height: 0px;
+    display:none;
   }
   .last-text-of-us {
     font-size: 18px;
     width: 80%;
   }
   .last-text-of-us-little-font {
-    width: 0px;
-    height: 0px;
-    font-size: 0px;
+    display:none;
   }
   .work-with-us a {
   }
@@ -119,39 +116,32 @@
     justify-content: space-around;
   }
   .last-text-of-us {
-    font-size: 75%;
+    display:none;
   }
   .work-with-us2 {
-    height: 0px;
-    width: 0px;
+    display:none;
   }
   .work-with-us1 {
-    gap: 3%;
-    height: 0px;
-    width: 0px;
+    display:none;
   }
   .last-text-of-us2 {
-    width: 0px;
-    font-size: 0px;
-    height: 0px;
+    display:none;
   }
   .logo-of-about {
-    width: 0px;
-    font-size: 0px;
-    height: 0px;
+    display:none;
   }
   .inner-logo {
-    width: 0px;
-    font-size: 0px;
-    height: 0px;
+    display:none;
   }
   .onlyphone {
-    width: 80%;
+    width: 60%;
+    margin-left: 5%;
   }
 }
 @media (max-width: 768px) {
   .onlyphone {
-    width: 70%;
+    width: 60%;
+    margin-left: 5%;
   }
 }
 
@@ -195,6 +185,7 @@
     font-size: 0px;
   }
   .work-with-us a {
+    display:none;
   }
   .work-with-us {
     width: 100%;
@@ -223,6 +214,7 @@
     height: 0px;
   }
   .onlyphone {
-    width: 80%;
+    width: 60%;
+    margin-left: 5%;
   }
 }
