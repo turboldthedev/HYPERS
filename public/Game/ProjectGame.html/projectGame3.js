@@ -22,9 +22,9 @@ const tutorialEl = document.getElementById("tutorial");
 
 // //Background Img Src
 const bImg = [];
-bImg[0] = ["./img/Background/gameWallpaper1.webp"];
-bImg[1] = ["./img/Background/GAMEWALLPAPER2.jpeg"];
-bImg[2] = ["./img/Background/ulaanbaatar.jpeg"];
+bImg[0] = ["./img/Background/gameBg1.webp"];
+bImg[1] = ["./img/Background/gameBg2.jpeg"];
+bImg[2] = ["./img/Background/gameBg3.jpeg"];
 
 //Phone size
 if (screen.height >= 700 && screen.width >= 420) {
@@ -78,6 +78,12 @@ if (screen.height >= 700 && screen.width >= 420) {
 const c = canvas.getContext("2d");
 c.imageSmoothingEnabled = true
 c.imageSmoothingQuality = 'high';
+// c.filter = 'none'
+// c.filter = "url(#remove-alpha)";
+// c.font = "2vh Arial";
+// c.textAlign = "center";
+c.textBaseline = 'midle';
+c.fillStyle = 'white';
 
 // Arrows
 const arrowR = document.getElementById("arrowR");
@@ -115,24 +121,43 @@ var mouseY;
 let drag;
 let mbx, mby;
 let mpx, mpy;
-
+// Gravity
+var gravity = 0.3;
 // Trashcan types
 const tImage = [
-    "./img/TrashcaNew/Trashcan0.png",
-    "./img/TrashcaNew/Trashcan1.png",
-    "./img/TrashcaNew/Trashcan2.png",
-    "./img/TrashcaNew/Trashcan3.png",
-    "./img/TrashcaNew/Trashcan4.png",
-    "./img/TrashcaNew/Trashcan5.png",
+    "./img/TrashCaNew/Trashcan0.png",
+    "./img/TrashCaNew/Trashcan1.png",
+    "./img/TrashCaNew/Trashcan2.png",
+    "./img/TrashCaNew/Trashcan3.png",
+    "./img/TrashCaNew/Trashcan4.png",
+    "./img/TrashCaNew/Trashcan5.png",
 ];
+const cardon = "./img/paper/paper7.png";
+
+const trext = [
+    'хүнс',
+    'цаас',
+    'хуван',
+    'шил',
+    'мет',
+    'элек',
+]
+const trext2 = [
+    ' ',
+    ' ',
+    'цар',
+    ' ',
+    'алл',
+    'трон',
+]
+const trosition = [0.6, 0.6, 0.55, 0.6, 0.55, 0.55];
 
 // Center
 let widthcent = (wiw - canvas.width) / 2;
 let heicent = (wih - canvas.height) / 2;
 canvas.style.marginTop = heicent + "px";
 tutorialEl.style.marginTop = heicent + "px";
-// Gravity
-var gravity = 0.5;
+
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -151,13 +176,16 @@ class Background {
 
 //TrashCan classes
 class Trash {
-    constructor({ position, image, id }) {
+    constructor({ position, image, id, name, name2, trosition }) {
         this.position = position;
         this.width = trashWidth;
         this.height = trashHeight;
         this.image = new Image();
         this.image.src = image;
         this.id = id;
+        this.name = name;
+        this.name2 = name2;
+        this.trosition = trosition;
     }
 
     draw() {
@@ -168,6 +196,10 @@ class Trash {
             this.width,
             this.height
         );
+        c.font = "2.4vh Arial";
+        c.textAlign = "center";
+        c.fillText(this.name, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * this.trosition);
+        c.fillText(this.name2, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * (this.trosition + 0.2));
     }
 }
 
@@ -182,6 +214,9 @@ for (let i = 0; i < tImage.length; i++) {
             },
             image: tImage[i],
             id: i,
+            name: trext[i],
+            name2: trext2[i],
+            trosition: trosition[i],
         })
     );
 }
@@ -200,8 +235,9 @@ let tlmove = 0;
 
 arrowR.style.left = widthcent + canvas.width - 40 + "px";
 arrowR.style.top = heicent + canvas.height - 80 + "px";
+arrowL.style.left = widthcent + 2 + "px";
+arrowL.style.top = heicent + canvas.height - 82 + "px";
 
-arrowL.style.left = widthcent + 2 + "px"; 
 buttonEl.style.left = widthcent + 10 + "px";
 buttonEl.style.top = heicent + 10 + "px";
 
@@ -236,9 +272,13 @@ const interval = setInterval(function () {
             x: 0,
             y: 1,
         };
-        const id = Math.floor(Math.random() * garbageImg.length);
-        const image =
+        let id = Math.floor(Math.random() * garbageImg.length);
+        let image =
             garbageImg[id][Math.floor(Math.random() * garbageImg[id].length)];
+        if (timer == 82) {
+            id = 1;
+            image = cardon;
+        }
         garbage = new Garbage({ x, y, velocity, image, id });
         garbages.push(garbage);
         timer++;
@@ -339,10 +379,13 @@ function animate() {
             garbage.update();
         });
         drawer();
-        score.innerText = scoreCount;
+        // score.innerText = scoreCount;
+        c.font = "bold 3vh Arial";
+        c.textAlign = "end";
+        c.fillText(scoreCount, canvas.width - 10, 30);
         scoreMine();
         if (timer > timeq) {
-            gravity += 0.3;
+            gravity += 0.2;
             timeq += 20;
         }
     }
@@ -350,130 +393,22 @@ function animate() {
 
 animate();
 
-let okCount = 0;
-// Pause button clicked
-
-function paused() {
-    if (pause) {
-        pause = false;
-        game = false;
-        pauseEl.style.display = "flex";
-        victoryEL.style.display = "none";
-    }
-}
-
-function resumed() {
-    if (!pause ) {
-        pause = true;
-        game = false;
-        menuEl.style.display = "none";
-        pauseEl.style.display = "none";
-        defeatEl.style.display = "none";
-       
-        victoryEL.style.display = "none";
-        score.style.display = "flex";
-        arrowL.style.display = "flex";
-        arrowR.style.display = "flex";
-        buttonEl.style.display = "flex";
-        canvas.style.opacity = "100%";
-        tutorialEl.style.display = 'none';
-        backButtonEl.style.display = "none";
-        
-        if(okCount == 0) {
-             bonusEl.style.display = 'flex';
-             okCount += 1;
-        }
-    }
-}
-
-function ok() {
-    if(pause) {
-        menuEl.style.display = "none";
-        pauseEl.style.display = "none";
-        defeatEl.style.display = "none";
-        bonusEl.style.display = 'none';
-        victoryEL.style.display = "none";
-        score.style.display = "flex";
-        arrowL.style.display = "flex";
-        arrowR.style.display = "flex";
-        buttonEl.style.display = "flex";
-        canvas.style.opacity = "100%";
-        tutorialEl.style.display = 'none';
-        backButtonEl.style.display = "none";
-    }
-}
-
-function tutorial() {
-    if (!pause && !game) {
-        pause = false;
-        pauseEl.style.display = "none";
-        buttonEl.style.display = "none";
-        tutorialEl.style.display = "flex";
-        backButtonEl.style.display = "flex";
-    }
-    if (!pause && game) {
-        game = true;
-        menuEl.style.display = "none";
-        buttonEl.style.display = "none";
-        tutorialEl.style.display = "flex";
-        backButtonEl.style.display = "flex";
-    }
-}
-
 function menu() {
     if (game) {
         pause = false;
         game = true;
         pauseEl.style.display = "none";
         defeatEl.style.display = "none";
-<<<<<<< HEAD
         victoryEL.style.display = "none";
-=======
-        defeatEl.style.display = "none";
->>>>>>> bac5d22e7c58afccbc557780cd7fdf7d21d167cd
         menuEl.style.display = "flex";
         score.style.display = "none";
         arrowL.style.display = "none";
         arrowR.style.display = "none";
         buttonEl.style.display = "none";
+        canvas.style.opacity = '0%';
     }
 }
 
-function menu2() {
-    pause = false;
-    game = true;
-    pauseEl.style.display = "none";
-    defeatEl.style.display = "none";
-    victoryEL.style.display = "none";
-    menuEl.style.display = "flex";
-    arrowL.style.display = "none";
-    arrowR.style.display = "none";
-    buttonEl.style.display = "none";
-    score.style.display = "none";
-    canvas.style.opacity = "0%";
-    reset();
-}
-
-function backToPause() {
-    if (!pause && !game) {
-        pause = false;
-        game = false;
-        menuEl.style.display = "none";
-        pauseEl.style.display = "flex";
-        buttonEl.style.display = "flex";
-        tutorialEl.style.display = "none";
-        backButtonEl.style.display = "none";
-    }
-    if (!pause && game) {
-        pause = false;
-        game = true;
-        pauseEl.style.display = "none";
-        menuEl.style.display = "flex";
-        buttonEl.style.display = "none";
-        tutorialEl.style.display = "none";
-        backButtonEl.style.display = "none";
-    }
-}
 window.addEventListener("focus", () => {
     if (game) {
         menu2();
@@ -511,7 +446,6 @@ function keyMoveL() {
             tlmove = 0;
             clearInterval(interval);
         }
-        console.log(trashes);
     }
 }
 
@@ -537,7 +471,6 @@ function keyMoveR() {
             trmove = 0;
             clearInterval(interval);
         }
-        console.log(trashes);
     }
 }
 
@@ -593,18 +526,12 @@ function scoreMine() {
         defeated();
         scoreCount = 0;
     }
-    if(scoreCount >= 5000) {
+    if (scoreCount >= 5000) {
         victory();
         // scoreCount = 5000;
     }
 }
 
-
-document.addEventListener('keydown', function(e) {
-    if(e.key == "m") {
-        scoreCount = 5000
-    }
-})
 //Resize the Arrow & PauseButton according windows size
 function reportSize() {
     wiw = innerWidth;
@@ -627,7 +554,7 @@ function reset() {
     garbages.splice(0, garbages.length);
     timer = 0;
     timeq = 20;
-    gravity = 0.5;
+    gravity = 0.3;
     trashes = [];
     for (let i = 0; i < tImage.length; i++) {
         trashes.push(
@@ -638,6 +565,9 @@ function reset() {
                 },
                 image: tImage[i],
                 id: i,
+                name: trext[i],
+                name2: trext2[i],
+                trosition: trosition[i],
             })
         );
     }

@@ -51,8 +51,6 @@ garbageImg[5] = [
     "./img/NonRecyclable/electron4.png",
 ];
 
-
-
 class Garbage {
     constructor({ x, y, velocity, image, id }) {
         this.x = x;
