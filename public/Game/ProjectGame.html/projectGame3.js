@@ -78,10 +78,6 @@ if (screen.height >= 700 && screen.width >= 420) {
 const c = canvas.getContext("2d");
 c.imageSmoothingEnabled = true
 c.imageSmoothingQuality = 'high';
-// c.filter = 'none'
-// c.filter = "url(#remove-alpha)";
-// c.font = "2vh Arial";
-// c.textAlign = "center";
 c.textBaseline = 'midle';
 c.fillStyle = 'white';
 
@@ -528,7 +524,6 @@ function scoreMine() {
     }
     if (scoreCount >= 5000) {
         victory();
-        // scoreCount = 5000;
     }
 }
 
