@@ -25,6 +25,7 @@ const bImg = [];
 bImg[0] = ["./img/Background/gameBg1.webp"];
 bImg[1] = ["./img/Background/gameBg2.jpeg"];
 bImg[2] = ["./img/Background/gameBg3.jpeg"];
+bImg[3] = ["./img/Background/gameBg4.png"];
 
 //Phone size
 if (screen.height >= 700 && screen.width >= 420) {
@@ -236,7 +237,7 @@ let tlmove = 0;
 arrowR.style.left = widthcent + canvas.width - 40 + "px";
 arrowR.style.top = heicent + canvas.height - 80 + "px";
 arrowL.style.left = widthcent + 2 + "px";
-arrowL.style.top = heicent + canvas.height - 82 + "px";
+arrowL.style.top = heicent + canvas.height - 80 + "px";
 
 buttonEl.style.left = widthcent + 10 + "px";
 buttonEl.style.top = heicent + 10 + "px";
@@ -379,9 +380,9 @@ function animate() {
             garbage.update();
         });
         drawer();
-        c.font = "bold 3vh Arial";
+        c.font = "bold 2.5vh Arial";
         c.textAlign = "end";
-        c.fillText(scoreCount, canvas.width - 10, 30);
+        c.fillText(scoreCount, canvas.width - 10, 35);
         scoreMine();
         if (timer > timeq) {
             gravity += 0.2;
