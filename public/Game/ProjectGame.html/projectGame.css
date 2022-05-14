@@ -1,4 +1,4 @@
-* {
+  * {
   user-select: none;
 }
 a {
@@ -123,6 +123,7 @@ img:focus {
 .pauseInner {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
 }
 
 .tutorial {
