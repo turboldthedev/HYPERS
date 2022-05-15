@@ -2,7 +2,6 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: #EFFFE8;
 }
 div{
     border: 0px solid black;
@@ -12,6 +11,9 @@ img {
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
+}
+body{
+    background-color: #EFFFE8;
 }
 .container
 {
