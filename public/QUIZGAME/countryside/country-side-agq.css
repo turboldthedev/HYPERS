@@ -3,7 +3,6 @@ body {
   padding: 0;
   height: 100vh;
   background-color: #E1F2FB;
-  overflow: hidden;
 }
 *{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

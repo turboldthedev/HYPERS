@@ -30,6 +30,7 @@ body{
     max-width: 1200px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 .ab{
     width: 100%;
