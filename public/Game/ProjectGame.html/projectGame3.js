@@ -25,6 +25,7 @@ const bImg = [];
 bImg[0] = ["./img/Background/gameBg1.webp"];
 bImg[1] = ["./img/Background/gameBg2.jpeg"];
 bImg[2] = ["./img/Background/gameBg3.jpeg"];
+bImg[3] = ["./img/Background/gameBg4.png"];
 
 //Phone size
 if (screen.height >= 700 && screen.width >= 420) {
@@ -78,10 +79,6 @@ if (screen.height >= 700 && screen.width >= 420) {
 const c = canvas.getContext("2d");
 c.imageSmoothingEnabled = true
 c.imageSmoothingQuality = 'high';
-// c.filter = 'none'
-// c.filter = "url(#remove-alpha)";
-// c.font = "2vh Arial";
-// c.textAlign = "center";
 c.textBaseline = 'midle';
 c.fillStyle = 'white';
 
@@ -196,7 +193,7 @@ class Trash {
             this.width,
             this.height
         );
-        c.font = "2.4vh Arial";
+        c.font = "1.5vh Arial";
         c.textAlign = "center";
         c.fillText(this.name, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * this.trosition);
         c.fillText(this.name2, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * (this.trosition + 0.2));
@@ -236,7 +233,7 @@ let tlmove = 0;
 arrowR.style.left = widthcent + canvas.width - 40 + "px";
 arrowR.style.top = heicent + canvas.height - 80 + "px";
 arrowL.style.left = widthcent + 2 + "px";
-arrowL.style.top = heicent + canvas.height - 82 + "px";
+arrowL.style.top = heicent + canvas.height - 80 + "px";
 
 buttonEl.style.left = widthcent + 10 + "px";
 buttonEl.style.top = heicent + 10 + "px";
@@ -358,7 +355,7 @@ function dreg() {
     }
 }
 function drawer() {
-    trashes.forEach((trash) => {
+  trashes.forEach((trash) => {
         trash.draw();
     });
 }
@@ -379,10 +376,9 @@ function animate() {
             garbage.update();
         });
         drawer();
-        // score.innerText = scoreCount;
-        c.font = "bold 3vh Arial";
+        c.font = "bold 2.5vh Arial";
         c.textAlign = "end";
-        c.fillText(scoreCount, canvas.width - 10, 30);
+        c.fillText(scoreCount, canvas.width - 10, 35);
         scoreMine();
         if (timer > timeq) {
             gravity += 0.2;
@@ -528,7 +524,6 @@ function scoreMine() {
     }
     if (scoreCount >= 5000) {
         victory();
-        // scoreCount = 5000;
     }
 }
 

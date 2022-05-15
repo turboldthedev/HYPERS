@@ -1,4 +1,4 @@
-* {
+  * {
   user-select: none;
 }
 a {
@@ -80,13 +80,10 @@ img:focus {
 }
 
 .otherSize {
-  height: 25vh;
+  height: 45vh;
   width: 35vh;
 }
-.menuSize {
-  height: 130px;
-  width: 200px;
-}
+
 .blackBG {
   background: linear-gradient(
     90deg,
@@ -97,11 +94,9 @@ img:focus {
   );
 }
 .greenBG {
-  background: linear-gradient(
-    90deg,
-    rgba(191, 255, 0, 1) 0%,
-    rgba(0, 255, 224, 1) 100%
-  );
+  background-image: url('./img/menuImg.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .white {
   color: white;
@@ -130,6 +125,7 @@ img:focus {
 .pauseInner {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
 }
 
 .tutorial {
@@ -145,7 +141,8 @@ img:focus {
 .menunner {
   color: rgb(65, 90, 110);
   font-size: 4vh;
-  margin-bottom: 2vh;
+  margin-bottom: 4vh;
+  margin-top: 6vh;
 }
 
 .stuffs { 
@@ -154,6 +151,9 @@ img:focus {
 
 .menuStuff {
   font-size: 2.5vh;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 30ms;
 }
 
 .stuffs:hover {
