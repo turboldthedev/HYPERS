@@ -8,6 +8,7 @@ function paused() {
         game = false;
         pauseEl.style.display = "flex";
         victoryEL.style.display = "none";
+        
     }
 }
 
@@ -59,6 +60,8 @@ function tutorial() {
         buttonEl.style.display = "none";
         tutorialEl.style.display = "flex";
         backButtonEl.style.display = "flex";
+        arrowL.style.display = "none"
+        arrowR.style.display = "none"
     }
     if (!pause && game) {
         game = true;
@@ -66,6 +69,8 @@ function tutorial() {
         buttonEl.style.display = "none";
         tutorialEl.style.display = "flex";
         backButtonEl.style.display = "flex";
+        arrowL.style.display = "none"
+        arrowR.style.display = "none"
     }
 }
 
@@ -93,6 +98,8 @@ function backToPause() {
         buttonEl.style.display = "flex";
         tutorialEl.style.display = "none";
         backButtonEl.style.display = "none";
+        arrowL.style.display = "flex"
+        arrowR.style.display = "flex"
     }
     if (!pause && game) {
         pause = false;
