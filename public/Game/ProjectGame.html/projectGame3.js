@@ -25,6 +25,7 @@ const bImg = [];
 bImg[0] = ["./img/Background/gameBg1.webp"];
 bImg[1] = ["./img/Background/gameBg2.jpeg"];
 bImg[2] = ["./img/Background/gameBg3.jpeg"];
+bImg[3] = ["./img/Background/gameBg4.png"];
 
 //Phone size
 if (screen.height >= 700 && screen.width >= 420) {
@@ -110,6 +111,7 @@ const victoryEL = document.getElementById("vic");
 // States
 var pause = true;
 var game = true;
+var tchAlert = false;
 
 // Drag
 var mouseX;
@@ -192,7 +194,7 @@ class Trash {
             this.width,
             this.height
         );
-        c.font = "2.4vh Arial";
+        c.font = "2vh Arial";
         c.textAlign = "center";
         c.fillText(this.name, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * this.trosition);
         c.fillText(this.name2, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * (this.trosition + 0.2));
@@ -222,6 +224,25 @@ const backgroundImg = new Background({
     backgroundImg: bImg[Math.floor(Math.random() * bImg.length)],
 });
 
+//sound
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function () {
+        this.sound.play();
+    }
+    this.stop = function () {
+        this.sound.pause();
+    }
+}
+
+const detectSound = new sound("./sounds/soundeffect.wav");
+const victorySound = new sound("./sounds/victoryornot.wav");
+const defeatSound = new sound("./sounds/deftsound.wav");
 var cal = canvas.width - 45;
 let garbages = [];
 let garbage;
@@ -232,7 +253,7 @@ let tlmove = 0;
 arrowR.style.left = widthcent + canvas.width - 40 + "px";
 arrowR.style.top = heicent + canvas.height - 80 + "px";
 arrowL.style.left = widthcent + 2 + "px";
-arrowL.style.top = heicent + canvas.height - 82 + "px";
+arrowL.style.top = heicent + canvas.height - 80 + "px";
 
 buttonEl.style.left = widthcent + 10 + "px";
 buttonEl.style.top = heicent + 10 + "px";
@@ -240,8 +261,14 @@ buttonEl.style.top = heicent + 10 + "px";
 backButtonEl.style.left = widthcent + 10 + "px";
 backButtonEl.style.top = heicent + 10 + "px";
 
-arrowL.addEventListener("click", keyMoveL);
-arrowR.addEventListener("click", keyMoveR);
+if (tchAlert) {
+    arrowL.addEventListener("touchstart", keyMoveR);
+    arrowR.addEventListener("touchstart", keyMoveL);
+} else {
+    arrowL.addEventListener("click", keyMoveR);
+    arrowR.addEventListener("click", keyMoveL);
+}
+
 
 document.addEventListener("keydown", function (e) {
     if (e.key == "A" || e.key == "a" || e.key == "ArrowLeft") {
@@ -322,6 +349,7 @@ canvas.addEventListener("touchstart", (e) => {
                 garbage.y + garbage.height >= `${touch.pageY}` - heicent
             ) {
                 drag = true;
+                tchAlert = true;
                 mpx = `${touch.pageX}` - garbage.x;
                 mpy = `${touch.pageY}` - garbage.y;
                 idx = garbages.indexOf(garbage);
@@ -334,9 +362,11 @@ canvas.addEventListener("touchstart", (e) => {
 
 canvas.addEventListener("touchend", (e) => {
     drag = false;
+    tchAlert = false;
 });
 canvas.addEventListener("touchcancel", (e) => {
     drag = false;
+    tchAlert = false;
 });
 canvas.addEventListener("touchmove", (e) => {
     if (drag) {
@@ -375,10 +405,9 @@ function animate() {
             garbage.update();
         });
         drawer();
-        // score.innerText = scoreCount;
-        c.font = "bold 3vh Arial";
+        c.font = "bold 2.5vh Arial";
         c.textAlign = "end";
-        c.fillText(scoreCount, canvas.width - 10, 30);
+        c.fillText(scoreCount, canvas.width - 10, 35);
         scoreMine();
         if (timer > timeq) {
             gravity += 0.2;
@@ -494,6 +523,7 @@ function detect() {
                             drag = false;
                         }
                         garbage.detectr();
+                        detectSound.play();
                         scoreCount += 20;
                     } else {
                         if (garbages[index] == garbages[idx]) {
@@ -501,6 +531,7 @@ function detect() {
                         }
                         garbage.detectr();
                         scoreCount -= 20;
+                        detectSound.play();
                     }
                 }, 0);
             }
@@ -521,9 +552,11 @@ function scoreMine() {
     if (scoreCount <= 0) {
         defeated();
         scoreCount = 0;
+        defeatSound.play();
     }
     if (scoreCount >= 5000) {
         victory();
+        victorySound.play();
     }
 }
 
