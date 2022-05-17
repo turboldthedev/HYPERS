@@ -42,35 +42,42 @@
   padding: 32px;
 }
 .last-text-of-us {
-  padding: 24px;
-  font: 500;
-  font-size: 30px;
+  font-size: 18px;
+  width: 80%;
 }
 .last-text-of-us-little-font {
-  padding: 24px;
-  font: 100;
-  font-size: 20px;
+  display:none;
 }
 .work-with-us a {
-  color: black;
-  display: inline-block;
-  justify-content: space-around;
+  display: none;
+}
+.work-with-us {
+  display: none;
+}
+.last-text-of-us {
+  display:none;
+}
+.work-with-us2 {
+  display:none;
+}
+.work-with-us1 {
+  display:none;
 }
 .last-text-of-us2 {
-  padding: 24px;
-  font: 300;
-  font-size: 30px;
-  color: black;
+  display:none;
 }
 .logo-of-about {
-  width: 50px;
+  display:none;
 }
 .inner-logo {
-  display: flex;
-  justify-content: space-around;
+  display:none;
 }
 .onlyphone {
-  width: 0px;
+  width: 45%;
+  margin-left: 5%;
+}
+.under-logo{
+  display: none;
 }
 @media (max-width: 992px) {
   .green-text-head {
@@ -109,6 +116,7 @@
     display:none;
   }
   .work-with-us a {
+    display: none;
   }
   .work-with-us {
     width: 100%;
