@@ -111,6 +111,7 @@ const victoryEL = document.getElementById("vic");
 // States
 var pause = true;
 var game = true;
+var tchAlert = false;
 
 // Drag
 var mouseX;
@@ -231,10 +232,10 @@ function sound(src) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function(){
+    this.play = function () {
         this.sound.play();
     }
-    this.stop = function(){
+    this.stop = function () {
         this.sound.pause();
     }
 }
@@ -260,8 +261,14 @@ buttonEl.style.top = heicent + 10 + "px";
 backButtonEl.style.left = widthcent + 10 + "px";
 backButtonEl.style.top = heicent + 10 + "px";
 
-arrowL.addEventListener("click", keyMoveL);
-arrowR.addEventListener("click", keyMoveR);
+if (tchAlert) {
+    arrowL.addEventListener("touchstart", keyMoveR);
+    arrowR.addEventListener("touchstart", keyMoveL);
+} else {
+    arrowL.addEventListener("click", keyMoveR);
+    arrowR.addEventListener("click", keyMoveL);
+}
+
 
 document.addEventListener("keydown", function (e) {
     if (e.key == "A" || e.key == "a" || e.key == "ArrowLeft") {
@@ -342,6 +349,7 @@ canvas.addEventListener("touchstart", (e) => {
                 garbage.y + garbage.height >= `${touch.pageY}` - heicent
             ) {
                 drag = true;
+                tchAlert = true;
                 mpx = `${touch.pageX}` - garbage.x;
                 mpy = `${touch.pageY}` - garbage.y;
                 idx = garbages.indexOf(garbage);
@@ -354,9 +362,11 @@ canvas.addEventListener("touchstart", (e) => {
 
 canvas.addEventListener("touchend", (e) => {
     drag = false;
+    tchAlert = false;
 });
 canvas.addEventListener("touchcancel", (e) => {
     drag = false;
+    tchAlert = false;
 });
 canvas.addEventListener("touchmove", (e) => {
     if (drag) {
@@ -374,7 +384,7 @@ function dreg() {
     }
 }
 function drawer() {
-  trashes.forEach((trash) => {
+    trashes.forEach((trash) => {
         trash.draw();
     });
 }
