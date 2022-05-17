@@ -193,7 +193,7 @@ class Trash {
             this.width,
             this.height
         );
-        c.font = "1.5vh Arial";
+        c.font = "2vh Arial";
         c.textAlign = "center";
         c.fillText(this.name, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * this.trosition);
         c.fillText(this.name2, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * (this.trosition + 0.2));
@@ -223,6 +223,25 @@ const backgroundImg = new Background({
     backgroundImg: bImg[Math.floor(Math.random() * bImg.length)],
 });
 
+//sound
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
+
+const detectSound = new sound("./sounds/soundeffect.wav");
+const victorySound = new sound("./sounds/victoryornot.wav");
+const defeatSound = new sound("./sounds/deftsound.wav");
 var cal = canvas.width - 45;
 let garbages = [];
 let garbage;
@@ -494,6 +513,7 @@ function detect() {
                             drag = false;
                         }
                         garbage.detectr();
+                        detectSound.play();
                         scoreCount += 20;
                     } else {
                         if (garbages[index] == garbages[idx]) {
@@ -501,6 +521,7 @@ function detect() {
                         }
                         garbage.detectr();
                         scoreCount -= 20;
+                        detectSound.play();
                     }
                 }, 0);
             }
@@ -521,9 +542,11 @@ function scoreMine() {
     if (scoreCount <= 0) {
         defeated();
         scoreCount = 0;
+        defeatSound.play();
     }
     if (scoreCount >= 5000) {
         victory();
+        victorySound.play();
     }
 }
 

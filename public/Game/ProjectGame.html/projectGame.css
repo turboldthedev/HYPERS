@@ -105,7 +105,7 @@ img:focus {
   color: rgb(206, 206, 206);
 }
 .otherColor {
-  color: rgb(52, 84, 110);
+  color: rgb(2, 68, 0);
 }
 
 .pause {
@@ -139,7 +139,6 @@ img:focus {
 }
 
 .menunner {
-  color: rgb(65, 90, 110);
   font-size: 4vh;
   margin-bottom: 4vh;
   margin-top: 6vh;
@@ -162,7 +161,7 @@ img:focus {
 }
 
 .menuStuff:hover {
-  font-size: 3.5vh;
+  font-size: 3vh;
   color: white;
 }
 
@@ -229,7 +228,7 @@ img {
   opacity: 90%;
   gap: 10px;
 }
-#ok {
+/* #ok {
   width: 50px;
   height: 30px;
   border-radius: 3px;
@@ -237,7 +236,7 @@ img {
   background-color: rgba(2, 0, 36, 1) ;
   border-color: rgba(2, 0, 36, 1) ;
   font-weight: bold;
-}
+} */
 .margin {
   margin-top: 5px;
 }
