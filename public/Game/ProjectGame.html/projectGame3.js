@@ -260,11 +260,18 @@ buttonEl.style.top = heicent + 10 + "px";
 backButtonEl.style.left = widthcent + 10 + "px";
 backButtonEl.style.top = heicent + 10 + "px";
 
-arrowL.addEventListener("mousedown", keyMoveL);
-arrowR.addEventListener("mousedown", keyMoveR);
+document.addEventListener("touchstart", e => {
+    if (e.targetTouches.length >= 2) {
+        arrowR.addEventListener("touchstart", keyMoveL);
+        arrowL.addEventListener("touchstart", keyMoveR);
+        arrowL.removeEventListener("click", keyMoveR);
+        arrowR.removeEventListener("click", keyMoveL);
+    }
+});
 
-// arrowL.addEventListener('touchstart', keyMoveL);
-// arrowR.addEventListener('touchstart', keyMoveR);
+arrowL.addEventListener("click", keyMoveR);
+arrowR.addEventListener("click", keyMoveL);
+
 
 document.addEventListener("keydown", function (e) {
     if (e.key == "A" || e.key == "a" || e.key == "ArrowLeft") {

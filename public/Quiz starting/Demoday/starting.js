@@ -34,4 +34,3 @@ addEventListener('orientationchange', event => {
     plsrotate.classList.remove("invisible")
   }
 });
-Жж
