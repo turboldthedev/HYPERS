@@ -231,10 +231,10 @@ function sound(src) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function(){
+    this.play = function () {
         this.sound.play();
     }
-    this.stop = function(){
+    this.stop = function () {
         this.sound.pause();
     }
 }
@@ -260,8 +260,11 @@ buttonEl.style.top = heicent + 10 + "px";
 backButtonEl.style.left = widthcent + 10 + "px";
 backButtonEl.style.top = heicent + 10 + "px";
 
-arrowL.addEventListener("click", keyMoveL);
-arrowR.addEventListener("click", keyMoveR);
+arrowL.addEventListener("mousedown", keyMoveL);
+arrowR.addEventListener("mousedown", keyMoveR);
+
+// arrowL.addEventListener('touchstart', keyMoveL);
+// arrowR.addEventListener('touchstart', keyMoveR);
 
 document.addEventListener("keydown", function (e) {
     if (e.key == "A" || e.key == "a" || e.key == "ArrowLeft") {
@@ -374,7 +377,7 @@ function dreg() {
     }
 }
 function drawer() {
-  trashes.forEach((trash) => {
+    trashes.forEach((trash) => {
         trash.draw();
     });
 }
