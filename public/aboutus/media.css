@@ -11,6 +11,9 @@
     .navbar{
         font-size: 20px;
     }
+    .logo{
+        width: 170px;
+    }
 }
 @media screen and (max-width: 610px) {
     img#teamBigFatPhoto, .abb {
@@ -22,6 +25,10 @@
     .navbar{
         font-size: 15px;
     }
+    .logo{
+        width: 150px;
+    }
+    
 }
 @media screen and (max-width: 450px) {
     img#teamBigFatPhoto, .abb {
@@ -48,5 +55,8 @@
     }
     .navbar{
         font-size: 10px;
+    }
+    .logo{
+        width: 120px;
     }
 }
