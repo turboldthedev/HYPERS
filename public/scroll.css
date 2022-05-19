@@ -46,7 +46,13 @@
 .scrolled-big-img {
   width: 30%;
 }
+<<<<<<< HEAD
+.scrolled-big-img12{
+  width: 27%;
+}
+=======
 
+>>>>>>> 8d21232e4831454f04b65d39b7c5100b1cc21a01
 @media (max-width: 992px) {
   .header-text {
     font-size: 22px;
@@ -75,7 +81,13 @@
   .scrolled-big-img {
     width: 50%;
   }
+<<<<<<< HEAD
+  .scrolled-big-img12{
+    width: 45%;
+  }
+=======
 
+>>>>>>> 8d21232e4831454f04b65d39b7c5100b1cc21a01
   .header-text {
     font-size: 26px;
   }
