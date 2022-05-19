@@ -103,7 +103,7 @@ const defeatEl = document.getElementById("def");
 
 // Starting Bonus
 const bonusEl = document.getElementById('bonus')
-const okEl = document.getElementById('ok')
+// const okEl = document.getElementById('ok')
 
 //Victory
 const victoryEL = document.getElementById("vic");
@@ -111,7 +111,6 @@ const victoryEL = document.getElementById("vic");
 // States
 var pause = true;
 var game = true;
-var tchAlert = false;
 
 // Drag
 var mouseX;
@@ -262,13 +261,18 @@ buttonEl.style.top = heicent + 10 + "px";
 backButtonEl.style.left = widthcent + 10 + "px";
 backButtonEl.style.top = heicent + 10 + "px";
 
-if (tchAlert) {
+document.body.addEventListener('touchstart', e => {
     arrowL.addEventListener("touchstart", keyMoveR);
     arrowR.addEventListener("touchstart", keyMoveL);
-} else {
-    arrowL.addEventListener("click", keyMoveR);
-    arrowR.addEventListener("click", keyMoveL);
-}
+    arrowL.removeEventListener("click", keyMoveR);
+    arrowR.removeEventListener("click", keyMoveL);
+    // if (e.targetTouches.length >= 2) {
+
+    // }
+})
+
+arrowL.addEventListener("click", keyMoveR);
+arrowR.addEventListener("click", keyMoveL);
 
 
 document.addEventListener("keydown", function (e) {
@@ -282,7 +286,7 @@ document.addEventListener("keydown", function (e) {
         if (pause && !game) {
             paused();
         } else if (!game) {
-            resumed();
+            resumed(); d
         }
     }
 });
@@ -350,7 +354,6 @@ canvas.addEventListener("touchstart", (e) => {
                 garbage.y + garbage.height >= `${touch.pageY}` - heicent
             ) {
                 drag = true;
-                tchAlert = true;
                 mpx = `${touch.pageX}` - garbage.x;
                 mpy = `${touch.pageY}` - garbage.y;
                 idx = garbages.indexOf(garbage);
@@ -363,11 +366,9 @@ canvas.addEventListener("touchstart", (e) => {
 
 canvas.addEventListener("touchend", (e) => {
     drag = false;
-    tchAlert = false;
 });
 canvas.addEventListener("touchcancel", (e) => {
     drag = false;
-    tchAlert = false;
 });
 canvas.addEventListener("touchmove", (e) => {
     if (drag) {

@@ -228,15 +228,6 @@ img {
   opacity: 90%;
   gap: 10px;
 }
-/* #ok {
-  width: 50px;
-  height: 30px;
-  border-radius: 3px;
-  color: white;
-  background-color: rgba(2, 0, 36, 1) ;
-  border-color: rgba(2, 0, 36, 1) ;
-  font-weight: bold;
-} */
 .margin {
   margin-top: 5px;
 }
@@ -246,7 +237,7 @@ img {
   display: none;
 }
 .tImg {
-  height: 720px;
+  height: 800px;
   width: 100%;
 }
 .tutorialImg::-webkit-scrollbar {
