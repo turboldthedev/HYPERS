@@ -50,16 +50,16 @@
   .navbar :nth-child(1) {
     text-align: center;
     font-weight: 400;
-    font-size: 8px;
+    font-size: 13px;
     padding: 8px;
   }
   .navbar :nth-child(2) {
-    width: 20%;
+    width: 23%;
   }
   .navbar :nth-child(3) {
     text-align: center;
     font-weight: 400;
-    font-size: 8px;
+    font-size: 13px;
     padding: 8px;
   }
   .content h1 {

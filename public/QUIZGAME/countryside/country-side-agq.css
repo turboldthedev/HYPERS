@@ -258,6 +258,7 @@ align-items: center;
   }
   @media(max-width: 500px){
     .q {
+      padding-left: calc((100% * 32 / 45 - 352px));
       padding-top: calc((100% * 32 / 45 - 100px));
       bottom: auto;
       width: 352px;
@@ -285,28 +286,29 @@ align-items: center;
       margin: 0;
     }
   }
-  @media (orientation: landscape) and (max-width: 900px) {
+  @media (orientation: landscape) and (max-width: 1200px) {
+    .body{
+      margin-bottom: 50px;
+    }
     .q {
-      padding-top: 0;
       bottom: 0;
       width: 400px;
     }
     .w{
-      padding-top: 0;
       bottom: 0; 
       width: 400px;
     }
     .comment-q {
-      height: 110px;
+      height:110px;
     }
     .question{
-        font-size: 11px;
-        margin-bottom: 5px;
-        margin-right: 0px;
+      font-size: 11px;
+      margin-bottom: 5px;
+      margin-right: 0px;
     }
     .answer{
-        font-size: 9px;
-        margin-bottom: 5px;
+      font-size: 9px;
+      margin-bottom: 5px;
     }
     .fa-key {
       width: 35%;
