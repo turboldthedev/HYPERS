@@ -123,6 +123,7 @@ img#teamBigFatPhoto{
     width: 50%;
     min-width: 440px;
     max-width: 599px;
+    border-radius: 10px;
 }
 .abb{
     width: 50%;
