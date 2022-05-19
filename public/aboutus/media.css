@@ -8,9 +8,6 @@
     .a{
         max-width: 610px;
     }
-    .b{
-        max-width: 610px;
-    }
 }
 @media screen and (max-width: 610px) {
     img#teamBigFatPhoto, .abb {
