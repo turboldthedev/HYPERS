@@ -8,6 +8,9 @@
     .a{
         max-width: 610px;
     }
+    .navbar{
+        font-size: 20px;
+    }
 }
 @media screen and (max-width: 610px) {
     img#teamBigFatPhoto, .abb {
@@ -15,6 +18,9 @@
     }
     .aa{
         text-align: center;
+    }
+    .navbar{
+        font-size: 15px;
     }
 }
 @media screen and (max-width: 450px) {
@@ -39,5 +45,8 @@
         font-weight: 200;
         font-size: 14px;
         line-height: 30px;
+    }
+    .navbar{
+        font-size: 10px;
     }
 }

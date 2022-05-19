@@ -5,6 +5,7 @@
 
 /* 36px Semibold */
 .textOne{
+    color: green;
     font-weight: 600;
     font-size: 36px;
     line-height: 60px;
