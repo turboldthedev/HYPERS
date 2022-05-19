@@ -259,17 +259,17 @@ align-items: center;
   @media(max-width: 500px){
     .q {
       padding-left: calc((100% * 32 / 45 - 352px));
-      padding-top: calc((100% * 32 / 45 - 100px));
+      padding-top: calc((100% * 32 / 45 - 110px));
       bottom: auto;
       width: 352px;
     }
     .w{
-      padding-top: calc((100% * 32 / 45 - 100px));
+      padding-top: calc((100% * 32 / 45 - 110px));
       bottom: auto; 
       width: 352px;
     }
     .comment-q {
-      height: 100px;
+      height: 110px;
     }
     .question{
         font-size: 10px;
