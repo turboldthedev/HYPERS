@@ -32,21 +32,23 @@ img {
 .navbar {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding-top: 20px;
     font-size: 20px;
   }
-  .navbar :nth-child(1){
+  .navbar :nth-child(1) {
     text-align: center;
     font-weight: 400;
+    flex: 1;
   }
-  .logo{
-    width: 200px;
+  .navbar :nth-child(2) {
+    width: 15%;
   }
-  .navbar :nth-child(3){
+  .navbar :nth-child(3) {
     text-align: center;
-    font-weight: 400;
+    font-weight: 300;
+    flex: 1;
   }
 .white{
     padding: 20px;
@@ -122,7 +124,7 @@ img {
 img#teamBigFatPhoto{
     width: 50%;
     min-width: 440px;
-    max-width: 599px;
+    max-width: 500px;
     border-radius: 10px;
 }
 .abb{

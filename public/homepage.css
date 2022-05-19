@@ -58,7 +58,6 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  gap: 24px;
   padding: 24px 0;
 }
 .navbar :nth-child(1) {
@@ -83,7 +82,7 @@ body {
   gap: 30px;
 }
 .content h1 {
-  text-align: justify;
+  text-align: justify;`
   width: 70.9%;
   font-size: 64px;
   text-align: left;
