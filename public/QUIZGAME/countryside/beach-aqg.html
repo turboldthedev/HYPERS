@@ -96,7 +96,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script>
-      var questionBar = document.getElementById("question");
+      var questionBar = document.getElementById("question2");
       var answerBar = document.getElementById("answer");
       var photos = [];
       photos[0] = document.getElementById("0");
@@ -104,6 +104,7 @@
       photos[2] = document.getElementById("2");
       photos[3] = document.getElementById("3");
       photos[4] = document.getElementById("4");
+
       console.log(photos);
       let Cphoto = 2;
 
@@ -113,6 +114,7 @@
       var answer1 = document.getElementById("answer1");
       var answer2 = document.getElementById("answer2");
       var answer3 = document.getElementById("answer3");
+      var cond = 1;
 
       const firebaseConfig = {
         apiKey: "AIzaSyDhr-ZIYYFf4S7BLNuyiWgCGB6aiyync0E",
@@ -124,11 +126,12 @@
         measurementId: "G-21QDC8WG79",
       };
       firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore().collection("questions");
+      const db = firebase.firestore().collection("question");
 
       const questionData = [];
       var answers = [];
       let questionIndex = 0;
+
       db.get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -140,117 +143,147 @@
           document.querySelector(".loading").classList.remove("loading");
           document.querySelector(".g").classList.remove("g");
           showQuestion();
+          console.log("gg",cond);
         });
-      console.log(questionData);
+        console.log(questionData);
 
       function showQuestion(questionIndex = 0) {
+
         let q = questionData[questionIndex];
 
         text.innerText = q.question;
-
         text1.innerText = q.question;
         answer1.innerText = q.answers[0];
         answer2.innerText = q.answers[1];
         answer3.innerText = q.answers[2];
-        questionIndex += 1;
+        questionIndex = questionIndex + 1;
+
         document.addEventListener("keydown", function (event) {
+          if (cond == 1) {
           if (event.key == "f" || event.key == "F") {
+            cond = cond - 1;
+            console.log(cond);
             nextclick();
           }
+        }
         });
       }
 
-      document.addEventListener("keydown", function (event) {
-        if (event.key == "a" || event.key == "A") {
-          console.log("icka");
-          if (answer1.innerText == questionData[questionIndex].correctAnswer) {
-            if (Cphoto != 4) {
-              display1(Cphoto);
-              Cphoto = Cphoto + 1;
-              display(Cphoto);
+        document.addEventListener("keydown", function (event) {
+          if (cond == 0){
+          if (event.key == "a" || event.key == "A") {
+            console.log("icka");
+            cond = cond + 1;
+            console.log(cond);
+            if (
+              answer1.innerText == questionData[questionIndex].correctAnswer
+            ) {
+              if (Cphoto != 4) {
+                console.log("fkk");
+                // display1(Cphoto);
+                Cphoto = Cphoto + 1;
+                display(Cphoto);
+              }
+            } else {
+              if (Cphoto != 0) {
+                display1(Cphoto);
+                Cphoto = Cphoto - 1;
+                display(Cphoto);
+              }
             }
-          } else {
-            if (Cphoto != 0) {
-              display1(Cphoto);
-              Cphoto = Cphoto - 1;
-              display(Cphoto);
-            }
-          }
-          if (questionIndex === questionData.length - 1) {
+            if (questionIndex === questionData.length - 1) {
             check();
           } else {
             questionIndex = questionIndex + 1;
             question();
             showQuestion(questionIndex);
+            console.log("hi",questionIndex);
           }
         }
-      });
-      document.addEventListener("keydown", function (event) {
-        if (event.key == "s" || event.key == "S") {
-          console.log("nomio");
-          if (answer2.innerText == questionData[questionIndex].correctAnswer) {
-            if (Cphoto != 4) {
-              display1(Cphoto);
-              Cphoto = Cphoto + 1;
-              display(Cphoto);
+        }
+        });
+      
+        document.addEventListener("keydown", function (event) {
+          if (cond == 0){
+          if (event.key == "s" || event.key == "S" && cond == 0) {
+            console.log("nomio");
+            cond = cond + 1;
+            console.log(cond);
+            if (
+              answer2.innerText == questionData[questionIndex].correctAnswer
+            ) {
+              if (Cphoto != 4) {
+                // display1(Cphoto);
+                Cphoto = Cphoto + 1;
+                display(Cphoto);
+                console.log("gg");
+              }
+            } else {
+              if (Cphoto != 0) {
+                display1(Cphoto);
+                Cphoto = Cphoto - 1;
+                display(Cphoto);
+                console.log("gge");
+              }
             }
-          } else {
-            if (Cphoto != 0) {
-              display1(Cphoto);
-              Cphoto = Cphoto - 1;
-              display(Cphoto);
-            }
-          }
-          if (questionIndex === questionData.length - 1) {
+            if (questionIndex === questionData.length - 1) {
             check();
           } else {
             questionIndex = questionIndex + 1;
             question();
             showQuestion(questionIndex);
-          }
-        }
-      });
-      document.addEventListener("keydown", function (event) {
-        if (event.key == "d" || event.key == "D") {
-          console.log("agimaa");
-          if (answer3.innerText == questionData[questionIndex].correctAnswer) {
-            if (Cphoto != 4) {
-              display1(Cphoto);
-              Cphoto = Cphoto + 1;
-              display(Cphoto);
-            }
-          } else {
-            if (Cphoto != 0) {
-              display1(Cphoto);
-              Cphoto = Cphoto - 1;
-              display(Cphoto);
-            }
-          }
-          if (questionIndex === questionData.length - 1) {
-            check();
-          } else {
-            questionIndex = questionIndex + 1;
-            question();
-            showQuestion(questionIndex);
-            check(questionIndex);
-          }
-        }
-      });
 
-      function check(questionIndex) {
-        if (questionIndex >= 8) {
-          console.log("gg");
+            console.log("hi",questionIndex);
+          }
+          }
         }
-      }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (cond == 0){
+          if (event.key == "d" || event.key == "D" && cond == 0) {
+            console.log("agimaa");
+            cond = cond + 1;
+            console.log(cond);
+            if (
+              answer3.innerText == questionData[questionIndex].correctAnswer
+            ) {
+              if (Cphoto != 4) {
+                // display1(Cphoto);
+                Cphoto = Cphoto + 1;
+                display(Cphoto);
+                console.log("gg");
+              }
+            } else {
+              if (Cphoto != 0) {
+                display1(Cphoto);
+                Cphoto = Cphoto - 1;
+                display(Cphoto);
+                console.log("gge");
+              }
+            }
+            if (questionIndex === questionData.length - 1) {
+            check();
+          } else {
+            questionIndex = questionIndex + 1;
+            question();
+            showQuestion(questionIndex);
+
+            console.log("hi",questionIndex);
+          }
+        }
+        }
+        });
+
       function tap() {
         console.log("odko");
         nextclick();
       }
       function aBut() {
         console.log("ariyaa");
-        if (answer1.innerText == questionData.correctAnswer) {
+        if (answer1.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
-            display1(Cphoto);
+            // display1(Cphoto);
             Cphoto = Cphoto + 1;
             display(Cphoto);
             console.log("gg");
@@ -269,9 +302,9 @@
       }
       function sBut() {
         console.log("maaka");
-        if (answer1.innerText == questionData.correctAnswer) {
+        if (answer2.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
-            display1(Cphoto);
+            // display1(Cphoto);
             Cphoto = Cphoto + 1;
             display(Cphoto);
             console.log("gg");
@@ -290,9 +323,9 @@
       }
       function dBut() {
         console.log("jaga");
-        if (answer1.innerText == questionData.correctAnswer) {
+        if (answer3.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
-            display1(Cphoto);
+            // display1(Cphoto);
             Cphoto = Cphoto + 1;
             display(Cphoto);
             console.log("gg");
@@ -300,7 +333,7 @@
         } else {
           if (Cphoto != 0) {
             display1(Cphoto);
-            Cphoto = Cphoto - 1;
+            Cphoto = Cphoto - 1; 
             display(Cphoto);
             console.log("gge");
           }
@@ -323,11 +356,12 @@
         let p = photos[Cphoto];
         p.classList.remove("invisible");
         p.classList.add("visible");
+        p.classList.add("appear");
+        p.style.zIndex = "1";
       }
       function display1(Cphoto) {
         let p = photos[Cphoto];
-        p.classList.add("invisible");
-        p.classList.remove("visible");
+        p.style.zIndex = "0";
       }
       function check() {
         history.back();

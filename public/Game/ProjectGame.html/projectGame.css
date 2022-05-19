@@ -17,6 +17,8 @@ canvas, img {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
+  width: auto;
+  height: auto;
 }
 .container {
   display: flex;
@@ -32,11 +34,7 @@ canvas, img {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
-#canva {
-  /* position: relative; */
-  max-width: 420px;
-  max-height: 700px;
-}
+
 .vector {
   position: absolute;
   z-index: 1;
