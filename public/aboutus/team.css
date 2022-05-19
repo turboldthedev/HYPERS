@@ -21,25 +21,53 @@ img {
 }
 .container
 {
+    background: linear-gradient(90deg, #a2f4ff 0%, #80baf0 100%);
+
     height: 100vh;
 
     display: flex;  
     flex-direction: column;     
     align-items: center;
 }
-.blue{
-    padding: 20px;  
-
+.navbar {
     width: 100%;
-    background: linear-gradient(90deg, #a2f4ff 0%, #80baf0 100%);
-
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    font-size: 20px;
+  }
+  .navbar :nth-child(1){
+    text-align: center;
+    font-weight: 400;
+  }
+  .logo{
+    width: 80%;
+    max-width: 200px;
+  }
+  .navbar :nth-child(3){
+    text-align: center;
+    font-weight: 400;
+  }
+.white{
+    padding: 20px;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.wave{
+    height: 300px;
+    background: linear-gradient(90deg, #a2f4ff 0%, #80baf0 100%);
+    width: 100%;
+    margin-top: 60px;
 }
 .a{
     max-width: 1200px;
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
 .aa{
     margin-bottom: 20px;
@@ -56,11 +84,6 @@ img {
   .wave svg {
     bottom:90%;
     position: absolute;
-    width: 100%;
-    height: 100px;
-  }
-  .wave div {
-    background-color:  rgb(255, 255, 255);
     width: 100%;
     height: 100px;
   }
@@ -96,7 +119,6 @@ img {
   }
 .b{
     display: flex;
-    max-width: 900px;
 }
 img#teamBigFatPhoto{
     width: 50%;
@@ -110,3 +132,13 @@ img#teamBigFatPhoto{
     padding: 10px;
     padding-left: 20px;
 }
+/* keyframe */
+
+@keyframes moveForever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+      transform: translate3d(80px, 0, 0);
+    }
+  }

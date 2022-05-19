@@ -222,7 +222,7 @@
     margin-left: 10px;
   }
   .content p {
-    width: 50%;
+    width: 80%;
     font-size: 20px;
     margin-left: 10px;
   }
@@ -264,7 +264,7 @@
     font-size: 48px;
   }
   .content p {
-    width: 62%;
+    width: 80%;
     font-size: 25px;
   }
   .ehand {
@@ -287,7 +287,7 @@
 }
 @media (min-width: 1400px) {
   .content p {
-    width: 60%;
+    width: 80%;
     font-size: 25px;
   }
   .play {
