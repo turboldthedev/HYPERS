@@ -1,7 +1,3 @@
-
-// let okCount = 0;
-// Pause button clicked
-
 function paused() {
     if (pause) {
         pause = false;

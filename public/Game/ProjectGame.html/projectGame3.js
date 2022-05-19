@@ -103,7 +103,7 @@ const defeatEl = document.getElementById("def");
 
 // Starting Bonus
 const bonusEl = document.getElementById('bonus')
-const okEl = document.getElementById('ok')
+// const okEl = document.getElementById('ok')
 
 //Victory
 const victoryEL = document.getElementById("vic");
@@ -260,14 +260,15 @@ buttonEl.style.top = heicent + 10 + "px";
 backButtonEl.style.left = widthcent + 10 + "px";
 backButtonEl.style.top = heicent + 10 + "px";
 
-document.addEventListener("touchstart", e => {
-    if (e.targetTouches.length >= 2) {
-        arrowR.addEventListener("touchstart", keyMoveL);
-        arrowL.addEventListener("touchstart", keyMoveR);
-        arrowL.removeEventListener("click", keyMoveR);
-        arrowR.removeEventListener("click", keyMoveL);
-    }
-});
+document.body.addEventListener('touchstart', e => {
+    arrowL.addEventListener("touchstart", keyMoveR);
+    arrowR.addEventListener("touchstart", keyMoveL);
+    arrowL.removeEventListener("click", keyMoveR);
+    arrowR.removeEventListener("click", keyMoveL);
+    // if (e.targetTouches.length >= 2) {
+
+    // }
+})
 
 arrowL.addEventListener("click", keyMoveR);
 arrowR.addEventListener("click", keyMoveL);
@@ -284,7 +285,7 @@ document.addEventListener("keydown", function (e) {
         if (pause && !game) {
             paused();
         } else if (!game) {
-            resumed();
+            resumed(); d
         }
     }
 });
