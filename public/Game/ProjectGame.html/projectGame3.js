@@ -19,6 +19,7 @@ let timeq = 20;
 
 //tutorial
 const tutorialEl = document.getElementById("tutorial");
+const tutorialImgEl = document.getElementById('tImg');
 
 // //Background Img Src
 const bImg = [];
@@ -28,7 +29,19 @@ bImg[2] = ["./img/Background/gameBg3.jpeg"];
 bImg[3] = ["./img/Background/gameBg4.png"];
 
 //Phone size
-if (screen.height >= 700 && screen.width >= 420) {
+if (screen.height >= 1000 && screen.width >= 1000) {
+  canvas.height = screen.height * 0.8;
+  canvas.width = screen.height * 0.5;
+  tutorialImgEl.style.height = screen.height + "px";
+  tutorialEl.style.height = screen.height * 0.8 + "px";
+  tutorialEl.style.width = screen.height * 0.5 + 'px';
+  trashHeight = canvas.height / 7;
+  trashWidth = canvas.width / 5.25;
+  trashSpace = canvas.width / 3.5;
+  trashX = canvas.width / 2 - trashSpace * 2.35;
+  trashY = canvas.height / 1.2;
+  garbageSize = trashWidth * 0.6;
+}else if (screen.height >= 700 && screen.width >= 420) {
   canvas.width = 420;
   canvas.height = 700;
   tutorialEl.style.width = 420 + "px";
