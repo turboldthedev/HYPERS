@@ -7,6 +7,20 @@ body {
 *{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.appear {
+  animation: appear 1000ms ease-out;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} 
+.z { 
+  z-index: 1;
+}
 .container { 
   z-index: 1;
 height: 100%;
@@ -66,7 +80,7 @@ align-items: center;
   bottom: 0;
 }
 .q {
-  bottom: 0;
+  bottom: 3% !important;
   max-height: 100vh;
   display: flex;
   justify-content: center;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -104,6 +104,7 @@
       photos[2] = document.getElementById("2");
       photos[3] = document.getElementById("3");
       photos[4] = document.getElementById("4");
+
       console.log(photos);
       let Cphoto = 2;
 
@@ -179,7 +180,7 @@
             ) {
               if (Cphoto != 4) {
                 console.log("fkk");
-                display1(Cphoto);
+                // display1(Cphoto);
                 Cphoto = Cphoto + 1;
                 display(Cphoto);
               }
@@ -212,7 +213,7 @@
               answer2.innerText == questionData[questionIndex].correctAnswer
             ) {
               if (Cphoto != 4) {
-                display1(Cphoto);
+                // display1(Cphoto);
                 Cphoto = Cphoto + 1;
                 display(Cphoto);
                 console.log("gg");
@@ -248,7 +249,7 @@
               answer3.innerText == questionData[questionIndex].correctAnswer
             ) {
               if (Cphoto != 4) {
-                display1(Cphoto);
+                // display1(Cphoto);
                 Cphoto = Cphoto + 1;
                 display(Cphoto);
                 console.log("gg");
@@ -282,7 +283,7 @@
         console.log("ariyaa");
         if (answer1.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
-            display1(Cphoto);
+            // display1(Cphoto);
             Cphoto = Cphoto + 1;
             display(Cphoto);
             console.log("gg");
@@ -303,7 +304,7 @@
         console.log("maaka");
         if (answer2.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
-            display1(Cphoto);
+            // display1(Cphoto);
             Cphoto = Cphoto + 1;
             display(Cphoto);
             console.log("gg");
@@ -324,7 +325,7 @@
         console.log("jaga");
         if (answer3.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
-            display1(Cphoto);
+            // display1(Cphoto);
             Cphoto = Cphoto + 1;
             display(Cphoto);
             console.log("gg");
@@ -332,7 +333,7 @@
         } else {
           if (Cphoto != 0) {
             display1(Cphoto);
-            Cphoto = Cphoto - 1;
+            Cphoto = Cphoto - 1; 
             display(Cphoto);
             console.log("gge");
           }
@@ -355,11 +356,12 @@
         let p = photos[Cphoto];
         p.classList.remove("invisible");
         p.classList.add("visible");
+        p.classList.add("appear");
+        p.style.zIndex = "1";
       }
       function display1(Cphoto) {
         let p = photos[Cphoto];
-        p.classList.add("invisible");
-        p.classList.remove("visible");
+        p.style.zIndex = "0";
       }
       function check() {
         history.back();
