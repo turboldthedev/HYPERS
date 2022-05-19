@@ -39,6 +39,9 @@
 .scrolled-big-img {
   width: 30%;
 }
+.scrolled-big-img12{
+  width: 27%;
+}
 @media (max-width: 992px) {
   .header-text {
     font-size: 22px;
@@ -61,6 +64,9 @@
   }
   .scrolled-big-img {
     width: 50%;
+  }
+  .scrolled-big-img12{
+    width: 45%;
   }
   .header-text {
     font-size: 26px;

@@ -10,8 +10,6 @@ a  {
 .container {
   height: 100vh;
   display: flex;
-  background-color: #302f2e;
-  display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 6%;
