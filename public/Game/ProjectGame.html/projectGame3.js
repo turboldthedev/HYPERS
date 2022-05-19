@@ -103,7 +103,7 @@ const defeatEl = document.getElementById("def");
 
 // Starting Bonus
 const bonusEl = document.getElementById('bonus')
-const okEl = document.getElementById('ok')
+// const okEl = document.getElementById('ok')
 
 //Victory
 const victoryEL = document.getElementById("vic");
@@ -231,10 +231,10 @@ function sound(src) {
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
-    this.play = function(){
+    this.play = function () {
         this.sound.play();
     }
-    this.stop = function(){
+    this.stop = function () {
         this.sound.pause();
     }
 }
@@ -260,8 +260,19 @@ buttonEl.style.top = heicent + 10 + "px";
 backButtonEl.style.left = widthcent + 10 + "px";
 backButtonEl.style.top = heicent + 10 + "px";
 
-arrowL.addEventListener("click", keyMoveL);
-arrowR.addEventListener("click", keyMoveR);
+document.body.addEventListener('touchstart', e => {
+    arrowL.addEventListener("touchstart", keyMoveR);
+    arrowR.addEventListener("touchstart", keyMoveL);
+    arrowL.removeEventListener("click", keyMoveR);
+    arrowR.removeEventListener("click", keyMoveL);
+    // if (e.targetTouches.length >= 2) {
+
+    // }
+})
+
+arrowL.addEventListener("click", keyMoveR);
+arrowR.addEventListener("click", keyMoveL);
+
 
 document.addEventListener("keydown", function (e) {
     if (e.key == "A" || e.key == "a" || e.key == "ArrowLeft") {
@@ -274,7 +285,7 @@ document.addEventListener("keydown", function (e) {
         if (pause && !game) {
             paused();
         } else if (!game) {
-            resumed();
+            resumed(); d
         }
     }
 });
@@ -374,7 +385,7 @@ function dreg() {
     }
 }
 function drawer() {
-  trashes.forEach((trash) => {
+    trashes.forEach((trash) => {
         trash.draw();
     });
 }

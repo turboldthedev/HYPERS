@@ -72,7 +72,14 @@
 .onlyphone {
   width: 0px;
 }
-@media (max-width: 992px) {
+
+@media (max-width: 1200px) {
+  *{
+    font-size:5px ;
+  }
+}
+
+@media (max-width: 1002px) {
   .green-text-head {
     font-size: 30px;
     width: 100%;
@@ -109,6 +116,7 @@
     display:none;
   }
   .work-with-us a {
+    display: flex;
   }
   .work-with-us {
     width: 100%;
