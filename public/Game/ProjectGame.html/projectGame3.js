@@ -265,9 +265,6 @@ document.body.addEventListener('touchstart', e => {
     arrowR.addEventListener("touchstart", keyMoveL);
     arrowL.removeEventListener("click", keyMoveR);
     arrowR.removeEventListener("click", keyMoveL);
-    // if (e.targetTouches.length >= 2) {
-
-    // }
 })
 
 arrowL.addEventListener("click", keyMoveR);
