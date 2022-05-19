@@ -34,7 +34,6 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 24px;
     padding: 24px 0;
     font-size: 20px;
   }
@@ -42,8 +41,8 @@ img {
     text-align: center;
     font-weight: 400;
   }
-  .navbar :nth-child(2){
-    width: 15%;
+  .logo{
+    width: 80%;
     max-width: 200px;
   }
   .navbar :nth-child(3){
@@ -120,7 +119,6 @@ img {
   }
 .b{
     display: flex;
-    max-width: 900px;
 }
 img#teamBigFatPhoto{
     width: 50%;
