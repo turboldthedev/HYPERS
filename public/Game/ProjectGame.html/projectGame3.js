@@ -45,7 +45,7 @@ if (screen.height >= 700 && screen.width >= 420) {
         canvas.height = screen.height * 0.8;
         tutorialEl.style.width = screen.width + "px";
         tutorialEl.style.height = screen.height * 0.8 + "px";
-        trashHeight = canvas.height / 7;
+        trashHeight = canvas.height / 7; 
         trashWidth = canvas.width / 5.25;
         trashSpace = canvas.width / 3.5;
         trashX = canvas.width / 2 - trashSpace * 2.35;
@@ -193,7 +193,7 @@ class Trash {
             this.width,
             this.height
         );
-        c.font = "2vh Arial";
+        c.font = "1.5vh Arial";
         c.textAlign = "center";
         c.fillText(this.name, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * this.trosition);
         c.fillText(this.name2, this.position.x + trashWidth * 0.46, this.position.y + trashHeight * (this.trosition + 0.2));
@@ -297,7 +297,7 @@ const interval = setInterval(function () {
         }
         garbage = new Garbage({ x, y, velocity, image, id });
         garbages.push(garbage);
-        timer++;
+        timer+=1;
     }
 }, timing);
 
@@ -333,6 +333,7 @@ canvas.addEventListener("mousemove", function (event) {
     }
 });
 canvas.addEventListener("touchstart", (e) => {
+  
     garbages.forEach((garbage) => {
         [...e.changedTouches].forEach((touch) => {
             if (
