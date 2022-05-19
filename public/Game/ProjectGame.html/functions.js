@@ -28,30 +28,8 @@ function resumed() {
         canvas.style.opacity = "100%";
         tutorialEl.style.display = 'none';
         backButtonEl.style.display = "none";
-        
-        // if(okCount == 0) {
-        //      bonusEl.style.display = 'flex';
-        //      okCount += 1;
-        // }
     }
 }
-
-// function ok() {
-//     if(pause) {
-//         menuEl.style.display = "none";
-//         pauseEl.style.display = "none";
-//         defeatEl.style.display = "none";
-//         bonusEl.style.display = 'none';
-//         victoryEL.style.display = "none";
-//         score.style.display = "flex";
-//         arrowL.style.display = "flex";
-//         arrowR.style.display = "flex";
-//         buttonEl.style.display = "flex";
-//         canvas.style.opacity = "100%";
-//         tutorialEl.style.display = 'none';
-//         backButtonEl.style.display = "none";
-//     }
-// }
 
 function tutorial() {
     if (!pause && !game) {
