@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
 
-    background-color: #EFFFE8;
+    background-color: transparent;
     box-sizing: border-box;
 }
 a{
@@ -13,14 +13,29 @@ a{
 div{
     border: 0px solid black;
 }
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
 .container
 {
     height: 100vh;
-    padding: 20px;  
 
     display: flex;  
     flex-direction: column;     
     align-items: center;
+}
+.blue{
+    padding: 20px;  
+
+    width: 100%;
+    height: 50vh;
+    background: linear-gradient(90deg, #a2f4ff 0%, #80baf0 100%);
+
+    display: flex;
+    justify-content: center;
 }
 .a{
     max-width: 1200px;
