@@ -218,6 +218,7 @@ const backgroundImg = new Background({
 
 //sound
 function sound(src) {
+<<<<<<< HEAD
   this.sound = document.createElement("audio");
   this.sound.src = src;
   this.sound.setAttribute("preload", "auto");
@@ -230,6 +231,21 @@ function sound(src) {
   this.stop = function () {
     this.sound.pause();
   };
+=======
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function () {
+        alert('gg');
+        this.sound.play();
+    }
+    this.stop = function () {
+        this.sound.pause();
+    }
+>>>>>>> 1d22a255caa8bc2aa482779d9f8a1e5123fb98aa
 }
 
 const detectSound = new sound("./sounds/soundeffect.wav");
@@ -492,8 +508,14 @@ function keyMoveR() {
 }
 
 function defeated() {
+<<<<<<< HEAD
   pause = false;
   defeatEl.style.display = "flex";
+=======
+    pause = false;
+    defeatEl.style.display = "flex";
+    scoreCount = 0;
+>>>>>>> 1d22a255caa8bc2aa482779d9f8a1e5123fb98aa
 }
 function victory() {
   pause = false;
