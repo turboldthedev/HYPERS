@@ -80,7 +80,7 @@
             </button>
             <div class="answer" id="answer2"></div>
           </div>
-          <div class="AnswerCont">
+          <div class="AnswerCont" onclick="dBut()">
             <button class="btn">
               <img src="./D.svg" class="fa-key" />
             </button>
@@ -123,11 +123,12 @@
         measurementId: "G-21QDC8WG79",
       };
       firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore().collection("questions");
+      const db = firebase.firestore().collection("question");
 
       const questionData = [];
       var answers = [];
       let questionIndex = 0;
+
       db.get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -140,23 +141,27 @@
           document.querySelector(".g").classList.remove("g");
           showQuestion();
         });
-      console.log(questionData);
 
       function showQuestion(questionIndex = 0) {
-        let q = questionData[questionIndex];
-        
-        text.innerText = q.question;
-            
-        text1.innerText = q.question;
-        answer1.innerText = q.answers[0];
-        answer2.innerText = q.answers[1];
-        answer3.innerText = q.answers[2];
-        questionIndex += 1;
-        document.addEventListener("keydown", function (event) {
-          if (event.key == "f" || event.key == "F") {
-            nextclick();
-          }
-        });
+        if (questionData.length > 0) {
+          let q = questionData[questionIndex];
+          console.log(questionData);
+          console.log(questionIndex);
+          console.log(q.answers);
+
+          text.innerText = q.question;
+          text1.innerText = q.question;
+          answer1.innerText = q.answers[0];
+          answer2.innerText = q.answers[1];
+          answer3.innerText = q.answers[2]; 
+          questionIndex = questionIndex + 1;
+
+          document.addEventListener("keydown", function (event) {
+            if (event.key == "f" || event.key == "F") {
+              nextclick();
+            }
+          });
+        }
       }
 
       document.addEventListener("keydown", function (event) {
@@ -164,6 +169,7 @@
           console.log("icka");
           if (answer1.innerText == questionData[questionIndex].correctAnswer) {
             if (Cphoto != 4) {
+              console.log("fkk"); 
               display1(Cphoto);
               Cphoto = Cphoto + 1;
               display(Cphoto);
@@ -233,7 +239,7 @@
       }
       function aBut() {
         console.log("ariyaa");
-        if (answer1.innerText == questionData.correctAnswer) {
+        if (answer1.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
             display1(Cphoto);
             Cphoto = Cphoto + 1;
@@ -254,7 +260,7 @@
       }
       function sBut() {
         console.log("maaka");
-        if (answer1.innerText == questionData.correctAnswer) {
+        if (answer2.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
             display1(Cphoto);
             Cphoto = Cphoto + 1;
@@ -275,7 +281,7 @@
       }
       function dBut() {
         console.log("jaga");
-        if (answer1.innerText == questionData.correctAnswer) {
+        if (answer3.innerText == questionData[questionIndex].correctAnswer) {
           if (Cphoto != 4) {
             display1(Cphoto);
             Cphoto = Cphoto + 1;

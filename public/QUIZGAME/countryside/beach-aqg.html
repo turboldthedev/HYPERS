@@ -81,7 +81,7 @@
             <div class="answer" id="answer2"></div>
           </div>
           <div class="AnswerCont">
-            <button class="btn">
+            <button class="btn" onclick="dBut()">
               <img src="./D.svg" class="fa-key" />
             </button>
             <div class="answer" id="answer3"></div>
@@ -144,9 +144,9 @@
 
       function showQuestion(questionIndex = 0) {
         let q = questionData[questionIndex];
-        
+
         text.innerText = q.question;
-            
+
         text1.innerText = q.question;
         answer1.innerText = q.answers[0];
         answer2.innerText = q.answers[1];
@@ -175,9 +175,13 @@
               display(Cphoto);
             }
           }
-          questionIndex = questionIndex + 1;
-          question();
-          showQuestion(questionIndex);
+          if (questionIndex === questionData.length - 1) {
+            check();
+          } else {
+            questionIndex = questionIndex + 1;
+            question();
+            showQuestion(questionIndex);
+          }
         }
       });
       document.addEventListener("keydown", function (event) {
@@ -188,19 +192,21 @@
               display1(Cphoto);
               Cphoto = Cphoto + 1;
               display(Cphoto);
-              console.log("gg");
             }
           } else {
             if (Cphoto != 0) {
               display1(Cphoto);
               Cphoto = Cphoto - 1;
               display(Cphoto);
-              console.log("gge");
             }
           }
-          questionIndex = questionIndex + 1;
-          question();
-          showQuestion(questionIndex);
+          if (questionIndex === questionData.length - 1) {
+            check();
+          } else {
+            questionIndex = questionIndex + 1;
+            question();
+            showQuestion(questionIndex);
+          }
         }
       });
       document.addEventListener("keydown", function (event) {
@@ -211,22 +217,30 @@
               display1(Cphoto);
               Cphoto = Cphoto + 1;
               display(Cphoto);
-              console.log("gg");
             }
           } else {
             if (Cphoto != 0) {
               display1(Cphoto);
               Cphoto = Cphoto - 1;
               display(Cphoto);
-              console.log("gge");
             }
           }
-          questionIndex = questionIndex + 1;
-          question();
-          showQuestion(questionIndex);
+          if (questionIndex === questionData.length - 1) {
+            check();
+          } else {
+            questionIndex = questionIndex + 1;
+            question();
+            showQuestion(questionIndex);
+            check(questionIndex);
+          }
         }
       });
 
+      function check(questionIndex) {
+        if (questionIndex >= 8) {
+          console.log("gg");
+        }
+      }
       function tap() {
         console.log("odko");
         nextclick();
@@ -313,6 +327,9 @@
         let p = photos[Cphoto];
         p.classList.add("invisible");
         p.classList.remove("visible");
+      }
+      function check() {
+        history.back();
       }
     </script>
   </body>
