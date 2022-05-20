@@ -1,11 +1,11 @@
 *{
-    font-family:Arial, Helvetica, sans-serif; 
+    font-family: 'Montserrat'; 
     font-style: normal;
-    
 }
 
 /* 36px Semibold */
 .textOne{
+    color:rgba(77, 102, 212, 1);
     font-weight: 600;
     font-size: 36px;
     line-height: 60px;
@@ -13,6 +13,7 @@
 
 /* 26px Semibold */
 .textTwo{
+    color: rgba(255,255,255, 0.7);
     font-weight: 600;
     font-size: 26px;
     line-height: 44px;
@@ -20,6 +21,7 @@
 
 /* 20px Medium */
 .textThree{
+    color: rgba(255,255,255, 1);
     font-weight: 200;
     font-size: 20px;
     line-height: 44px;

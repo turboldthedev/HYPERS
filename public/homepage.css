@@ -1,18 +1,17 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  font-weight:600;
-  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
-  
 }
 img {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  }
-a{
+}
+a {
   text-decoration: none;
 }
 body {
@@ -57,23 +56,22 @@ body {
 }
 /* navbar */
 .navbar {
-
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 24px;
   padding: 24px 0;
 }
-.navbar :nth-child(1){
+.navbar :nth-child(1) {
   text-align: center;
   font-weight: 400;
+  flex: 1;
 }
-.navbar :nth-child(2){
+.navbar :nth-child(2) {
   width: 15%;
 }
-.navbar :nth-child(3){
+.navbar :nth-child(3) {
   text-align: center;
   font-weight: 300;
+  flex: 1;
 }
 /* mid content */
 .content {
@@ -82,20 +80,19 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 30px;
-
 }
 .content h1 {
-  text-align:justify;
+  text-align: justify;`
   width: 70.9%;
   font-size: 64px;
-  text-align:left;
+  text-align: left;
 }
-.content p{
+.content p {
   text-align: justify;
-  width: 37%;
-  font-size:20px;
+  width: 60%;
+  font-size: 20px;
   font-weight: 500;
-  text-align:left;
+  text-align: left;
 }
 
 /* play button */
@@ -117,13 +114,12 @@ body {
   z-index: 10;
   margin-left: auto;
   margin-right: auto;
-
 }
 .play :hover {
   color: black;
 }
-.play :active{
-  color: #509f7d  ;
+.play :active {
+  color: #509f7d;
 }
 /* wave */
 
@@ -131,13 +127,13 @@ body {
   position: relative;
 }
 .wave svg {
-  bottom:90%;
+  bottom: 90%;
   position: absolute;
   width: 100%;
   height: 100px;
 }
 .wave div {
-  background-color:  rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   width: 100%;
   height: 100px;
 }
@@ -155,7 +151,7 @@ body {
   max-height: 100px;
 }
 .parallax > use {
-  animation: moveForever 12s cubic-bezier(0.70, 0.90, 0.35, 0.5) infinite;
+  animation: moveForever 12s cubic-bezier(0.7, 0.9, 0.35, 0.5) infinite;
 }
 .parallax > use:nth-child(1) {
   animation-delay: -2s;

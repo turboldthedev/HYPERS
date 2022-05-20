@@ -8,8 +8,11 @@
     .a{
         max-width: 610px;
     }
-    .b{
-        max-width: 610px;
+    .navbar{
+        font-size: 20px;
+    }
+    .logo{
+        width: 170px;
     }
 }
 @media screen and (max-width: 610px) {
@@ -19,6 +22,13 @@
     .aa{
         text-align: center;
     }
+    .navbar{
+        font-size: 15px;
+    }
+    .logo{
+        width: 150px;
+    }
+    
 }
 @media screen and (max-width: 450px) {
     img#teamBigFatPhoto, .abb {
@@ -42,5 +52,11 @@
         font-weight: 200;
         font-size: 14px;
         line-height: 30px;
+    }
+    .navbar{
+        font-size: 10px;
+    }
+    .logo{
+        width: 120px;
     }
 }
