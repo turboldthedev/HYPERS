@@ -201,7 +201,7 @@
       top: -30px;
     }
   }
-  @media (max-width: 926px) {
+  @media only screen and (orientation:portrait) and (max-width: 600px) and (min-height: 900px ) {
     .phone {
       display: block;
     }
