@@ -17,7 +17,7 @@ div.b{
 
         border-radius: 4px;
 
-        background:#756FB3;
+        background:rgba(153,71,0, 1);
     }
         img.memberPhoto{
             width: 160px;
@@ -34,6 +34,6 @@ div.b{
             font-weight: 500;
             font-size: 11px;
 
-            background:#756FB3;
-            color: #A79EFF;
+            background:rgba(153,71,0, 1);
+            color: rgba(255,128,0, 1);
         }
